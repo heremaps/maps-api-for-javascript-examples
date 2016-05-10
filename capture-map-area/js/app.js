@@ -60,7 +60,7 @@ var resultContainer = document.getElementById('panel');
 // Create container for the "Capture" button
 var containerNode = document.createElement('div');
 containerNode.setAttribute('style',
-    'position:absolute;top:0;left:0;background-color:#fff; padding:10px;');
+    'position:absolute;top:115px;left:620px;background-color:#fff; padding:10px;');
 containerNode.className = 'btn-group';
 
 // Create the "Capture" button

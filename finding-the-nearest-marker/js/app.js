@@ -71,6 +71,12 @@ var svgMarkup = '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
     '<text x="12" y="18" font-size="12pt" font-family="Arial" font-weight="bold" ' +
     'text-anchor="middle" fill="white">${REPLACE}</text></svg>';
 
+//
+//  For convenience we have included the jQuery library to iterate through the array
+//  For more information see: http://api.jquery.com/jQuery.each/
+//
+//  The jQuery library is available under an MIT license  https://jquery.org/license/
+//
 $.each(coords , function (index, value) {
   var myIcon = new H.map.Icon(svgMarkup.replace('${REPLACE}', index + 1)),
   marker = new H.map.Marker(value,  {icon: myIcon});
