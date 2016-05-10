@@ -62,6 +62,12 @@ var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 // Step 5: request a data about airports's coordinates
+//
+//  For convenience we have included the jQuery library to make an AJAX call to do this.
+//  For more information see: http://api.jquery.com/jQuery.getJSON/
+//
+//  The jQuery library is available under an MIT license  https://jquery.org/license/
+//
 jQuery.getJSON('data/airports.json', function (data) {
   startClustering(map, data);
 });
