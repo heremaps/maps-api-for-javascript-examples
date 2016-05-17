@@ -39,14 +39,11 @@ var defaultLayers = platform.createDefaultLayers();
 var mapContainer = document.createElement('div');
 var staticMapContainer = document.createElement('div');
 
-mapContainer.style.position = 'absolute';
-mapContainer.style.width = '87%';
-mapContainer.style.height = '360px';
-mapContainer.style.margin = '19px';
+mapContainer.style.height = '300px';
 
 staticMapContainer.style.position = 'absolute';
-staticMapContainer.style.width = '87%';
-staticMapContainer.style.height = '360px';
+staticMapContainer.style.width = '600px';
+staticMapContainer.style.height = '300px';
 
 document.getElementById('map').appendChild(mapContainer);
 document.getElementById('panel').appendChild(staticMapContainer);

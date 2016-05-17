@@ -71,7 +71,7 @@ var svgMarkup = '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
     '<text x="12" y="18" font-size="12pt" font-family="Arial" font-weight="bold" ' +
     'text-anchor="middle" fill="white">${REPLACE}</text></svg>';
 
-$.each(coords , function (index, value) {
+coords.forEach(function (value, index) {
   var myIcon = new H.map.Icon(svgMarkup.replace('${REPLACE}', index + 1)),
   marker = new H.map.Marker(value,  {icon: myIcon});
   // add custom data to the marker
