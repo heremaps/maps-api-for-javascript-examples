@@ -9,6 +9,8 @@ This set of self-contained, use-case based examples is designed to be cloned by 
 
 > You can obtain a set of credentials from the [Plans Page](https://developer.here.com/plans/api/consumer-mapping) on developer.here.com.
 
+See the [LICENSE](LICENSE) file in the root of this project for license details.
+
 ## Maps API for JavaScript
 
 All of the following examples use **version 3** of the API
