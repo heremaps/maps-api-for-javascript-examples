@@ -10,7 +10,7 @@
  * @param   {H.service.Platform} platform    A stub class to access HERE services
  */
 function calculateRouteFromAtoB (platform) {
-  var router = platform.getEnterpriseRoutingService(),
+  var router = platform.getRoutingService(),
     routeRequestParams = {
       mode: 'fastest;truck',
       representation: 'display',
