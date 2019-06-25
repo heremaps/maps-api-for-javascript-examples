@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="description" content="Capture an area on the map">
+    <title>Take a Snapshot of the Map</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src='../js-examples-rendering-helpers/iframe-height.js'></script> 
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="capture-map-area">
+    <div class="page-header">
+        <h1>Take a Snapshot of the Map</h1>
+        <p>Capture an area on the map</p>
+    </div>
+    <p><span>This example demonstrates how to take a snapshot of the map. It specifies area to be captured with top/left and bottom/right view port coordinates<br></span></p>
+    <div id="map"></div>
+    <div id="panel"></div>
+    <h3>Code</h3>
+    <p>Snapshot functionality belongs to the  <code>mapsjs-core</code> module of the API. 
+      The <code>capture</code> method of the <code>H.Map</code> class takes as an argument callback 
+      function that is executed when snapshot is ready, instance of <code>H.ui.UI</code> class 
+      to add the scale bar to the output, and top/left <code>(50,50)</code>-bottom/right <code>(500,200)</code> coordinates to specify the area of the map to capture.</p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>
