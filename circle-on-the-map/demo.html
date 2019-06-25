@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Circle on the Map</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src='../js-examples-rendering-helpers/iframe-height.js'></script> 
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+    <div class="page-header">
+        <h1>Circle on the Map</h1>
+        <p>Display a map highlighting a circular region</p>
+    </div>
+    <p>This example shows a circle with a radius of 1000 meters centered over a location in <b>New Delhi</b> <i>(28.6071°N, 77.2127°E)</i> and displayed on a moveable map.</p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>A circle is created using the <code>H.map.Circle</code> class, 
+      passing in the center point and radius. The look-and-feel of the circle 
+      can be altered by adding the <code>style</code> parameter
+      </p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

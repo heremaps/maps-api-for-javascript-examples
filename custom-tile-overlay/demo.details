@@ -1,0 +1,12 @@
+---
+ name: Adding an Overlay to the Map
+ description: This example displays a movable map initially centered on the historical centre of <b>Berlin</b> (<i>52.515, °N, 13.405°E</i>) with an overlay of a historical map from 1789 on top of the base map. A public domain image was used as a source, and split it into individual map tiles. Additional tiles are only downloaded when the zoom level or location changes.
+ resources:
+   - https://greenred123.github.io/maps-api-for-javascript-examples/test-credentials.js
+ normalize_css: no
+ dtd: html 5
+ wrap: d
+ panel_html: 0
+ panel_js: 0
+ panel_css: 0
+...

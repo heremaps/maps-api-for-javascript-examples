@@ -1,0 +1,12 @@
+---
+ name: Rectangle on the map
+ description: Display a map highlighting a retangular region or area
+ resources:
+   - https://greenred123.github.io/maps-api-for-javascript-examples/test-credentials.js
+ normalize_css: no
+ dtd: html 5
+ wrap: d
+ panel_html: 0
+ panel_js: 0
+ panel_css: 0
+...

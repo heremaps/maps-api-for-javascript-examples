@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Search for the Address of a Known Location</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src='../js-examples-rendering-helpers/iframe-height.js'></script> 
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="geocode">
+
+    <div class="page-header">
+        <h1>Search for the Address of a Known Location</h1>
+        <p>Request address details for a given location and display it on the map.</p>
+    </div>
+    <p>This example makes a reverse geocode request and retrieves the <b>first</b> address found around a specified 
+      location in <b>Berlin</b> <i>(52.5309°N 13.3847°E)</i> using a 150 meter radius to retrieve the address of HERE House. 
+      The expected address is: <i>Invalidenstraße 116, 10115 Berlin</i>. A clickable marker is placed on the address found.</p>
+    <div id="map"></div>
+    <div id="panel"></div>
+    <h3>Code</h3>
+    <p>Access to the geocoding service is obtained from the <code>H.service.Platform</code>
+       by calling <code>getGeocodingService()</code>. The <code>reverseGeocode()</code> method is used 
+       to find a location by passing in the relevant parameters (such as <code>prox</code> and <code>maxresults</code>)  as defined in 
+       <a href="http://developer.here.com/rest-apis/documentation/geocoder/topics/resource-search.html" target="_blank">Geocoder API</a>. 
+       The styling and display of the response is under the control of the developer.</p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

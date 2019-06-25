@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Map Objects Event Delegation</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src='../js-examples-rendering-helpers/iframe-height.js'></script> 
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+    <style type="text/css">
+      .log {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        height: 150px;
+        width: 250px;
+        overflow: scroll;
+        background: white;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 12px;
+      }
+      .log-entry {
+        padding: 5px;
+        border-bottom: 1px solid #d0d9e9;
+      }
+      .log-entry:nth-child(odd) {
+          background-color: #e1e7f1;
+      }
+      </style>
+  </head>
+  <body id="markers-on-the-map">
+    <div class="page-header">
+        <h1>Map Objects Event Delegation</h1>
+        <p>Use event delegation on map objects</p>
+    </div>
+    <p>This example shows how to use a single function to listen to the <code>tap</code> event across multiple map objects held within the same object container.</p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>All <code>H.map.Object</code> elements such as a marker or polygon, along with the 
+      <code>H.map.Group</code> container class implement the <code>addEventListener()</code> 
+      method, which is used when attaching an event listener.</p>
+    <p>When a <code>tap</code> event occurs, the fired event is an instance of the <code>H.util.Event</code> 
+      class and therefore contains a <code>target</code> property which is the map object clicked.</p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>
