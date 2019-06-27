@@ -44,8 +44,9 @@ function findStations(linkids, polyline) {
 /**
  * Boilerplate map initialization code starts below:
  */
-
-//Step 1: initialize communication with the platform
+// Step 1: initialize communication with the platform
+// In your own code, replace window.app_id with your own app_id
+// and window.app_code with your own app_code
 var platform = new H.service.Platform({
   app_id: window.app_id,
   app_code: window.app_code,
