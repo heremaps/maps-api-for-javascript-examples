@@ -27,11 +27,11 @@ function capture(resultContainer, map, ui) {
  * Boilerplate map initialization code starts below:
  */
 // Step 1: initialize communication with the platform
-// In your own code, replace variable app_id with your own app_id
-// and app_code with your own app_code
+// In your own code, replace window.app_id with your own app_id
+// and window.app_code with your own app_code
 var platform = new H.service.Platform({
-  app_id: app_id,
-  app_code: app_code,
+  app_id: window.app_id,
+  app_code: window.app_code,
   useHTTPS: true,
   useCIT: true
 });

@@ -4,7 +4,7 @@ This repository holds a series of JavaScript based examples using the **HERE Map
 
 This set of self-contained, use-case based examples is designed to be cloned by developers for their own use.
 
-> **Note:** In order to get the sample code to work, you **must** replace all instances of `{YOUR_APP_ID}` and `{YOUR_APP_CODE}` within the code and use your own **HERE** credentials.
+> **Note:** In order to get the sample code to work, you **must** replace all instances of `window.app_id` and `window.app_code` within the code and use your own **HERE** credentials.
 
 > You can obtain a set of credentials from the [Plans Page](https://developer.here.com/plans) on developer.here.com.
 

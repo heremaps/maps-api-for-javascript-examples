@@ -56,11 +56,12 @@ function onError(error) {
 /**
  * Boilerplate map initialization code starts below:
  */
-
-//Step 1: initialize communication with the platform
+// Step 1: initialize communication with the platform
+// In your own code, replace window.app_id with your own app_id
+// and window.app_code with your own app_code
 var platform = new H.service.Platform({
-  app_id: 'devportal-demo-20180625',
-  app_code: '9v2BkviRwi9Ot26kp2IysQ',
+  app_id: window.app_id,
+  app_code: window.app_code,
   useHTTPS: true
 });
 var pixelRatio = window.devicePixelRatio || 1;

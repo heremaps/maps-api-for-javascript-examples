@@ -2,7 +2,7 @@
  name: Map with Route from A to B using Public Transport
  description: Request a route from A to B using public transport and display it on the map
  resources:
-   - https://greenred123.github.io/maps-api-for-javascript-examples/test-credentials.js
+   - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/master/test-credentials.js
  normalize_css: no
  dtd: html 5
  wrap: d
