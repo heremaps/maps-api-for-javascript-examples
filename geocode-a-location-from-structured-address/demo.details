@@ -2,7 +2,7 @@
  name: Search for a Location given a Structured Address
  description: Request a location from a structured address and display it on the map
  resources:
-   - https://greenred123.github.io/maps-api-for-javascript-examples/test-credentials.js
+   - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/master/test-credentials.js
  normalize_css: no
  dtd: html 5
  wrap: d
