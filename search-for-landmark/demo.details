@@ -3,6 +3,7 @@
  description: Request the location of a landmark and display it on the map
  resources:
    - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/master/test-credentials.js
+   - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/search-for-landmark/img/arrows.png
  normalize_css: no
  dtd: html 5
  wrap: d
