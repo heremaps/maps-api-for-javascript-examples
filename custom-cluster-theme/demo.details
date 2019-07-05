@@ -3,7 +3,7 @@
  description: Cluster multiple markers and customize the theme
  resources:
    - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/master/test-credentials.js
-   - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/custom-cluster-theme/data/photo.js
+   - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/master/custom-cluster-theme/data/photo.js
  normalize_css: no
  dtd: html 5
  wrap: d
