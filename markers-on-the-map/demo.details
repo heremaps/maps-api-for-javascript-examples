@@ -3,7 +3,6 @@
  description: Display a map highlighting points of interest
  resources:
    - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/master/test-credentials.js
-   - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/markers-on-the-map/markers-on-the-map.png
  normalize_css: no
  dtd: html 5
  wrap: d
