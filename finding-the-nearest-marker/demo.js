@@ -10,14 +10,14 @@ function findNearestMarker(coords) {
 
   // iterate over objects and calculate distance between them
   for (i = 0; i < len; i += 1) {
-    markerDist = objects[i].getPosition().distance(coords);
+    markerDist = objects[i].getGeometry().distance(coords);
     if (markerDist < minDist) {
       minDist = markerDist;
       nearest_text = objects[i].getData();
     }
   }
 
-  alert('The nearest marker is: ' + nearest_text);
+  logEvent('The nearest marker is: ' + nearest_text);
 }
 
 function addClickEventListenerToMap(map) {
@@ -28,20 +28,14 @@ function addClickEventListenerToMap(map) {
   }, false);
 }
 
-
-
-
-
 /**
  * Boilerplate map initialization code starts below:
  */
-// Step 1: initialize communication with the platform
-// In your own code, replace window.app_id with your own app_id
-// and window.app_code with your own app_code
+
+//Step 1: initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  app_id: window.app_id,
-  app_code: window.app_code,
-  useHTTPS: true
+  apikey: window.apikey
 });
 var pixelRatio = window.devicePixelRatio || 1;
 var defaultLayers = platform.createDefaultLayers({
@@ -49,9 +43,9 @@ var defaultLayers = platform.createDefaultLayers({
   ppi: pixelRatio === 1 ? undefined : 320
 });
 
-//Step 2: initialize a map - this map is centered over New Delhi
+//Step 2: initialize a map
 var map = new H.Map(document.getElementById('map'),
-  defaultLayers.normal.map,{
+  defaultLayers.vector.normal.map,{
   center: {lat: 60.1697, lng:24.8292},
   zoom: 16,
   pixelRatio: pixelRatio
@@ -64,6 +58,19 @@ window.addEventListener('resize', () => map.getViewPort().resize());
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
 var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
+// Step 4: create custom logging facilities
+var logContainer = document.createElement('ul');
+logContainer.className ='log';
+logContainer.innerHTML = '<li class="log-entry">Try clicking on the map</li>';
+map.getElement().appendChild(logContainer);
+
+// Helper for logging events
+function logEvent(str) {
+  var entry = document.createElement('li');
+  entry.className = 'log-entry';
+  entry.textContent = str;
+  logContainer.insertBefore(entry, logContainer.firstChild);
+}
 
 // Set up five markers.
 var coords = [{ lat:60.1697, lng:24.8292},
@@ -80,7 +87,10 @@ var svgMarkup = '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
 
 coords.forEach(function (value, index) {
   var myIcon = new H.map.Icon(svgMarkup.replace('${REPLACE}', index + 1)),
-  marker = new H.map.Marker(value,  {icon: myIcon});
+  marker = new H.map.Marker(value,  {
+    icon: myIcon,
+    volatility: true
+  });
   // add custom data to the marker
   marker.setData(index + 1);
 
@@ -101,14 +111,14 @@ map.addEventListener('dragstart', function(ev) {
 map.addEventListener('drag', function(ev) {
   var target = ev.target,
       pointer = ev.currentPointer;
-  if (target instanceof mapsjs.map.Marker) {
-    target.setPosition(map.screenToGeo(pointer.viewportX, pointer.viewportY));
+  if (target instanceof H.map.Marker) {
+    target.setGeometry(map.screenToGeo(pointer.viewportX, pointer.viewportY));
   }
 }, false);
 
 map.addEventListener('dragend', function(ev) {
   var target = ev.target;
-  if (target instanceof mapsjs.map.Marker) {
+  if (target instanceof H.map.Marker) {
     behavior.enable();
   }
 }, false);

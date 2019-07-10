@@ -25,7 +25,7 @@ function addInfoBubble(map) {
   group.addEventListener('tap', function (evt) {
     // event target is the marker itself, group is a parent event target
     // for all objects that it contains
-    var bubble =  new H.ui.InfoBubble(evt.target.getPosition(), {
+    var bubble =  new H.ui.InfoBubble(evt.target.getGeometry(), {
       // read custom data
       content: evt.target.getData()
     });
@@ -43,18 +43,14 @@ function addInfoBubble(map) {
 
 }
 
-
-
 /**
  * Boilerplate map initialization code starts below:
  */
-// Step 1: initialize communication with the platform
-// In your own code, replace window.app_id with your own app_id
-// and window.app_code with your own app_code
+
+// initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  app_id: window.app_id,
-  app_code: window.app_code,
-  useHTTPS: true
+  apikey: window.apikey
 });
 var pixelRatio = window.devicePixelRatio || 1;
 var defaultLayers = platform.createDefaultLayers({
@@ -64,7 +60,7 @@ var defaultLayers = platform.createDefaultLayers({
 
 // initialize a map - this map is centered over Europe
 var map = new H.Map(document.getElementById('map'),
-  defaultLayers.normal.map,{
+  defaultLayers.vector.normal.map,{
   center: {lat: 53.430, lng: -2.961},
   zoom: 7,
   pixelRatio: pixelRatio

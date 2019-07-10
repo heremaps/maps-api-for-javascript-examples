@@ -1,5 +1,4 @@
     
-
 /**
  * Calculates and displays a car route from the Brandenburg Gate in the centre of Berlin
  * to Friedrichstraße Railway Station.
@@ -57,9 +56,6 @@ function onError(error) {
   alert('Can\'t reach the remote server');
 }
 
-
-
-
 /**
  * Boilerplate map initialization code starts below:
  */
@@ -68,13 +64,10 @@ function onError(error) {
 var mapContainer = document.getElementById('map'),
   routeInstructionsContainer = document.getElementById('panel');
 
-// Step 1: initialize communication with the platform
-// In your own code, replace window.app_id with your own app_id
-// and window.app_code with your own app_code
+//Step 1: initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  app_id: window.app_id,
-  app_code: window.app_code,
-  useHTTPS: true
+  apikey: window.apikey
 });
 var pixelRatio = window.devicePixelRatio || 1;
 var defaultLayers = platform.createDefaultLayers({
@@ -84,7 +77,7 @@ var defaultLayers = platform.createDefaultLayers({
 
 //Step 2: initialize a map - this map is centered over Berlin
 var map = new H.Map(mapContainer,
-  defaultLayers.normal.map,{
+  defaultLayers.vector.normal.map,{
   center: {lat:52.5160, lng:13.3779},
   zoom: 13,
   pixelRatio: pixelRatio
@@ -146,7 +139,9 @@ function addRouteShapeToMap(route){
   // Add the polyline to the map
   map.addObject(polyline);
   // And zoom to its bounding rectangle
-  map.setViewBounds(polyline.getBounds(), true);
+  map.getViewModel().setLookAtData({
+    bounds: polyline.getBoundingBox()
+  });
 }
 
 

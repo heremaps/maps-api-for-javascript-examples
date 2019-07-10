@@ -1,2 +1,1 @@
-var app_id = 'devportal-demo-20180625';
-var app_code = '9v2BkviRwi9Ot26kp2IysQ';
+var apikey = 'H6XyiCT0w1t9GgTjqhRXxDMrVj9h78ya3NuxlwM7XUs';

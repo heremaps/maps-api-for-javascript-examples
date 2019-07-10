@@ -82,13 +82,11 @@ function testObjectsEvents(map, logEvent) {
 /**
  * Boilerplate map initialization code starts below:
  */
+
 // Step 1: initialize communication with the platform
-// In your own code, replace window.app_id with your own app_id
-// and window.app_code with your own app_code
+// In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  app_id: window.app_id,
-  app_code: window.app_code,
-  useHTTPS: true
+  apikey: window.apikey
 });
 var pixelRatio = window.devicePixelRatio || 1;
 var defaultLayers = platform.createDefaultLayers({
@@ -97,7 +95,7 @@ var defaultLayers = platform.createDefaultLayers({
 });
 
 // Step 2: initialize a map
-var map = new H.Map(document.getElementById('map'), defaultLayers.normal.map, {
+var map = new H.Map(document.getElementById('map'), defaultLayers.vector.normal.map, {
   // initial center and zoom level of the map
   center: new H.geo.Point(51, 7),
   zoom: 5,

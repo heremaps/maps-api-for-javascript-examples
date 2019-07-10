@@ -2,16 +2,16 @@
 function orderMarkers() {
   var zIndex = 1,
       // create a set of markers
-      marker = new mapsjs.map.Marker(
+      marker = new H.map.Marker(
         {lat: 52.508249, lng: 13.338931}
       ),
-      marker2 = new mapsjs.map.Marker(
+      marker2 = new H.map.Marker(
         {lat: 52.506682, lng: 13.332107}
       ),
-      marker3 = new mapsjs.map.Marker(
+      marker3 = new H.map.Marker(
         {lat: 52.503730, lng: 13.331678}
       ),
-      marker4 = new mapsjs.map.Marker(
+      marker4 = new H.map.Marker(
         {lat: 52.531, lng: 13.380}
       );
 
@@ -19,7 +19,7 @@ function orderMarkers() {
   map.addObjects([marker, marker2, marker3, marker4]);
 
   map.addEventListener('tap', function (evt) {
-    if (evt.target instanceof mapsjs.map.Marker) {
+    if (evt.target instanceof H.map.Marker) {
       // increase z-index of the marker that was tapped
       evt.target.setZIndex(zIndex++);
     }
@@ -29,13 +29,11 @@ function orderMarkers() {
 /**
  * Boilerplate map initialization code starts below:
  */
-// Step 1: initialize communication with the platform
-// In your own code, replace window.app_id with your own app_id
-// and window.app_code with your own app_code
+
+// initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  app_id: window.app_id,
-  app_code: window.app_code,
-  useHTTPS: true
+  apikey: window.apikey
 });
 var pixelRatio = window.devicePixelRatio || 1;
 var defaultLayers = platform.createDefaultLayers({
@@ -44,7 +42,7 @@ var defaultLayers = platform.createDefaultLayers({
 });
 
 var map = new H.Map(document.getElementById('map'),
-  defaultLayers.normal.map,{
+  defaultLayers.vector.normal.map,{
   center: {lat: 52.5, lng: 13.4},
   zoom: 10,
   pixelRatio: pixelRatio
