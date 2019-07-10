@@ -9,7 +9,10 @@
  */
 function addDraggableMarker(map, behavior){
 
-  var marker = new H.map.Marker({lat:42.35805, lng:-71.0636});
+  var marker = new H.map.Marker({lat:42.35805, lng:-71.0636}, {
+    // mark the object as volatile for the smooth dragging
+    volatility: true
+  });
   // Ensure that the marker can receive drag events
   marker.draggable = true;
   map.addObject(marker);
@@ -28,7 +31,7 @@ function addDraggableMarker(map, behavior){
   // when dragging has completed
   map.addEventListener('dragend', function(ev) {
     var target = ev.target;
-    if (target instanceof mapsjs.map.Marker) {
+    if (target instanceof H.map.Marker) {
       behavior.enable();
     }
   }, false);
@@ -38,8 +41,8 @@ function addDraggableMarker(map, behavior){
    map.addEventListener('drag', function(ev) {
     var target = ev.target,
         pointer = ev.currentPointer;
-    if (target instanceof mapsjs.map.Marker) {
-      target.setPosition(map.screenToGeo(pointer.viewportX, pointer.viewportY));
+    if (target instanceof H.map.Marker) {
+      target.setGeometry(map.screenToGeo(pointer.viewportX, pointer.viewportY));
     }
   }, false);
 }
@@ -47,13 +50,11 @@ function addDraggableMarker(map, behavior){
 /**
  * Boilerplate map initialization code starts below:
  */
-// Step 1: initialize communication with the platform
-// In your own code, replace window.app_id with your own app_id
-// and window.app_code with your own app_code
+
+//Step 1: initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  app_id: window.app_id,
-  app_code: window.app_code,
-  useHTTPS: true
+  apikey: window.apikey
 });
 var pixelRatio = window.devicePixelRatio || 1;
 var defaultLayers = platform.createDefaultLayers({
@@ -63,7 +64,7 @@ var defaultLayers = platform.createDefaultLayers({
 
 //Step 2: initialize a map - this map is centered over Boston
 var map = new H.Map(document.getElementById('map'),
-  defaultLayers.normal.map,{
+  defaultLayers.vector.normal.map,{
   center: {lat:42.35805, lng:-71.0636},
   zoom: 12,
   pixelRatio: pixelRatio

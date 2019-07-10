@@ -30,7 +30,7 @@ function panTheMap(map) {
 
   // set interaction modifier that provides information which map properties
   // change with each "interact" call
-  viewPort.startInteraction(H.map.render.RenderEngine.InteractionModifiers.COORD);
+  viewPort.startInteraction(H.map.render.RenderEngine.InteractionModifiers.COORD, 0, 0);
   // set up simple animation loop
   setInterval(pan, 15);
 }
@@ -38,13 +38,11 @@ function panTheMap(map) {
 /**
  * Boilerplate map initialization code starts below:
  */
-// Step 1: initialize communication with the platform
-// In your own code, replace window.app_id with your own app_id
-// and window.app_code with your own app_code
+
+//Step 1: initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  app_id: window.app_id,
-  app_code: window.app_code,
-  useHTTPS: true
+  apikey: window.apikey
 });
 var pixelRatio = window.devicePixelRatio || 1;
 var defaultLayers = platform.createDefaultLayers({
@@ -52,9 +50,9 @@ var defaultLayers = platform.createDefaultLayers({
   ppi: pixelRatio === 1 ? undefined : 320
 });
 
-//Step 2: initialize a map - this map is centered over New Delhi
+// Step 2: initialize a map
 var map = new H.Map(document.getElementById('map'),
-  defaultLayers.normal.map,{
+  defaultLayers.vector.normal.map,{
   center: {lat: 19.11, lng: 72.89},
   zoom: 4,
   pixelRatio: pixelRatio

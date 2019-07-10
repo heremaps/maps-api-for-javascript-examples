@@ -15,23 +15,22 @@ function synchronizeMaps(firstMap, secondMap) {
   firstMap.addEventListener('mapviewchange', function() {
     // on every view change take a "snapshot" of a current geo data for
     // interactive map and set this values to the second, non-interactive, map
-    viewModel2.setCameraData(viewModel1.getCameraData());
+    viewModel2.setLookAtData(viewModel1.getLookAtData());
   });
 }
 
 /**
  * Boilerplate map initialization code starts below:
  */
-// Step 1: initialize communication with the platform
-// In your own code, replace window.app_id with your own app_id
-// and window.app_code with your own app_code
+
+// initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  app_id: window.app_id,
-  app_code: window.app_code,
-  useCIT: true,
-  useHTTPS: true
+  apikey: window.apikey
 });
+// create two sets of the default layers for each map instance
 var defaultLayers = platform.createDefaultLayers();
+var defaultLayersSync = platform.createDefaultLayers();
 
 // set up containers for the map
 
@@ -49,7 +48,7 @@ document.getElementById('panel').appendChild(staticMapContainer);
 
 // initialize a map, this map is interactive
 var map = new H.Map(mapContainer,
-  defaultLayers.normal.map,{
+  defaultLayers.vector.normal.map,{
   center: {lat: 53.430, lng: -2.961},
   zoom: 7
 });
@@ -58,7 +57,7 @@ window.addEventListener('resize', () => map.getViewPort().resize());
 
 // initialize a map that will be synchronised
 var staticMap = new H.Map(staticMapContainer,
-  defaultLayers.normal.map,{
+  defaultLayersSync.vector.normal.map,{
   center: {lat: 53.430, lng: -2.961},
   zoom: 7
 });

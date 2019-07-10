@@ -24,6 +24,24 @@
                             "published": true
                         },
                         {
+                            "uid": "change-style-at-runtime",
+                            "title": "Change map style at runtime", 
+                            "shortDescription": "Change a style of the map feature when map is instantiated",
+                            "published": true
+                        },
+                        {
+                            "uid": "interactive-basemap",
+                            "title": "Interactive base map", 
+                            "shortDescription": "Retrieve information associated with the map features",
+                            "published": true
+                        },
+                        {
+                            "uid": "tilted-map-bounds",
+                            "title": "View bounds of the tilted map", 
+                            "shortDescription": "Visualize the visible area of the tilted and rotated map",
+                            "published": true
+                        },
+                        {
                             "uid": "map-using-view-bounds",
                             "title": "Map using View Bounds", 
                             "shortDescription": "Display a map of a given area",
@@ -33,7 +51,7 @@
                             "uid": "map-multi-language-support",
                             "title": "Multi-language support", 
                             "shortDescription": "Display a map with labels in a foreign language",
-                            "published": true
+                            "published": false
                         },
                         {
                             "uid": "map-scale-bar-changing-from-the-metric-system",
@@ -45,7 +63,7 @@
                             "uid": "panning-the-map",
                             "title": "Panning the Map", 
                             "shortDescription": "Programmatically pan the map so that it is continually in motion",
-                            "published": true
+                            "published": false
                         },
                         {
                             "uid": "restrict-map",
@@ -130,7 +148,7 @@
                             "uid": "ordering-overlapping-markers",
                             "title": "Ordering Overlapping Markers", 
                             "shortDescription": "Arrange the order in which a series of map objects are displayed",
-                            "published": true
+                            "published": false
                         },
                         {
                             "uid": "zoom-to-set-of-markers",

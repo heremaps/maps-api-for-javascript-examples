@@ -11,7 +11,7 @@ function setUpClickListener(map) {
   map.addEventListener('tap', function (evt) {
     var coord = map.screenToGeo(evt.currentPointer.viewportX,
             evt.currentPointer.viewportY);
-    alert('Clicked at ' + Math.abs(coord.lat.toFixed(4)) +
+    logEvent('Clicked at ' + Math.abs(coord.lat.toFixed(4)) +
         ((coord.lat > 0) ? 'N' : 'S') +
         ' ' + Math.abs(coord.lng.toFixed(4)) +
          ((coord.lng > 0) ? 'E' : 'W'));
@@ -23,13 +23,11 @@ function setUpClickListener(map) {
 /**
  * Boilerplate map initialization code starts below:
  */
-// Step 1: initialize communication with the platform
-// In your own code, replace window.app_id with your own app_id
-// and window.app_code with your own app_code
+
+//Step 1: initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  app_id: window.app_id,
-  app_code: window.app_code,
-  useHTTPS: true
+  apikey: window.apikey
 });
 var pixelRatio = window.devicePixelRatio || 1;
 var defaultLayers = platform.createDefaultLayers({
@@ -39,7 +37,7 @@ var defaultLayers = platform.createDefaultLayers({
 
 //Step 2: initialize a map
 var map = new H.Map(document.getElementById('map'),
-  defaultLayers.normal.map,{
+  defaultLayers.vector.normal.map,{
   center: {lat: 30.94625288456589, lng: -54.10861860580418},
   zoom: 1,
   pixelRatio: pixelRatio
@@ -51,5 +49,20 @@ window.addEventListener('resize', () => map.getViewPort().resize());
 // MapEvents enables the event system
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
 var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+// Step 4: create custom logging facilities
+var logContainer = document.createElement('ul');
+logContainer.className ='log';
+logContainer.innerHTML = '<li class="log-entry">Try clicking on the map</li>';
+map.getElement().appendChild(logContainer);
+
+// Helper for logging events
+function logEvent(str) {
+  var entry = document.createElement('li');
+  entry.className = 'log-entry';
+  entry.textContent = str;
+  logContainer.insertBefore(entry, logContainer.firstChild);
+}
+
 
 setUpClickListener(map);

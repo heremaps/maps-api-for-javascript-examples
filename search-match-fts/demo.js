@@ -11,46 +11,33 @@ function findStations(linkids, polyline) {
   var service = platform.getPlatformDataService();
 
   // Create a search request object fir the EVCHARGING_POI layer with the bounding box of the polyline
-  var req = new mapsjs.service.extension.platformData.SearchRequest(service, polyline.getBounds(), [{
-    layerId: 'EVCHARGING_POI',
-    level: 13
-  }]);
-
-  // event listener that matches Platform Data Extension data and routing results
-  req.addEventListener('data', function(ev) {
-    var table = ev.data,
-        row,
-        geometry,
-        i = table.getRowCount();
-
-    while(i--) {
-      row = table.getRow(i);
-      geometry = row.getCell('geometry');
-      if (linkids.indexOf(row.getCell('LINK_ID')) !== -1) {
-        map.addObject(new mapsjs.map.Marker({lat: geometry[0][0], lng: geometry[0][1]}, {icon: icon}));
-      } else {
-        map.addObject(new mapsjs.map.Marker({lat: geometry[0][0], lng: geometry[0][1]}));
-      }
+  service.searchByBoundingBox( 
+    ['EVCHARGING_POI'],
+    ['LINK_ID'],
+    polyline.getBoundingBox(),
+    (table) => {
+      table.forEach((row) => {
+        if (linkids.indexOf(row.getCell('LINK_ID')) !== -1) {
+          map.addObject(new H.map.Marker(row.getCell('WKT').getGeometries()[0], {icon: icon}));
+        } else {
+          map.addObject(new H.map.Marker(row.getCell('WKT').getGeometries()[0], {icon: icon2}));
+        }
+      })
+    },
+    (error) => {
+        console.log(error)
     }
-  });
-
-  req.send();
+  );
 }
-
-
-
-
 
 /**
  * Boilerplate map initialization code starts below:
  */
-// Step 1: initialize communication with the platform
-// In your own code, replace window.app_id with your own app_id
-// and window.app_code with your own app_code
+
+//Step 1: initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  app_id: window.app_id,
-  app_code: window.app_code,
-  useHTTPS: true
+  apikey: window.apikey
 });
 var pixelRatio = window.devicePixelRatio || 1;
 var defaultLayers = platform.createDefaultLayers({
@@ -60,7 +47,7 @@ var defaultLayers = platform.createDefaultLayers({
 
 //Step 2: initialize a map  - not specificing a location will give a whole world view.
 var map = new H.Map(document.getElementById('map'),
-  defaultLayers.normal.map, {pixelRatio: pixelRatio});
+  defaultLayers.vector.normal.map, {pixelRatio: pixelRatio});
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());
 
@@ -83,12 +70,13 @@ var svg =
       ' 22.9 18.4 23.8 16.2 23.8 12.8 C 23.6 7.07 20 2.2 13 2.2 Z" fill="#090"/>' +
       '</svg>';
 var options = {
-  'size': new mapsjs.math.Size(28, 36),
-  'anchor': new mapsjs.math.Point(14, 32),
-  'hitArea': new mapsjs.map.HitArea(
-      mapsjs.map.HitArea.ShapeType.POLYGON, [0, 16, 0, 7, 8, 0, 18, 0, 26, 7, 26, 16, 18, 34, 8, 34])
+  'size': new H.math.Size(28, 36),
+  'anchor': new H.math.Point(14, 32),
+  'hitArea': new H.map.HitArea(
+      H.map.HitArea.ShapeType.POLYGON, [0, 16, 0, 7, 8, 0, 18, 0, 26, 7, 26, 16, 18, 34, 8, 34])
 };
-icon = new mapsjs.map.Icon(svg, options);
+icon = new H.map.Icon(svg, options);
+icon2 = new H.map.Icon(svg.replace('#090', '#009'), options);
 
 // Obtain routing service and create routing request parameters
 var router = platform.getRoutingService(),
@@ -98,7 +86,7 @@ var router = platform.getRoutingService(),
       legattributes:'li',
       waypoint0: '52.50052646372371,13.313066285329796',
       waypoint1: '52.50386005040791,13.331453146169224',
-      waypoint2: '52.51007033505061,13.375173108360826'
+      waypoint2: '52.50859501989751,13.377073412022032'
     };
 
 // calculate route
@@ -128,11 +116,13 @@ router.calculateRoute(
         lineWidth: 8,
         strokeColor: 'rgba(0, 128, 255, 0.7)'
       },
-      arrows: new mapsjs.map.ArrowStyle()
+      arrows: new H.map.ArrowStyle()
     });
 
     map.addObject(polyline);
-    map.setViewBounds(polyline.getBounds(), true);
+    map.getViewModel().setLookAtData({
+      bounds: polyline.getBoundingBox()
+    });
 
     findStations(linkids, polyline)
   },
