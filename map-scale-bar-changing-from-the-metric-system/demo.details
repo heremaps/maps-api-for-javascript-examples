@@ -2,7 +2,7 @@
  name: Changing from the Metric System
  description: Display a map including a scale bar in miles or yards
  resources:
-   - http://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+   - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no
  dtd: html 5
  wrap: d

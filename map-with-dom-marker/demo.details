@@ -2,7 +2,7 @@
  name: DOM Marker
  description: Display a marker that is capable of receiving DOM events
  resources:
-    - http://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+    - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no
  dtd: html 5
  wrap: d

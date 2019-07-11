@@ -2,8 +2,8 @@
  name: Marker Clustering
  description: Cluster multiple markers together to better visualize the data
  resources:
-   - http://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
-   - http://heremaps.github.io/maps-api-for-javascript-examples/master/marker-clustering/data/airports.js
+   - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+   - https://heremaps.github.io/maps-api-for-javascript-examples/master/marker-clustering/data/airports.js
  normalize_css: no
  dtd: html 5
  wrap: d
