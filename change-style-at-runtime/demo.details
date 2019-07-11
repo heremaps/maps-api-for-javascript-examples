@@ -2,7 +2,7 @@
  name: Change map style at runtime
  description: Change a style of the map feature when map is instantiated
  resources:
-   - http://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+   - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no
  dtd: html 5
  wrap: d

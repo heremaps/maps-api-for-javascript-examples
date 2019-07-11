@@ -2,8 +2,8 @@
  name: Marker Clustering with Custom Theme
  description: Cluster multiple markers and customize the theme
  resources:
-   - http://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
-   - http://heremaps.github.io/maps-api-for-javascript-examples/custom-cluster-theme/data/photos.js
+   - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+   - https://heremaps.github.io/maps-api-for-javascript-examples/custom-cluster-theme/data/photos.js
  normalize_css: no
  dtd: html 5
  wrap: d

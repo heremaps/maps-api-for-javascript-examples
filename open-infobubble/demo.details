@@ -2,7 +2,7 @@
  name: Opening an Infobubble on a Mouse Click
  description: Open an infobubble when a marker is clicked
  resources:
-   - http://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+   - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no
  dtd: html 5
  wrap: d

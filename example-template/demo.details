@@ -2,7 +2,7 @@
  name: Example Template
  description: Capture an area on the map
  resources:
-   - http://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+   - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no
  dtd: html 5
  wrap: d
