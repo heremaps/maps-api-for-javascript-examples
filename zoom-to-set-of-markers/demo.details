@@ -2,7 +2,7 @@
  name: Zooming to a Set of Markers
  description: Alter the viewport to ensure a group of objects are visible
  resources:
-   - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/master/test-credentials.js
+   - http://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no
  dtd: html 5
  wrap: d

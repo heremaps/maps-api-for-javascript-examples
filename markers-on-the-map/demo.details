@@ -2,7 +2,7 @@
  name: Marker on the Map
  description: Display a map highlighting points of interest
  resources:
-   - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/master/test-credentials.js
+   - http://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no
  dtd: html 5
  wrap: d

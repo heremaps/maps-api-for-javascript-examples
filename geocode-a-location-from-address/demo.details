@@ -2,7 +2,7 @@
  name: Search for a Location based on an Address
  description: Request a location using a free-form text input and display it on the map
  resources:
-   - https://raw.githubusercontent.com/heremaps/maps-api-for-javascript-examples/test-credentials.js
+   - http://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no
  dtd: html 5
  wrap: d
