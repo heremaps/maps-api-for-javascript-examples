@@ -1,4 +1,4 @@
-    
+
 /**
  * Adds a circle over New Delhi with a radius of 1000 metres onto the map
  *
@@ -33,18 +33,14 @@ function addCircleToMap(map){
 var platform = new H.service.Platform({
   apikey: window.apikey
 });
-var pixelRatio = window.devicePixelRatio || 1;
-var defaultLayers = platform.createDefaultLayers({
-  tileSize: pixelRatio === 1 ? 256 : 512,
-  ppi: pixelRatio === 1 ? undefined : 320
-});
+var defaultLayers = platform.createDefaultLayers();
 
 //Step 2: initialize a map - this map is centered over New Delhi
 var map = new H.Map(document.getElementById('map'),
   defaultLayers.vector.normal.map, {
   center: {lat:28.6071, lng:77.2127},
   zoom: 13,
-  pixelRatio: pixelRatio
+  pixelRatio: window.devicePixelRatio || 1
 });
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());

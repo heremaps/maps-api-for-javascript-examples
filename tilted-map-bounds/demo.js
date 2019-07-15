@@ -32,7 +32,7 @@ function displayBounds(firstMap, secondMap) {
       position: data.position,
       zoom: data.zoom - 2
     });
-    
+
     // update the polygon that represents the visisble area of the interactive map
     polygon.setGeometry(data.bounds);
     // update the marker that represent the center of the interactive map
@@ -71,7 +71,8 @@ document.getElementById('panel').appendChild(staticMapContainer);
 var map = new H.Map(mapContainer,
   defaultLayers.vector.normal.map,{
   center: {lat: 52.5206970, lng: 13.40927320},
-  zoom: 16
+  zoom: 16,
+  pixelRatio: window.devicePixelRatio || 1
 });
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());
@@ -86,7 +87,8 @@ map.getViewModel().setLookAtData({
 var staticMap = new H.Map(staticMapContainer,
   defaultLayersSync.vector.normal.map,{
   center: {lat: 53.430, lng: -2.961},
-  zoom: 7
+  zoom: 7,
+  pixelRatio: window.devicePixelRatio || 1
 });
 
 // MapEvents enables the event system

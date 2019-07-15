@@ -95,7 +95,8 @@ var defaultLayers = platform.createDefaultLayers();
 // Step 2: initialize a map
 var map = new H.Map(document.getElementById('map'), defaultLayers.vector.normal.map, {
   center: {lat: 52.55006203880433, lng: 13.27548854220585},
-  zoom: 9
+  zoom: 9,
+  pixelRatio: window.devicePixelRatio || 1
 });
 
 // Step 3: make the map interactive

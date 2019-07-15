@@ -1,4 +1,4 @@
-    
+
 /**
  * The function add the "change" event listener to the map's style
  * and modifies colors of the map features within that listener.
@@ -22,7 +22,7 @@ function changeFeatureStyle(map){
       // see the Developer's guide
       parkConfig.layers.landuse.park.draw.polygons.color = '#2ba815'
       parkConfig.layers.landuse.builtup.draw.polygons.color = '#676d67'
-    
+
       // merge the configuration back to the base layer configuration
       parkStyle.mergeConfig(parkConfig);
     }
@@ -41,18 +41,14 @@ function changeFeatureStyle(map){
 var platform = new H.service.Platform({
   apikey: window.apikey
 });
-var pixelRatio = window.devicePixelRatio || 1;
-var defaultLayers = platform.createDefaultLayers({
-  tileSize: pixelRatio === 1 ? 256 : 512,
-  ppi: pixelRatio === 1 ? undefined : 320
-});
+var defaultLayers = platform.createDefaultLayers();
 
 //Step 2: initialize a map
 var map = new H.Map(document.getElementById('map'),
   defaultLayers.vector.normal.map, {
   center: {lat: 52.51477270923461, lng: 13.39846691425174},
   zoom: 13,
-  pixelRatio: pixelRatio
+  pixelRatio: window.devicePixelRatio || 1
 });
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());

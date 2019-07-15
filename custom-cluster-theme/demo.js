@@ -146,17 +146,13 @@ var platform = new H.service.Platform({
   apikey: window.apikey,
   useHTTPS: true
 });
-var pixelRatio = window.devicePixelRatio || 1;
-var defaultLayers = platform.createDefaultLayers({
-  tileSize: pixelRatio === 1 ? 256 : 512,
-  ppi: pixelRatio === 1 ? undefined : 320
-});
+var defaultLayers = platform.createDefaultLayers();
 
 // Step 2: initialize a map
 var map = new H.Map(document.getElementById('map'), defaultLayers.vector.normal.map, {
   center: new H.geo.Point(50.426467222414374, 6.3054632497803595),
   zoom: 6,
-  pixelRatio: pixelRatio
+  pixelRatio: window.devicePixelRatio || 1
 });
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());

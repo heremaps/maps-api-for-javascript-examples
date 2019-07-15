@@ -50,7 +50,8 @@ document.getElementById('panel').appendChild(staticMapContainer);
 var map = new H.Map(mapContainer,
   defaultLayers.vector.normal.map,{
   center: {lat: 53.430, lng: -2.961},
-  zoom: 7
+  zoom: 7,
+  pixelRatio: window.devicePixelRatio || 1
 });
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());
@@ -59,7 +60,8 @@ window.addEventListener('resize', () => map.getViewPort().resize());
 var staticMap = new H.Map(staticMapContainer,
   defaultLayersSync.vector.normal.map,{
   center: {lat: 53.430, lng: -2.961},
-  zoom: 7
+  zoom: 7,
+  pixelRatio: window.devicePixelRatio || 1
 });
 
 // MapEvents enables the event system
