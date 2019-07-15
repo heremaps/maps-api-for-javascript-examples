@@ -38,7 +38,8 @@ var map = new H.Map(mapContainer, defaultLayers.vector.normal.map, {
   // initial center and zoom level of the map
   zoom: 16,
   // Champs-Elysees
-  center: {lat: 48.869145, lng: 2.314298}
+  center: {lat: 48.869145, lng: 2.314298},
+  pixelRatio: window.devicePixelRatio || 1
 });
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());

@@ -1,4 +1,4 @@
-    
+
 /**
  * @param  {H.Map} map      A HERE Map instance within the application
  */
@@ -16,7 +16,7 @@ function setInteractive(map){
       // enable interactions for the desired map features
       style.setInteractive(['places', 'places.populated-places'], true);
 
-      // add an event listener that is responsible for catching the 
+      // add an event listener that is responsible for catching the
       // 'tap' event on the feature and showing the infobubble
       provider.addEventListener('tap', onTap);
     }
@@ -33,18 +33,14 @@ function setInteractive(map){
 var platform = new H.service.Platform({
   apikey: window.apikey
 });
-var pixelRatio = window.devicePixelRatio || 1;
-var defaultLayers = platform.createDefaultLayers({
-  tileSize: pixelRatio === 1 ? 256 : 512,
-  ppi: pixelRatio === 1 ? undefined : 320
-});
+var defaultLayers = platform.createDefaultLayers();
 
 //Step 2: initialize a map
 var map = new H.Map(document.getElementById('map'),
   defaultLayers.vector.normal.map, {
   center: {lat: 52.51477270923461, lng: 13.39846691425174},
   zoom: 13,
-  pixelRatio: pixelRatio
+  pixelRatio: window.devicePixelRatio || 1
 });
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());
@@ -71,9 +67,9 @@ function onTap(evt) {
   let props = evt.target.getData().properties;
 
   // create a content for the infobubble
-  let content = '<div style="width:250px">It is a ' + props.kind + ' ' + (props.kind_detail || '') + 
-    (props.population ? '<br /> population: ' + props.population : '') + 
-    '<br /> local name is ' + props['name'] + 
+  let content = '<div style="width:250px">It is a ' + props.kind + ' ' + (props.kind_detail || '') +
+    (props.population ? '<br /> population: ' + props.population : '') +
+    '<br /> local name is ' + props['name'] +
     (props['name:ar'] ? '<br /> name in Arabic is '+ props['name:ar'] : '') + '</div>';
 
   // Create a bubble, if not created yet

@@ -1,4 +1,4 @@
-    
+
 /**
  * Adds two SVG markers over the homes of the Chicago Bears and Chicago Cubs
  *
@@ -37,18 +37,14 @@ function addSVGMarkers(map){
 var platform = new H.service.Platform({
   apikey: window.apikey
 });
-var pixelRatio = window.devicePixelRatio || 1;
-var defaultLayers = platform.createDefaultLayers({
-  tileSize: pixelRatio === 1 ? 256 : 512,
-  ppi: pixelRatio === 1 ? undefined : 320
-});
+var defaultLayers = platform.createDefaultLayers();
 
 //Step 2: initialize a map - this map is centered over Chicago.
 var map = new H.Map(document.getElementById('map'),
   defaultLayers.vector.normal.map,{
   center: {lat:41.881944, lng:-87.627778},
   zoom: 11,
-  pixelRatio: pixelRatio
+  pixelRatio: window.devicePixelRatio || 1
 });
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());
