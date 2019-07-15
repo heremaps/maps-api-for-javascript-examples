@@ -214,7 +214,7 @@
                             "uid": "custom-cluster-theme",
                             "title": "Marker Clustering with Custom Theme", 
                             "shortDescription": "Cluster multiple markers and customize the theme",
-                            "published": true
+                            "published": false
                         }
                     ]
                 },
