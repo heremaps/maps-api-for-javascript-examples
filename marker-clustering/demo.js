@@ -64,4 +64,6 @@ var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 // Step 5: cluster data about airports's coordinates
 // airports variable was injected at the page load
-startClustering(map, airports);
+window.onload = function () {
+  startClustering(map, airports);
+}
