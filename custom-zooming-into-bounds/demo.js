@@ -44,6 +44,7 @@ function setUpCustomZooming(map) {
     var maxZoom = target.getData().maxZoom;
     // get the shape's bounding box and adjust the camera position
     map.getViewModel().setLookAtData({
+      zoom: maxZoom,
       bounds: target.getBoundingBox()
     });
   });

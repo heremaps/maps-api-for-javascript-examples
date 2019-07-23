@@ -24,9 +24,8 @@
       but with different maximum zoom levels, depending on the circle size.</p>
     <div id="map"></div>
     <h3>Code</h3>
-    <p>Instead of using <code>setViewBounds</code> method to zoom into circle's bounds, we are using 
-      <code>getCameraDataForBounds</code> to compute the best zoom level and map centre for the bounds 
-      and then perform a custom processing on it to limit maximum zoom level.</p>
+    <p>We are using the <code>getBoundingBox</code> to retrieve object's bounds and then set it to the <code>H.map.ViewModel</code>
+      to achieve the best zoom level and map centre,  and then perform a custom processing on it to limit maximum zoom level.</p>
     <script type="text/javascript" src='demo.js'></script>
   </body>
 </html>
