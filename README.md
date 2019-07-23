@@ -10,7 +10,7 @@ See the [LICENSE](LICENSE) file in the root of this project for license details.
 
 ## Maps API for JavaScript
 
-All of the following examples use **version 3** of the API
+All of the following examples use **version 3.1** of the API
 
 * [Adding an Overlay to the Map](https://heremaps.github.io/maps-api-for-javascript-examples/custom-tile-overlay/demo.html) - Display custom map tiles as an overlay
 * [Calculating a Location from a Mouse Click](https://heremaps.github.io/maps-api-for-javascript-examples/position-on-mouse-click/demo.html) - Obtain the latitude and longitude of a location within the map
@@ -19,7 +19,9 @@ All of the following examples use **version 3** of the API
 * [DOM Marker](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-dom-marker/demo.html) - Display a marker that is capable of receiving DOM events
 * [Display KML Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-kml-on-map/demo.html) - Parse a KML file and display the data on a map
 * [Draggable Marker](https://heremaps.github.io/maps-api-for-javascript-examples/draggable-marker/demo.html) - Display a moveable marker on a map
+* [Extruded geoshapes](https://heremaps.github.io/maps-api-for-javascript-examples/extruded-objects/demo.html) - 3D extrusion of the geo shapes
 * [Finding the Nearest Marker](https://heremaps.github.io/maps-api-for-javascript-examples/finding-the-nearest-marker/demo.html) - Find a marker nearest to the click location
+* [Image overlay](https://heremaps.github.io/maps-api-for-javascript-examples/image-overlay/demo.html) - Display an animated weather radar
 * [Map Objects Event Delegation](https://heremaps.github.io/maps-api-for-javascript-examples/map-objects-event-delegation/demo.html) - Use event delegation on map objects
 * [Map Objects Events](https://heremaps.github.io/maps-api-for-javascript-examples/map-object-events-displayed/demo.html) - Handle events on various map objects
 * [Map at a specified location](https://heremaps.github.io/maps-api-for-javascript-examples/map-at-specified-location/demo.html) - Display a map at a specified location and zoom level
@@ -43,6 +45,7 @@ All of the following examples use **version 3** of the API
 * [Search for a Location based on an Address](https://heremaps.github.io/maps-api-for-javascript-examples/geocode-a-location-from-address/demo.html) - Request a location using a free-form text input and display it on the map.
 * [Search for a Location given a Structured Address](https://heremaps.github.io/maps-api-for-javascript-examples/geocode-a-location-from-structured-address/demo.html) - Request a location from a structured address and display it on the map.
 * [Search for the Address of a Known Location](https://heremaps.github.io/maps-api-for-javascript-examples/reverse-geocode-an-address-from-location/demo.html) - Request address details for a given location and display it on the map.
+* [Set a map style at the load time](https://heremaps.github.io/maps-api-for-javascript-examples/change-style-at-load/demo.html) - Set a style of the whole map during the map instantiation
 * [Synchronising Two Maps](https://heremaps.github.io/maps-api-for-javascript-examples/synchronising-two-maps/demo.html) - Synchronise a static map with an interactive map
 * [Take a Snapshot of the Map](https://heremaps.github.io/maps-api-for-javascript-examples/capture-map-area/demo.html) - Capture an area on the map
 * [Zoom into Bounds](https://heremaps.github.io/maps-api-for-javascript-examples/custom-zooming-into-bounds/demo.html) - Zoom into bounds limiting maximum level
