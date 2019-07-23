@@ -30,6 +30,12 @@
                             "published": true
                         },
                         {
+                            "uid": "change-style-at-load",
+                            "title": "Set a map style at the load time", 
+                            "shortDescription": "Set a style of the whole map during the map instantiation",
+                            "published": true
+                        },
+                        {
                             "uid": "interactive-basemap",
                             "title": "Interactive base map", 
                             "shortDescription": "Retrieve information associated with the map features",
