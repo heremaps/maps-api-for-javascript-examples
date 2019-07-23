@@ -117,19 +117,6 @@ var photos = [
   "fullurl": "//upload.wikimedia.org/wikipedia/commons/thumb/8/89/Aarhus_R%C3%A5dhus_t%C3%A5rn.jpg/300px-Aarhus_R%C3%A5dhus_t%C3%A5rn.jpg"
   },
   {
-  "url": "//commons.wikimedia.org/wiki/File:Ajanta_Cave_16.JPG",
-  "thumbnail": "//upload.wikimedia.org/wikipedia/commons/thumb/6/68/Ajanta_Cave_16.JPG/120px-Ajanta_Cave_16.JPG",
-  "width": 120,
-  "height": 78,
-  "title": "File:Ajanta Cave 16.JPG",
-  "license": null,
-  "latitude": 19.86175,
-  "longitude": 75.35348611111111,
-  "pageid": "25862598",
-  "fullurl": "//upload.wikimedia.org/wikipedia/commons/thumb/6/68/Ajanta_Cave_16.JPG/300px-Ajanta_Cave_16.JPG",
-  "author": "Dey.sandip"
-  },
-  {
   "url": "//commons.wikimedia.org/wiki/File:Alamo_pano.jpg",
   "thumbnail": "//upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Alamo_pano.jpg/120px-Alamo_pano.jpg",
   "width": 120,
@@ -362,19 +349,6 @@ var photos = [
   "longitude": 4.391369444444445,
   "pageid": "20053078",
   "fullurl": "//upload.wikimedia.org/wikipedia/commons/thumb/5/54/Brussels_Cinquantenaire_R03.jpg/300px-Brussels_Cinquantenaire_R03.jpg"
-  },
-  {
-  "url": "//commons.wikimedia.org/wiki/File:Burg-Anholt-Ostfassade-2012.jpg",
-  "thumbnail": "//upload.wikimedia.org/wikipedia/commons/thumb/1/17/Burg-Anholt-Ostfassade-2012.jpg/120px-Burg-Anholt-Ostfassade-2012.jpg",
-  "width": 120,
-  "height": 81,
-  "title": "File:Burg-Anholt-Ostfassade-2012.jpg",
-  "author": "Tuxyso",
-  "license": null,
-  "latitude": 51.844775000000006,
-  "longitude": 6.42562,
-  "pageid": "20473008",
-  "fullurl": "//upload.wikimedia.org/wikipedia/commons/thumb/1/17/Burg-Anholt-Ostfassade-2012.jpg/300px-Burg-Anholt-Ostfassade-2012.jpg"
   },
   {
   "url": "//commons.wikimedia.org/wiki/File:Burg-Vondern-Westen-vom-Weg-2013.jpg",
@@ -856,19 +830,6 @@ var photos = [
   "pageid": "23300957",
   "fullurl": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Krishna_Pushkarani_-_Hampi_Ruins.jpg/300px-Krishna_Pushkarani_-_Hampi_Ruins.jpg",
   "author": "Dey.sandip"
-  },
-  {
-  "url": "//commons.wikimedia.org/wiki/File:Laeken_Se1aJPG.jpg",
-  "thumbnail": "//upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Laeken_Se1aJPG.jpg/120px-Laeken_Se1aJPG.jpg",
-  "width": 120,
-  "height": 80,
-  "title": "File:Laeken Se1aJPG.jpg",
-  "license": null,
-  "latitude": 50.888305555555554,
-  "longitude": 4.3603555555555555,
-  "pageid": "2181461",
-  "fullurl": "//upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Laeken_Se1aJPG.jpg/300px-Laeken_Se1aJPG.jpg",
-  "author": "Jean-Pol GRANDMONT"
   },
   {
   "url": "//commons.wikimedia.org/wiki/File:Laufener_H%C3%BCtte_(Juni_2012).JPG",

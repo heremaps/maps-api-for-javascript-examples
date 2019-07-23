@@ -114,7 +114,7 @@ function getRandomDataPoint(cluster) {
  */
 function onMarkerClick(e) {
   // Get position of the "clicked" marker
-  var position = e.target.getPosition(),
+  var position = e.target.getGeometry(),
     // Get the data associated with that marker
     data = e.target.getData(),
     // Merge default template with the data and get HTML
@@ -183,7 +183,7 @@ function getBubbleContent(data) {
           data.author, '</a>'].join(''):'',
         '<hr/>',
         '<a class="bubble-footer" href="//commons.wikimedia.org/" target="_blank">',
-          '<img class="bubble-logo" src="img/wikimedia-logo.png" />',
+          '<img class="bubble-logo" src="data/wikimedia-logo.png" width="20" height="20" />',
           '<span class="bubble-desc">',
           'Photos provided by Wikimedia Commons are <br/>under the copyright of their owners.',
           '</span>',
