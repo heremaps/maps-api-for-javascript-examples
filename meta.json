@@ -181,6 +181,12 @@
                             "published": true
                         },
                         {
+                            "uid": "extruded-objects",
+                            "title": "Extruded geoshapes", 
+                            "shortDescription": "Display a map with the 3D extruded object",
+                            "published": true
+                        },
+                        {
                             "uid": "polygon-on-the-map",
                             "title": "Polygon on the Map", 
                             "shortDescription": "Display a map highlighting a region or area",
