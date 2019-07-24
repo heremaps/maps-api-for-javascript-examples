@@ -13,109 +13,109 @@
                 "keywords": "Maps API for JavaScript, API Explorer, Playground, JS Examples"
             },
             "sub-categories": [
-                { 
+                {
                     "uid": "maps",
                     "title": "Maps",
                     "examples": [
                         {
                             "uid": "map-at-specified-location",
-                            "title": "Map at a specified location", 
+                            "title": "Map at a specified location",
                             "shortDescription": "Display a map at a specified location and zoom level",
                             "published": true
                         },
                         {
                             "uid": "change-style-at-runtime",
-                            "title": "Change map style at runtime", 
+                            "title": "Change map style at runtime",
                             "shortDescription": "Change a style of the map feature when map is instantiated",
                             "published": true
                         },
                         {
                             "uid": "change-style-at-load",
-                            "title": "Set a map style at the load time", 
+                            "title": "Set a map style at the load time",
                             "shortDescription": "Set a style of the whole map during the map instantiation",
                             "published": true
                         },
                         {
                             "uid": "interactive-basemap",
-                            "title": "Interactive base map", 
+                            "title": "Interactive base map",
                             "shortDescription": "Retrieve information associated with the map features",
                             "published": true
                         },
                         {
                             "uid": "tilted-map-bounds",
-                            "title": "View bounds of the tilted map", 
+                            "title": "View bounds of the tilted map",
                             "shortDescription": "Visualize the visible area of the tilted and rotated map",
                             "published": true
                         },
                         {
                             "uid": "map-using-view-bounds",
-                            "title": "Map using View Bounds", 
+                            "title": "Map using View Bounds",
                             "shortDescription": "Display a map of a given area",
                             "published": true
                         },
                         {
                             "uid": "map-multi-language-support",
-                            "title": "Multi-language support", 
+                            "title": "Multi-language support",
                             "shortDescription": "Display a map with labels in a foreign language",
                             "published": false
                         },
                         {
                             "uid": "map-scale-bar-changing-from-the-metric-system",
-                            "title": "Changing from the Metric System", 
+                            "title": "Changing from the Metric System",
                             "shortDescription": "Display a map including a scale bar in miles or yards",
                             "published": true
                         },
                         {
                             "uid": "panning-the-map",
-                            "title": "Panning the Map", 
+                            "title": "Panning the Map",
                             "shortDescription": "Programmatically pan the map so that it is continually in motion",
                             "published": false
                         },
                         {
                             "uid": "restrict-map",
-                            "title": "Restrict Map Movement", 
+                            "title": "Restrict Map Movement",
                             "shortDescription": "Restrict a moveable map to a given rectangular area",
                             "published": true
                         },
                         {
                             "uid": "custom-zooming-into-bounds",
-                            "title": "Zoom into Bounds", 
+                            "title": "Zoom into Bounds",
                             "shortDescription": "Zoom into bounds limiting maximum level",
                             "published": true
                         },
                         {
                             "uid": "capture-map-area",
-                            "title": "Take a Snapshot of the Map", 
+                            "title": "Take a Snapshot of the Map",
                             "shortDescription": "Capture an area on the map",
                             "published": true
                         },
                         {
                             "uid": "synchronising-two-maps",
-                            "title": "Synchronising Two Maps", 
+                            "title": "Synchronising Two Maps",
                             "shortDescription": "This example shows two maps. The upper map allows for moving and zooming. The lower map observes the upper map's zoom level and position and adopts these values every time the upper map changes.",
                             "published": true
-                        },    
+                        },
                         {
                             "uid": "display-kml-on-map",
-                            "title": "Display KML Data", 
+                            "title": "Display KML Data",
                             "shortDescription": "Parse a KML file and display the data on a map.",
                             "published": true
-                        },  
+                        },
                         {
                             "uid": "custom-tile-overlay",
-                            "title": "Adding a tile overlay to the Map", 
+                            "title": "Adding a tile overlay to the Map",
                             "shortDescription": "This example displays a movable map initially centered on the historical centre of <b>Berlin</b> (<i>52.515, °N, 13.405°E</i>) with an overlay of a historical map from 1789 on top of the base map. A public domain image was used as a source, and split it into individual map tiles. Additional tiles are only downloaded when the zoom level or location changes.",
                             "published": true
                         },
                         {
                             "uid": "position-on-mouse-click",
-                            "title": "Calculating a Location from a Mouse Click", 
+                            "title": "Calculating a Location from a Mouse Click",
                             "shortDescription": "Obtain the latitude and longitude of a location within the map",
                             "published": true
                         },
                         {
                             "uid": "example-template",
-                            "title": "Example Template", 
+                            "title": "Example Template",
                             "shortDescription": "Capture an area on the map",
                             "published": false
                         }
@@ -128,43 +128,43 @@
                     "examples": [
                         {
                             "uid": "markers-on-the-map",
-                            "title": "Marker on the Map", 
+                            "title": "Marker on the Map",
                             "shortDescription": "Display a map highlighting points of interest",
                             "published": true
                         },
                         {
                             "uid": "map-with-dom-marker",
-                            "title": "DOM Marker", 
+                            "title": "DOM Marker",
                             "shortDescription": "Display a marker that is capable of receiving DOM events",
                             "published": true
                         },
                         {
                             "uid": "map-with-svg-graphic-markers",
-                            "title": "SVG Graphic Markers", 
+                            "title": "SVG Graphic Markers",
                             "shortDescription": "Display a map with custom SVG markers",
                             "published": true
                         },
                         {
                             "uid": "finding-the-nearest-marker",
-                            "title": "Finding the Nearest Marker", 
+                            "title": "Finding the Nearest Marker",
                             "shortDescription": "Find a marker nearest to the click location",
                             "published": true
                         },
                         {
                             "uid": "ordering-overlapping-markers",
-                            "title": "Ordering Overlapping Markers", 
+                            "title": "Ordering Overlapping Markers",
                             "shortDescription": "Arrange the order in which a series of map objects are displayed",
                             "published": false
                         },
                         {
                             "uid": "zoom-to-set-of-markers",
-                            "title": "Zooming to a Set of Markers", 
+                            "title": "Zooming to a Set of Markers",
                             "shortDescription": "Alter the viewport to ensure a group of objects are visible",
                             "published": true
                         },
                         {
                             "uid": "draggable-marker",
-                            "title": "Draggable Marker", 
+                            "title": "Draggable Marker",
                             "shortDescription": "Display a moveable marker on a map",
                             "published": true
                         }
@@ -176,43 +176,43 @@
                     "examples": [
                         {
                             "uid": "polyline-on-the-map",
-                            "title": "Polyline on the Map", 
+                            "title": "Polyline on the Map",
                             "shortDescription": "Display a map with a line showing a known route",
                             "published": true
                         },
                         {
                             "uid": "extruded-objects",
-                            "title": "Extruded geoshapes", 
+                            "title": "Extruded geoshapes",
                             "shortDescription": "Display a map with the 3D extruded object",
                             "published": true
                         },
                         {
                             "uid": "polygon-on-the-map",
-                            "title": "Polygon on the Map", 
+                            "title": "Polygon on the Map",
                             "shortDescription": "Display a map highlighting a region or area",
                             "published": true
                         },
                         {
                             "uid": "polygon-with-holes-on-the-map",
-                            "title": "Polygon with Holes on the Map", 
+                            "title": "Polygon with Holes on the Map",
                             "shortDescription": "Display a map highlighting a region or area",
                             "published": true
                         },
                         {
                             "uid": "circle-on-the-map",
-                            "title": "Circle on the Map", 
+                            "title": "Circle on the Map",
                             "shortDescription": "Display a map highlighting a circular region",
                             "published": true
                         },
                         {
                             "uid": "rectangle-on-the-map",
-                            "title": "Rectangle on the map", 
+                            "title": "Rectangle on the map",
                             "shortDescription": "Display a map highlighting a retangular region or area",
                             "published": true
                         },
                         {
                             "uid": "image-overlay",
-                            "title": "Image overlay", 
+                            "title": "Image overlay",
                             "shortDescription": "Display an animated weather radar",
                             "published": true
                         },
@@ -224,15 +224,15 @@
                     "examples": [
                         {
                             "uid": "marker-clustering",
-                            "title": "Marker Clustering", 
+                            "title": "Marker Clustering",
                             "shortDescription": "Cluster multiple markers together to better visualize the data",
                             "published": true
                         },
                         {
                             "uid": "custom-cluster-theme",
-                            "title": "Marker Clustering with Custom Theme", 
+                            "title": "Marker Clustering with Custom Theme",
                             "shortDescription": "Cluster multiple markers and customize the theme",
-                            "published": false
+                            "published": true
                         }
                     ]
                 },
@@ -242,13 +242,13 @@
                     "examples": [
                         {
                             "uid": "map-object-events-displayed",
-                            "title": "Map Objects Events", 
+                            "title": "Map Objects Events",
                             "shortDescription": "Handle events on various map objects",
                             "published": true
                         },
                         {
                             "uid": "map-objects-event-delegation",
-                            "title": "Map Objects Event Delegation", 
+                            "title": "Map Objects Event Delegation",
                             "shortDescription": "Use event delegation on map objects",
                             "published": true
                         }
@@ -260,7 +260,7 @@
                     "examples": [
                         {
                             "uid": "open-infobubble",
-                            "title": "Opening an Infobubble on a Mouse Click", 
+                            "title": "Opening an Infobubble on a Mouse Click",
                             "shortDescription": "Open an infobubble when a marker is clicked",
                             "published": true
                         }
@@ -272,43 +272,43 @@
                     "examples": [
                         {
                             "uid": "map-with-route-from-a-to-b",
-                            "title": "Map with Driving Route from A to B", 
+                            "title": "Map with Driving Route from A to B",
                             "shortDescription": "Request a driving route from A to B and display it on the map",
                             "published": true
                         },
                         {
                             "uid": "map-with-pedestrian-route-from-a-to-b",
-                            "title": "Map with Pedestrian Route from A to B", 
+                            "title": "Map with Pedestrian Route from A to B",
                             "shortDescription": "Request a walking route from A to B and display it on the map",
                             "published": true
                         },
                         {
                             "uid": "map-with-route-from-a-to-b-using-public-transport",
-                            "title": "Map with Route from A to B using Public Transport", 
+                            "title": "Map with Route from A to B using Public Transport",
                             "shortDescription": "Request a route from A to B using public transport and display it on the map",
                             "published": true
                         },
                         {
                             "uid": "geocode-a-location-from-address",
-                            "title": "Search for a Location based on an Address", 
+                            "title": "Search for a Location based on an Address",
                             "shortDescription": "Request a location using a free-form text input and display it on the map",
                             "published": true
                         },
                         {
                             "uid": "geocode-a-location-from-structured-address",
-                            "title": "Search for a Location given a Structured Address", 
+                            "title": "Search for a Location given a Structured Address",
                             "shortDescription": "Request a location from a structured address and display it on the map",
                             "published": true
                         },
                         {
                             "uid": "reverse-geocode-an-address-from-location",
-                            "title": "Search for the Address of a Known Location", 
+                            "title": "Search for the Address of a Known Location",
                             "shortDescription": "Request address details for a given location and display it on the map",
                             "published": true
                         },
                         {
                             "uid": "search-for-landmark",
-                            "title": "Search for a Landmark", 
+                            "title": "Search for a Landmark",
                             "shortDescription": "Request the location of a landmark and display it on the map",
                             "published": true
                         }
@@ -320,20 +320,20 @@
                     "examples": [
                         {
                             "uid": "search-match-fts",
-                            "title": "Data Matching with the Advanced Data Sets", 
+                            "title": "Data Matching with the Advanced Data Sets",
                             "shortDescription": "Match routing result with the Advanced Data Sets data",
                             "published": true
                         },
                         {
                             "uid": "postcodes-jsla-fts",
-                            "title": "Map with postcodes from the Advanced Data Sets", 
+                            "title": "Map with postcodes from the Advanced Data Sets",
                             "shortDescription": "Display a map with the Advanced Data Sets postcode boundaries overlay",
                             "published": true
                         }
                     ]
                 }
             ]
-            
+
         }
     }
 }

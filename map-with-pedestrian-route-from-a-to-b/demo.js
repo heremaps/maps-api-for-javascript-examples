@@ -171,9 +171,9 @@ function addManueversToMap(route){
   }
 
   group.addEventListener('tap', function (evt) {
-    map.setCenter(evt.target.getPosition());
+    map.setCenter(evt.target.getGeometry());
     openBubble(
-       evt.target.getPosition(), evt.target.instruction);
+       evt.target.getGeometry(), evt.target.instruction);
   }, false);
 
   // Add the maneuvers group to the map
