@@ -18,10 +18,14 @@ function addDraggableMarker(map, behavior){
   map.addObject(marker);
 
   // disable the default draggability of the underlying map
+  // and calculate the offset between mouse and target's position
   // when starting to drag a marker object:
   map.addEventListener('dragstart', function(ev) {
-    var target = ev.target;
+    var target = ev.target,
+        pointer = ev.currentPointer;
     if (target instanceof H.map.Marker) {
+      var targetPosition = map.geoToScreen(target.getGeometry());
+      target['offset'] = new H.math.Point(pointer.viewportX - targetPosition.x, pointer.viewportY - targetPosition.y);
       behavior.disable();
     }
   }, false);
@@ -42,7 +46,7 @@ function addDraggableMarker(map, behavior){
     var target = ev.target,
         pointer = ev.currentPointer;
     if (target instanceof H.map.Marker) {
-      target.setGeometry(map.screenToGeo(pointer.viewportX, pointer.viewportY));
+      target.setGeometry(map.screenToGeo(pointer.viewportX - target['offset'].x, pointer.viewportY - target['offset'].y));
     }
   }, false);
 }
@@ -60,7 +64,7 @@ var defaultLayers = platform.createDefaultLayers();
 
 //Step 2: initialize a map - this map is centered over Boston
 var map = new H.Map(document.getElementById('map'),
-  defaultLayers.vector.normal.map,{
+  defaultLayers.vector.normal.map, {
   center: {lat:42.35805, lng:-71.0636},
   zoom: 12,
   pixelRatio: window.devicePixelRatio || 1

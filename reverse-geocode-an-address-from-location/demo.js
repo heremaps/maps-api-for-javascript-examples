@@ -172,9 +172,9 @@ function addLocationsToMap(locations){
   }
 
   group.addEventListener('tap', function (evt) {
-    map.setCenter(evt.target.getPosition());
+    map.setCenter(evt.target.getGeometry());
     openBubble(
-       evt.target.getPosition(), evt.target.label);
+       evt.target.getGeometry(), evt.target.label);
   }, false);
 
   // Add the locations group to the map
