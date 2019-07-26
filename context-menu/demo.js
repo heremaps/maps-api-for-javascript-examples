@@ -9,6 +9,12 @@
 function addContextMenus(map) {
   // First we need to subscribe to the "contextmenu" event on the map
   map.addEventListener('contextmenu', function (e) {
+    // As we already handle contextmenu event callback on circle object,
+    // we don't do anything if target is different than the map.
+    if (e.target !== map) {
+      return;
+    }
+
     // "contextmenu" event might be triggered not only by a pointer,
     // but a keyboard button as well. That's why ContextMenuEvent
     // doesn't have a "currentPointer" property.
@@ -73,8 +79,7 @@ function addCircle(coord) {
         callback: function() {
           map.removeObject(circle);
         }
-      }),
-      H.util.ContextItem.SEPARATOR
+      })
     );
   });
 

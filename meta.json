@@ -57,7 +57,7 @@
                             "uid": "map-multi-language-support",
                             "title": "Multi-language support",
                             "shortDescription": "Display a map with labels in a foreign language",
-                            "published": false
+                            "published": true
                         },
                         {
                             "uid": "map-scale-bar-changing-from-the-metric-system",
@@ -250,6 +250,12 @@
                             "uid": "map-objects-event-delegation",
                             "title": "Map Objects Event Delegation",
                             "shortDescription": "Use event delegation on map objects",
+                            "published": true
+                        },
+                        {
+                            "uid": "context-menu",
+                            "title": "Context menu",
+                            "shortDescription": "Add a context menu to map and map object",
                             "published": true
                         }
                     ]
