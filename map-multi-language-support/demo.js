@@ -1,4 +1,4 @@
-    
+
 /**
  * Switches the map language to simplified Chinese
  *
@@ -6,18 +6,12 @@
  * @pama   {H.service.Platform} platform    A stub class to access HERE services
  */
 function switchMapLanguage(map, platform){
-  var mapTileService = platform.getMapTileService({
-      type: 'base'
-    }),
-    // Our layer will load tiles from the HERE Map Tile API
-    chineseMapLayer = mapTileService.createTileLayer(
-      'maptile',
-      'normal.day',
-      pixelRatio === 1 ? 256 : 512,
-      'png8',
-      {lg: 'CHI', ppi: pixelRatio === 1 ? undefined : 320}
-    );
-  map.setBaseLayer(chineseMapLayer);
+  // Create default layers
+  let defaultLayers = platform.createDefaultLayers({
+    lg: 'zh'
+  });
+  // Set the normal map variant of the vector map type
+  map.setBaseLayer(defaultLayers.vector.normal.map);
 
   // Display default UI components on the map and change default
   // language to simplified Chinese.
