@@ -9,7 +9,8 @@ function setStyle(map){
   // First argument is the style path and the second is the base URL to use for
   // resolving relative URLs in the style like textures, fonts.
   // all referenced resources relative to the base path https://js.api.here.com/v3/3.1/styles/omv.
-  var style = new H.map.Style('./data/dark.yaml', 'https://js.api.here.com/v3/3.1/styles/omv/');
+  var style = new H.map.Style('https://heremaps.github.io/maps-api-for-javascript-examples/change-style-at-load/data/dark.yaml',
+    'https://js.api.here.com/v3/3.1/styles/omv/');
   // set the style on the existing layer
   provider.setStyle(style);
 }

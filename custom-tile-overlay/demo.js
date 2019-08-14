@@ -18,12 +18,12 @@ function overlayHistoricalBerlin(map) {
         ((zoom == 13) &&  (row < 2686 || column < 4400 || row > 2687 || column > 4401)) ||
         ((zoom == 14) && (row < 5372 || column < 8800 || row > 5375 || column > 8803)) ||
         ((zoom  == 15) && (row < 10744 || column < 17601 || row > 10750 || column > 17607))) {
-        return './tiles/blank.png';
+        return 'https://heremaps.github.io/maps-api-for-javascript-examples/custom-tile-overlay/tiles/blank.png';
       } else {
         // The Old Berlin Map Tiler follows the TMS URL specification.
         // By specification, tiles should be accessible in the following format:
         // http://server_address/zoom_level/x/y.png
-        return './tiles/'+ zoom+ '/'+ row + '/'+ column+ '.png';
+        return 'https://heremaps.github.io/maps-api-for-javascript-examples/custom-tile-overlay/tiles/'+ zoom+ '/'+ row + '/'+ column+ '.png';
       }
     }
   });

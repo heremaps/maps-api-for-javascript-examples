@@ -8,7 +8,7 @@
  */
 function renderKML(map) {
   // Create a reader object passing in the URL of our KML file
-  reader = new H.data.kml.Reader('./data/us-states.kml');
+  reader = new H.data.kml.Reader('https://heremaps.github.io/maps-api-for-javascript-examples/display-kml-on-map/data/us-states.kml');
   reader.addEventListener("statechange", function(evt){
     if (evt.state === H.data.AbstractReader.State.READY) {
       // Get KML layer from the reader object and add it to the map

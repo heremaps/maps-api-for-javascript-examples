@@ -61,7 +61,7 @@ var rainRadar = [];
   for (; i <= 10; i++) {
     img = new Image();
     img.crossOrigin = 'anonymous';
-    img.src = './data/' + i + '.png';
+    img.src = 'https://heremaps.github.io/maps-api-for-javascript-examples/image-overlay/data/' + i + '.png';
     rainRadar.push(img);
   }
 }());
