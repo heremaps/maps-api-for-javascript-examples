@@ -1,6 +1,6 @@
 # Maps API for JavaScript
 
-This repository holds a series of JavaScript based examples using the **HERE Maps API for JavaScript**. More information about the API can be found on [developer.here.com](https://developer.here.com/javascript-apis/) under the JavaScript APIs section.
+This repository holds a series of JavaScript based examples using the **HERE Maps API for JavaScript**. More information about the API can be found on [developer.here.com](https://developer.here.com/develop/javascript-api) under the JavaScript APIs section.
 
 > **Note:** In order to get the sample code to work, you **must** replace all instances of `window.apikey` within the code and use your own **HERE** credentials.
 
