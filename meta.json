@@ -24,24 +24,6 @@
                             "published": true
                         },
                         {
-                            "uid": "change-style-at-runtime",
-                            "title": "Change map style at runtime",
-                            "shortDescription": "Change a style of the map feature when map is instantiated",
-                            "published": true
-                        },
-                        {
-                            "uid": "change-style-at-load",
-                            "title": "Set a map style at the load time",
-                            "shortDescription": "Set a style of the whole map during the map instantiation",
-                            "published": true
-                        },
-                        {
-                            "uid": "interactive-basemap",
-                            "title": "Interactive base map",
-                            "shortDescription": "Retrieve information associated with the map features",
-                            "published": true
-                        },
-                        {
                             "uid": "tilted-map-bounds",
                             "title": "View bounds of the tilted map",
                             "shortDescription": "Visualize the visible area of the tilted and rotated map",
@@ -120,6 +102,36 @@
                             "published": false
                         }
 
+                    ]
+                },
+                {
+                    "uid": "styles",
+                    "title": "Styles and Layers",
+                    "examples": [
+                        {
+                            "uid": "change-style-at-runtime",
+                            "title": "Change map style at runtime",
+                            "shortDescription": "Change a style of the map feature when map is instantiated",
+                            "published": true
+                        },
+                        {
+                            "uid": "change-style-at-load",
+                            "title": "Set a map style at the load time",
+                            "shortDescription": "Set a style of the whole map during the map instantiation",
+                            "published": true
+                        },
+                        {
+                            "uid": "interactive-basemap",
+                            "title": "Interactive base map",
+                            "shortDescription": "Retrieve information associated with the map features",
+                            "published": true
+                        },
+                        {
+                            "uid": "interleave-layers",
+                            "title": "Interleave vector and object layers",
+                            "shortDescription": "Insert an object layer between the two vector layers",
+                            "published": true
+                        }
                     ]
                 },
                 {

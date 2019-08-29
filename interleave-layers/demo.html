@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Interleave vector and object layers</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+    <div class="page-header">
+        <h1>Interleave vector and object layers</h1>
+        <p>Insert an object layer between the two vector layers</p>
+    </div>
+    <p>This example shows how to interleave an object layer and the vector layer. It is possible to do it dynamically during the map runtime.
+      The map is loaded with the deefault vector layer, after that the layer is split into two and the new object layer is inserted between them.
+    </p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>The code below extracts the <code>buildings</code> configuration from the base layer. After that it creates a new <code>object</code> and <code>vector</code> layers
+      that are added sequentially to the map's layer collection. The layers are rendered in the order they are added and the default object layer remained
+      on top of the layers collection.
+    </p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>
