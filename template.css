@@ -220,16 +220,18 @@ code a:hover{
     color:#00c9ff;
     text-decoration:underline
 }
-a.highlight-link{
-    font-weight:500;
-    color:#00afaa
+a,a span{
+    font-weight:400;
+    color: #77a0e7;
+    cursor: pointer;
 }
-a.highlight-link:hover{
-    color:#00908a
+a:hover,a span:hover{
+    color: #3d73d0;
 }
-a.highlight-link span{
-    color:#00afaa
+a:hover,a span:hover{
+    color: #3d73d0;
 }
+
 .token.comment a.highlight-link{
     color:slategrey;
     font-weight:500
