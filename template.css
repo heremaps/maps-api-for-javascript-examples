@@ -195,12 +195,7 @@ code{
 code[class*="language-"],pre[class*="language-"]{
     font-weight:inherit;
 }
-code a{
-    text-decoration:underline;
-}
-code a:hover{
-    text-decoration:underline;
-}
+
 a,a span{
     font-weight:400;
     color: #77a0e7;
