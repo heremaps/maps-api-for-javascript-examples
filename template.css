@@ -200,6 +200,7 @@ a,a span{
     font-weight:400;
     color: #77a0e7;
     cursor: pointer;
+    text-decoration: none;
 }
 a:hover,a span:hover{
     color: #3d73d0;
