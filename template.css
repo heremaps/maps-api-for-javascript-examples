@@ -1,4 +1,24 @@
-@font-face{font-family:'Fira Sans';src:url("fonts/FiraSans-Light.eot");src:local("Fira Sans Light"),url("fonts/FiraSans-Light.eot") format("embedded-opentype"),url("fonts/FiraSans-Light.woff") format("woff"),url("fonts/FiraSans-Light.ttf") format("truetype");}
+@font-face{
+    font-family:'Fira Sans';
+    src:
+    local("Fira Sans Light"),
+    url("fonts/FiraSans-Light.eot") format("embedded-opentype"),
+    url("fonts/FiraSans-Light.woff") format("woff2"),
+    url("fonts/FiraSans-Light.ttf") format("truetype"),
+    url("fonts/FiraSansOT-Light.otf") format("opentype"),
+    ;
+}
+
+@font-face{
+    font-family:'Fira Mono';
+    src:
+    local("Fira Mono Regular"),
+    url("fonts/FiraMono-Regular.eot") format("embedded-opentype"),
+    url("fonts/FiraMono-Regular.woff") format("woff"),
+    url("fonts/FiraMono-Regular.woff2") format("woff"),
+    url("fonts/FiraMono-Regular.ttf") format("truetype");
+}
+
 .nomargin{
     margin:0;
 }
@@ -187,8 +207,8 @@ h3,h4{
     border-bottom:1px solid #e4e6e9;
 }
 code{
-    font-family:Courier, monospace;
-    color:#3f59a7;
+    font-family: 'Fira Mono', Courier, monospace;
+    color: black;
     font-weight:500;
     background-color:transparent;
 }
