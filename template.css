@@ -19,6 +19,15 @@
     url("fonts/FiraMono-Regular.ttf") format("truetype");
 }
 
+body {
+    font-family:'Fira Sans', "Lucida Grande",Tahoma,sans-serif;
+    color: #0f1621;
+    background-color: transparent;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 300;
+}
+
 .nomargin{
     margin:0;
 }
@@ -437,13 +446,6 @@ strong{
     word-break:break-all;
 }
 
-body {
-    font-family:'Fira Sans', "Lucida Grande",Tahoma,sans-serif;
-    color: #0f1621;
-    background-color: transparent;
-    font-size: 15px;
-    line-height: 22px;
-}
 b, strong {
     color: black;
 }
