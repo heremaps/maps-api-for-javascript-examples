@@ -53,5 +53,5 @@ var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 
-// Now use the map as required...
+// Add Polygon with holes to the map
 addPolygonToMap(map);
