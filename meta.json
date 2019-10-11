@@ -90,12 +90,6 @@
                             "published": true
                         },
                         {
-                            "uid": "position-on-mouse-click",
-                            "title": "Calculating a Location from a Mouse Click",
-                            "shortDescription": "Obtain the latitude and longitude of a location within the map",
-                            "published": true
-                        },
-                        {
                             "uid": "example-template",
                             "title": "Example Template",
                             "shortDescription": "Capture an area on the map",
@@ -193,12 +187,6 @@
                             "published": true
                         },
                         {
-                            "uid": "extruded-objects",
-                            "title": "Extruded geoshapes",
-                            "shortDescription": "Display a map with the 3D extruded object",
-                            "published": true
-                        },
-                        {
                             "uid": "polygon-on-the-map",
                             "title": "Polygon on the Map",
                             "shortDescription": "Display a map highlighting a region or area",
@@ -218,7 +206,7 @@
                         },
                         {
                             "uid": "rectangle-on-the-map",
-                            "title": "Rectangle on the map",
+                            "title": "Rectangle on the Map",
                             "shortDescription": "Display a map highlighting a retangular region or area",
                             "published": true
                         },
@@ -226,6 +214,48 @@
                             "uid": "image-overlay",
                             "title": "Image overlay",
                             "shortDescription": "Display an animated weather radar",
+                            "published": true
+                        },
+                        {
+                            "uid": "extruded-objects",
+                            "title": "Extruded geoshapes",
+                            "shortDescription": "Display a map with the 3D extruded object",
+                            "published": true
+                        },
+                        {
+                            "uid": "draggable-shapes",
+                            "title": "Draggable geoshapes",
+                            "shortDescription": "Display geoshapes which can be moved around the map",
+                            "published": true
+                        }
+                    ]
+                },
+                {
+                    "uid": "resizable-geoshapes",
+                    "title": "Resizable Geoshapes",
+                    "examples": [
+                        {
+                            "uid": "resizable-polyline",
+                            "title": "Resizable Polyline",
+                            "shortDescription": "Display resizable polyline on a map",
+                            "published": true
+                        },
+                        {
+                            "uid": "resizable-polygon",
+                            "title": "Resizable Polygon",
+                            "shortDescription": "Display resizable polygon on a map",
+                            "published": true
+                        },
+                        {
+                            "uid": "resizable-circle",
+                            "title": "Resizable Circle",
+                            "shortDescription": "Display resizable circle on a map",
+                            "published": true
+                        },
+                        {
+                            "uid": "resizable-rect",
+                            "title": "Resizable Rectangle",
+                            "shortDescription": "Display resizable rectangle on a map",
                             "published": true
                         }
                     ]
@@ -252,6 +282,12 @@
                     "uid": "events",
                     "title": "Events",
                     "examples": [
+                        {
+                            "uid": "position-on-mouse-click",
+                            "title": "Calculating a Location from a Mouse Click",
+                            "shortDescription": "Obtain the latitude and longitude of a location within the map",
+                            "published": true
+                        },
                         {
                             "uid": "map-object-events-displayed",
                             "title": "Map Objects Events",

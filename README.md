@@ -19,7 +19,8 @@ All of the following examples use **version 3.1** of the API
 * [DOM Marker](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-dom-marker/demo.html) - Display a marker that is capable of receiving DOM events
 * [Display KML Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-kml-on-map/demo.html) - Parse a KML file and display the data on a map
 * [Draggable Marker](https://heremaps.github.io/maps-api-for-javascript-examples/draggable-marker/demo.html) - Display a moveable marker on a map
-* [Extruded geoshapes](https://heremaps.github.io/maps-api-for-javascript-examples/extruded-objects/demo.html) - 3D extrusion of the geo shapes
+* [Draggable geo shapes](https://heremaps.github.io/maps-api-for-javascript-examples/draggable-shapes/demo.html) - Display moveable geometric shapes on a map
+* [Extruded geo shapes](https://heremaps.github.io/maps-api-for-javascript-examples/extruded-objects/demo.html) - 3D extrusion of the geometric shapes
 * [Finding the Nearest Marker](https://heremaps.github.io/maps-api-for-javascript-examples/finding-the-nearest-marker/demo.html) - Find a marker nearest to the click location
 * [Image overlay](https://heremaps.github.io/maps-api-for-javascript-examples/image-overlay/demo.html) - Display an animated weather radar
 * [Interleave vector and object layers](https://heremaps.github.io/maps-api-for-javascript-examples/interleave-layers/demo.html) - Display an object under the buildings
@@ -40,6 +41,10 @@ All of the following examples use **version 3.1** of the API
 * [Polygon on the Map](https://heremaps.github.io/maps-api-for-javascript-examples/polygon-on-the-map/demo.html) - Display a map highlighting a region or area
 * [Polyline on the Map](https://heremaps.github.io/maps-api-for-javascript-examples/polyline-on-the-map/demo.html) - Display a map with a line showing a known route
 * [Rectangle on the map](https://heremaps.github.io/maps-api-for-javascript-examples/rectangle-on-the-map/demo.html) - Display a map highlighting a retangular region or area
+* [Resizable geo Polygon](https://heremaps.github.io/maps-api-for-javascript-examples/resizable-polygon/demo.html) - Display resizable polygon on a map
+* [Resizable geo Polyline](https://heremaps.github.io/maps-api-for-javascript-examples/resizable-polyline/demo.html) - Display resizable polyline on a map
+* [Resizable geo Circle](https://heremaps.github.io/maps-api-for-javascript-examples/resizable-circle/demo.html) - Display resizable circle on a map
+* [Resizable geo Rect](https://heremaps.github.io/maps-api-for-javascript-examples/resizable-rect/demo.html) - Display resizable rectangle on a map
 * [Restrict Map Movement](https://heremaps.github.io/maps-api-for-javascript-examples/restrict-map/demo.html) - Restrict a moveable map to a given rectangular area
 * [SVG Graphic Markers](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-svg-graphic-markers/demo.html) - Display a map with custom SVG markers
 * [Search for a Landmark](https://heremaps.github.io/maps-api-for-javascript-examples/search-for-landmark/demo.html) - Request the location of a landmark and display it on the map.
