@@ -9,32 +9,30 @@ function createDraggableShapes(map) {
         {lat: -14, lng: -80},
         600000,
         {
-          volatility: true, // mark the object as volatile for the smooth dragging
           style: {fillColor: 'yellow', lineWidth: 0}
         }
       ),
       polygon = new H.map.Polygon(
         H.util.wkt.toGeometry(brazilWKTgeometry),
         {
-          volatility: true,
           style: {fillColor: 'rgba(255, 0, 0, .5)', lineWidth: 0}
         }
       ),
       rect =  new H.map.Rect(
         new H.geo.Rect(15, -87, 0, -68),
         {
-          volatility: true,
           style: {fillColor: 'gray', lineWidth: 0}
         }
       ),
       polyline =  new H.map.Polyline(
         new H.geo.LineString([-22, -80, 0, -32, -75, 0, -32, -70, 0, -42, -65, 0]),
         {
-          volatility: true,
           style: {strokeColor: 'blue', lineWidth: 8}
         }
       ),
-      draggableGroup = new H.map.Group();
+      draggableGroup = new H.map.Group({
+        volatility: true // mark the group as volatile for smooth dragging of all it's objects
+      });
 
   // put all objects into one group
   draggableGroup.addObjects([circle, polygon, rect, polyline]);
