@@ -34,6 +34,7 @@ All of the following examples use **version 3.1** of the API
 * [Marker Clustering](https://heremaps.github.io/maps-api-for-javascript-examples/marker-clustering/demo.html) - Cluster multiple markers together to better visualize the data
 * [Marker Clustering with Custom Theme](https://heremaps.github.io/maps-api-for-javascript-examples/custom-cluster-theme/demo.html) - Cluster multiple markers and customize the theme
 * [Marker on the Map](https://heremaps.github.io/maps-api-for-javascript-examples/markers-on-the-map/demo.html) - Display a map highlighting points of interest
+* [Markers with Altitude](https://heremaps.github.io/maps-api-for-javascript-examples/markers-with-altitude/demo.html) - Display markers at different altitudes
 * [Multi-language support](https://heremaps.github.io/maps-api-for-javascript-examples/map-multi-language-support/demo.html) - Display a map with labels in a foreign language
 * [Opening an Infobubble on a Mouse Click](https://heremaps.github.io/maps-api-for-javascript-examples/open-infobubble/demo.html) - Open an infobubble when a marker is clicked
 * [Ordering Overlapping Markers](https://heremaps.github.io/maps-api-for-javascript-examples/ordering-overlapping-markers/demo.html) - Arrange the order in which a series of map objects are displayed

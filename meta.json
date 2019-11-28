@@ -173,6 +173,12 @@
                             "title": "Draggable Marker",
                             "shortDescription": "Display a moveable marker on a map",
                             "published": true
+                        },
+                        {
+                            "uid": "markers-with-altitude",
+                            "title": "Markers with Altitude",
+                            "shortDescription": "Display markers at different altitudes",
+                            "published": true
                         }
                     ]
                 },
