@@ -8,6 +8,10 @@ sources:
 scene:
   background:
     color: global.land_color
+  sky:
+    zenith: '#010205'
+    horizon: '#010205'
+    fog: '#21262B'
 
 global:
   text_font_family: FiraGO
