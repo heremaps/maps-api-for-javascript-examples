@@ -68,8 +68,8 @@ function onSuccess(result) {
 
   polyline = new H.map.Polyline(lineString, {
     style: {
-      lineWidth: 3,
-      strokeColor: '#999999'
+      lineWidth: 2,
+      strokeColor: '#555555'
     }
   });
 
