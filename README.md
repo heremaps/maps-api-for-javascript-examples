@@ -57,3 +57,4 @@ All of the following examples use **version 3.1** of the API
 * [Take a Snapshot of the Map](https://heremaps.github.io/maps-api-for-javascript-examples/capture-map-area/demo.html) - Capture an area on the map
 * [Zoom into Bounds](https://heremaps.github.io/maps-api-for-javascript-examples/custom-zooming-into-bounds/demo.html) - Zoom into bounds limiting maximum level
 * [Zooming to a Set of Markers](https://heremaps.github.io/maps-api-for-javascript-examples/zoom-to-set-of-markers/demo.html) - Alter the viewport  to ensure a group of objects are visible
+* [Truck routing road restrictions](https://heremaps.github.io/maps-api-for-javascript-examples/truck-routing-road-restrictions/) Show a various truck routes with the truck related road restrictions highlighted on the map
