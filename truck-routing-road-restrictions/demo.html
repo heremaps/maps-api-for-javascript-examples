@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Map with the truck routes and road restrictions</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+
+    <div class="page-header">
+        <h1>Map with the truck routes and road restrictions</h1>
+        <p>Show a truck routes with the truck related road restrictions highlighted on the map</p>
+    </div>
+    <p>This example calculates and displays 3 different truck routes with the same start and end positions,
+      but various truck attributes.
+      <br>
+    The start position is in <b>Manhattan</b> and the end position on the opposite bank in <b>Newport</b>.
+    <p>
+      <ul>
+        <li>The blue route is a simple truck route (without specifying any truck attributes).</li>
+        <li>The green route shows that a truck must use <b>Lincoln Tunnel</b> instead of <b>Holland Tunnel</b>
+        when towing a trailer (uses the <code>trailersCount</code> parameter of the Routing API).</li>
+        <li>The violet route shows that a truck with a trailer of flammable goods should take a much longer detour
+          (uses the <code>shippedHazardousGoods=flammable</code> parameter of the Routing API).</li>
+      </ul>
+    </p>
+    <p>More information about above mentioned routing request parameters can be found <a href="https://developer.here.com/documentation/routing/dev_guide/topics/resource-calculate-route.html" target="_blank">here</a>.</p>
+    <p>
+      The truck restrictions layer is set as a base map.
+    </p>
+    <div id="map"></div>
+    <div id="panel"></div>
+    <h3>Code</h3>
+    <p>Access to the routing service is obtained from the <code>H.service.Platform</code> by calling
+      <code>getRoutingService()</code>. The <code>calculateRoute()</code> method is used to calculate the fastest
+      truck (<code>mode:fastest;truck</code>) route by passing in the relevant parameters as defined in
+      <a href="http://developer.here.com/rest-apis/documentation/routing/topics/resource-calculate-route.html" target="_blank">Routing API</a>.
+      The styling and display of the response is under the control of the developer.</p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>
