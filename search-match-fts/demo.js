@@ -104,7 +104,7 @@ router.calculateRoute(
       });
     })
 
-	// create route poly;line
+	// create route polyline
     routeShape.forEach(function(point) {
       var parts = point.split(',');
       lineString.pushLatLngAlt(parts[0], parts[1]);
@@ -113,14 +113,34 @@ router.calculateRoute(
       style: {
         lineWidth: 8,
         strokeColor: 'rgba(0, 128, 255, 0.7)'
-      },
-      arrows: new H.map.ArrowStyle()
+      }
     });
 
     map.addObject(polyline);
     map.getViewModel().setLookAtData({
       bounds: polyline.getBoundingBox()
     });
+
+    // add arrows to show route direction
+    // for default WEBGL engine we add dashed polyline on top of our route polyline
+    if (map.getEngine() instanceof H.map.render.webgl.RenderEngine) {
+      var dashedPolyline = new H.map.Polyline(lineString, {
+        style: {
+          lineWidth: 10,
+          strokeColor: 'rgba(130, 28, 155, 0.9)',
+          lineDash: [1, 5],
+          lineDashOffset: 15,
+          lineHeadCap: 'arrow-head',
+          lineTailCap: 'arrow-tail'
+        }
+      });
+      map.addObject(dashedPolyline);
+    } // for legacy P2D engine we call #setArrows method on polyline
+    else if (map.getEngine() instanceof H.map.render.p2d.RenderEngine) {
+      polyline.setArrows(new H.map.ArrowStyle({
+        fillColor: 'rgba(130, 28, 155, 0.9)'
+      }));
+    }
 
     findStations(linkids, polyline)
   },
