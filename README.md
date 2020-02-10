@@ -13,10 +13,12 @@ See the [LICENSE](LICENSE) file in the root of this project for license details.
 All of the following examples use **version 3.1** of the API
 
 * [Adding an Overlay to the Map](https://heremaps.github.io/maps-api-for-javascript-examples/custom-tile-overlay/demo.html) - Display custom map tiles as an overlay
+* [Animated Markers](https://heremaps.github.io/maps-api-for-javascript-examples/markers-update-position-with-animation/demo.html) - Update marker position with animation
 * [Calculating a Location from a Mouse Click](https://heremaps.github.io/maps-api-for-javascript-examples/position-on-mouse-click/demo.html) - Obtain the latitude and longitude of a location within the map
 * [Changing from the Metric System](https://heremaps.github.io/maps-api-for-javascript-examples/map-scale-bar-changing-from-the-metric-system/demo.html) - Display a map including a scale bar in miles or yards
 * [Circle on the Map](https://heremaps.github.io/maps-api-for-javascript-examples/circle-on-the-map/demo.html) - Display a map highlighting a circular region
 * [DOM Marker](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-dom-marker/demo.html) - Display a marker that is capable of receiving DOM events
+* [DOM Marker rotation](https://heremaps.github.io/maps-api-for-javascript-examples/dom-marker-rotation/demo.html) - Rotate DOM Marker's content using CSS
 * [Display KML Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-kml-on-map/demo.html) - Parse a KML file and display the data on a map
 * [Draggable Marker](https://heremaps.github.io/maps-api-for-javascript-examples/draggable-marker/demo.html) - Display a moveable marker on a map
 * [Draggable geo shapes](https://heremaps.github.io/maps-api-for-javascript-examples/draggable-shapes/demo.html) - Display moveable geometric shapes on a map
@@ -55,6 +57,7 @@ All of the following examples use **version 3.1** of the API
 * [Set a map style at the load time](https://heremaps.github.io/maps-api-for-javascript-examples/change-style-at-load/demo.html) - Set a style of the whole map during the map instantiation
 * [Synchronising Two Maps](https://heremaps.github.io/maps-api-for-javascript-examples/synchronising-two-maps/demo.html) - Synchronise a static map with an interactive map
 * [Take a Snapshot of the Map](https://heremaps.github.io/maps-api-for-javascript-examples/capture-map-area/demo.html) - Capture an area on the map
+* [Truck routing road restrictions](https://heremaps.github.io/maps-api-for-javascript-examples/truck-routing-road-restrictions/demo.html) Show a various truck routes with the truck related road restrictions highlighted on the map
 * [Zoom into Bounds](https://heremaps.github.io/maps-api-for-javascript-examples/custom-zooming-into-bounds/demo.html) - Zoom into bounds limiting maximum level
 * [Zooming to a Set of Markers](https://heremaps.github.io/maps-api-for-javascript-examples/zoom-to-set-of-markers/demo.html) - Alter the viewport  to ensure a group of objects are visible
-* [Truck routing road restrictions](https://heremaps.github.io/maps-api-for-javascript-examples/truck-routing-road-restrictions/demo.html) Show a various truck routes with the truck related road restrictions highlighted on the map
+
