@@ -79,7 +79,7 @@ function createMarkers() {
         ease(
           marker.getGeometry(),
           randomPoint,
-          4000,
+          40000,
           function(coord) {
             marker.setGeometry(coord);
           }
