@@ -355,6 +355,12 @@
                             "published": true
                         },
                         {
+                            "uid": "truck-routing-road-restrictions",
+                            "title": "Truck routing road restrictions",
+                            "shortDescription": "Show a various truck routes with the truck related road restrictions highlighted on the map",
+                            "published": true
+                        },
+                        {
                             "uid": "map-with-route-from-a-to-b-using-public-transport",
                             "title": "Map with Route from A to B using Public Transport",
                             "shortDescription": "Request a route from A to B using public transport and display it on the map",
