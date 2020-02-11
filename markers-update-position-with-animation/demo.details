@@ -1,0 +1,13 @@
+---
+ name: Animated markers
+ description: Update marker position with animation
+ resources:
+   - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+
+ normalize_css: no
+ dtd: html 5
+ wrap: d
+ panel_html: 0
+ panel_js: 0
+ panel_css: 0
+...

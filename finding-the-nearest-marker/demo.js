@@ -82,7 +82,9 @@ var svgMarkup = '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
     'text-anchor="middle" fill="white">${REPLACE}</text></svg>';
 
 coords.forEach(function (value, index) {
-  var myIcon = new H.map.Icon(svgMarkup.replace('${REPLACE}', index + 1)),
+  var myIcon = new H.map.Icon(svgMarkup.replace('${REPLACE}', index + 1), {
+    anchor: {x: 12, y: 12}
+  }),
   marker = new H.map.Marker(value,  {
     icon: myIcon,
     volatility: true
