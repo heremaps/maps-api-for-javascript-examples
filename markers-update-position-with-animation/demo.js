@@ -79,7 +79,7 @@ function createMarkers() {
         ease(
           marker.getGeometry(),
           randomPoint,
-          40000,
+          4000,
           function(coord) {
             marker.setGeometry(coord);
           }
@@ -103,7 +103,7 @@ function ease(
   onStep = console.log,
   onComplete = function() {},
 ) {
-  var raf = window.requestAnimationFrame || function(f) {window.setTimeout(f, 16)};
+  var raf = window.requestAnimationFrame || function(f) {window.setTimeout(f, 16)},
       stepCount = durationMs / 16,
       valueIncrementLat = (endCoord.lat - startCoord.lat) / stepCount,
       valueIncrementLng = (endCoord.lng - startCoord.lng) / stepCount,
