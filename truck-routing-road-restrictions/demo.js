@@ -3,16 +3,18 @@
  * see:  http://developer.here.com/rest-apis/documentation/routing/topics/resource-calculate-route.html
  */
 var routeRequestParams = {
-  mode: 'fastest;truck',
-  waypoint0: 'geo!40.7249546323,-74.0110042', // Manhattan
-  waypoint1: 'geo!40.7324386599,-74.0341396', // Newport
-  representation: 'display',
-  routeattributes : 'waypoints,summary,shape,legs',
-  'metricSystem': 'imperial'
-};
+      routingMode: 'fast',
+      transportMode: 'truck',
+      origin: '40.7249546323,-74.0110042', // Manhattan
+      destination: '40.7324386599,-74.0341396', // Newport
+      return: 'polyline,travelSummary',
+      units: 'imperial',
+      spans: 'truckAttributes'
+    },
+    routes = new H.map.Group();
 
 function calculateRoutes(platform) {
-  var router = platform.getRoutingService();
+  var router = platform.getRoutingService(null, 8);
 
   // The blue route showing a simple truck route
   calculateRoute(router, routeRequestParams, {
@@ -22,7 +24,7 @@ function calculateRoutes(platform) {
 
   // The green route showing a truck route with a trailer
   calculateRoute(router, Object.assign(routeRequestParams, {
-    trailersCount: 1
+    'truck[axleCount]': 4,
   }), {
     strokeColor: 'rgba(25, 150, 10, 0.7)',
     lineWidth: 7
@@ -30,8 +32,8 @@ function calculateRoutes(platform) {
 
   // The violet route showing a truck route with a trailer
   calculateRoute(router, Object.assign(routeRequestParams, {
-    trailersCount: 1,
-    shippedHazardousGoods: 'flammable'
+    'truck[axleCount]': 5,
+    'truck[shippedHazardousGoods]': 'flammable'
   }), {
     strokeColor: 'rgba(255, 0, 255, 0.7)',
     lineWidth: 5
@@ -46,7 +48,7 @@ function calculateRoutes(platform) {
  */
 function calculateRoute (router, params, style) {
   router.calculateRoute(params, function(result) {
-    addRouteShapeToMap(style, result.response.route[0]);
+    addRouteShapeToMap(style, result.routes[0]);
   }, console.error);
 }
 
@@ -55,8 +57,7 @@ function calculateRoute (router, params, style) {
  */
 
 // set up containers for the map  + panel
-var mapContainer = document.getElementById('map'),
-  routeInstructionsContainer = document.getElementById('panel');
+var mapContainer = document.getElementById('map');
 
 // Step 1: initialize communication with the platform
 // In your own code, replace variable window.apikey with your own apikey
@@ -82,30 +83,29 @@ window.addEventListener('resize', () => map.getViewPort().resize());
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
 var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
+map.addObject(routes);
 
 /**
  * Creates a H.map.Polyline from the shape of the route and adds it to the map.
  * @param {Object} route A route as received from the H.service.RoutingService
  */
 function addRouteShapeToMap(style, route){
-  var lineString = new H.geo.LineString(),
-      routeShape = route.shape,
-      polyline,
-      div = document.createElement('div');
+  route.sections.forEach((section) => {
+    // decode LineString from the flexible polyline
+    let linestring = H.geo.LineString.fromFlexiblePolyline(section.polyline);
 
-  div.innerHTML = route.summary.text;
-  div.style.color = style.strokeColor;
-  document.getElementById('panel').appendChild(div);
+    // Create a polyline to display the route:
+    let polyline = new H.map.Polyline(linestring, {
+      style: style
+    });
 
-  routeShape.forEach(function(point) {
-    var parts = point.split(',');
-    lineString.pushLatLngAlt(parts[0], parts[1]);
+    // Add the polyline to the map
+    routes.addObject(polyline);
+    // And zoom to its bounding rectangle
+    map.getViewModel().setLookAtData({
+      bounds: routes.getBoundingBox()
+    });
   });
-
-  polyline = new H.map.Polyline(lineString, {style});
-
-  // Add the polyline to the map
-  map.addObject(polyline);
 }
 
 // Now use the map as required...

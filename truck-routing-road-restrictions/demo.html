@@ -28,12 +28,12 @@
       <ul>
         <li>The blue route is a simple truck route (without specifying any truck attributes).</li>
         <li>The green route shows that a truck must use <b>Lincoln Tunnel</b> instead of <b>Holland Tunnel</b>
-        when towing a trailer (uses the <code>trailersCount</code> parameter of the Routing API).</li>
-        <li>The violet route shows that a truck with a trailer of flammable goods should take a much longer detour
-          (uses the <code>shippedHazardousGoods=flammable</code> parameter of the Routing API).</li>
+        when it has four axles (uses the <code>truck[axleCount]</code> parameter of the Routing API).</li>
+        <li>The violet route shows that a truck with the four acles transporting flammable goods should take a much longer detour
+          (uses the <code>truck[shippedHazardousGoods]</code> parameter of the Routing API).</li>
       </ul>
     </p>
-    <p>More information about above mentioned routing request parameters can be found <a href="https://developer.here.com/documentation/routing/dev_guide/topics/resource-calculate-route.html" target="_blank">here</a>.</p>
+    <p>More information about above mentioned routing request parameters can be found <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/use-cases/truck-routing.html" target="_blank">here</a>.</p>
     <p>
       The truck restrictions layer is set as a base map.
     </p>
@@ -42,8 +42,8 @@
     <h3>Code</h3>
     <p>Access to the routing service is obtained from the <code>H.service.Platform</code> by calling
       <code>getRoutingService()</code>. The <code>calculateRoute()</code> method is used to calculate the fastest
-      truck (<code>mode:fastest;truck</code>) route by passing in the relevant parameters as defined in
-      <a href="http://developer.here.com/rest-apis/documentation/routing/topics/resource-calculate-route.html" target="_blank">Routing API</a>.
+      truck route by passing in the relevant parameters as defined in
+      <a href="https://developer.here.com/documentation/routing-api/api-reference-swagger.html" target="_blank">Routing API</a>.
       The styling and display of the response is under the control of the developer.</p>
     <script type="text/javascript" src='demo.js'></script>
   </body>
