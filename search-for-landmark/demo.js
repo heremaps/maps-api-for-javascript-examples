@@ -9,13 +9,14 @@
  * @param   {H.service.Platform} platform    A stub class to access HERE services
  */
 function landmarkGeocode(platform) {
-  var geocoder = platform.getGeocodingService(),
-    landmarkGeocodingParameters = {
-      searchtext: 'Eiffel Tower',
-      jsonattributes : 1
-    };
+  var geocoder = platform.getSearchService(),
+      landmarkGeocodingParameters = {
+        q: 'Eiffel Tower',
+        at: '0,0',
+        limit: 1
+      };
 
-  geocoder.search(
+  geocoder.discover(
     landmarkGeocodingParameters,
     onSuccess,
     onError
@@ -29,7 +30,7 @@ function landmarkGeocode(platform) {
  * see: http://developer.here.com/rest-apis/documentation/geocoder/topics/resource-type-response-geocode.html
  */
 function onSuccess(result) {
-  var locations = result.response.view[0].result;
+  var locations = result.items;
  /*
   * The styling of the geocoding response on the map is entirely under the developer's control.
   * A representitive styling can be found the full JS + HTML code of this example
@@ -108,33 +109,30 @@ function openBubble(position, text){
 function addLocationsToPanel(locations){
 
   var nodeOL = document.createElement('ul'),
-    i;
+      i;
 
   nodeOL.style.fontSize = 'small';
   nodeOL.style.marginLeft ='5%';
   nodeOL.style.marginRight ='5%';
 
 
-   for (i = 0;  i < locations.length; i += 1) {
-     var li = document.createElement('li'),
+  for (i = 0;  i < locations.length; i += 1) {
+    let location = locations[i],
+        li = document.createElement('li'),
         divLabel = document.createElement('div'),
-        landmark = locations[i].place.locations[0],
-        content =  '<strong style="font-size: large;">' + landmark.name  + '</strong></br>';
-        position = {
-          lat: locations[i].place.locations[0].displayPosition.latitude,
-          lng: locations[i].place.locations[0].displayPosition.longitude
-        };
+        content =  '<strong style="font-size: large;">' + location.title  + '</strong></br>';
+        position = location.position;
 
-      content += '<strong>houseNumber:</strong> ' + landmark.address.houseNumber + '<br/>';
-      content += '<strong>street:</strong> '  + landmark.address.street + '<br/>';
-      content += '<strong>district:</strong> '  + landmark.address.district + '<br/>';
-      content += '<strong>city:</strong> ' + landmark.address.city + '<br/>';
-      content += '<strong>postalCode:</strong> ' + landmark.address.postalCode + '<br/>';
-      content += '<strong>county:</strong> ' + landmark.address.county + '<br/>';
-      content += '<strong>country:</strong> ' + landmark.address.country + '<br/>';
-      content += '<br/><strong>position:</strong> ' +
+      content += '<strong>houseNumber:</strong> ' + location.address.houseNumber + '<br/>';
+      content += '<strong>street:</strong> '  + location.address.label + '<br/>';
+      content += '<strong>district:</strong> '  + location.address.district + '<br/>';
+      content += '<strong>city:</strong> ' + location.address.city + '<br/>';
+      content += '<strong>postalCode:</strong> ' + location.address.postalCode + '<br/>';
+      content += '<strong>county:</strong> ' + location.address.county + '<br/>';
+      content += '<strong>country:</strong> ' + location.address.countryName + '<br/>';
+      content += '<strong>position:</strong> ' +
         Math.abs(position.lat.toFixed(4)) + ((position.lat > 0) ? 'N' : 'S') +
-        ' ' + Math.abs(position.lng.toFixed(4)) + ((position.lng > 0) ? 'E' : 'W');
+        ' ' + Math.abs(position.lng.toFixed(4)) + ((position.lng > 0) ? 'E' : 'W') + '<br/>';
 
       divLabel.innerHTML = content;
       li.appendChild(divLabel);
@@ -153,17 +151,13 @@ function addLocationsToPanel(locations){
  */
 function addLocationsToMap(locations){
   var group = new  H.map.Group(),
-    position,
-    i;
+      i;
 
   // Add a marker for each location found
   for (i = 0;  i < locations.length; i += 1) {
-    position = {
-      lat: locations[i].place.locations[0].displayPosition.latitude,
-      lng: locations[i].place.locations[0].displayPosition.longitude
-    };
-    marker = new H.map.Marker(position);
-    marker.label = locations[i].place.locations[0].name;
+    let location = locations[i];
+    marker = new H.map.Marker(location.position);
+    marker.label = location.title;
     group.addObject(marker);
   }
 
