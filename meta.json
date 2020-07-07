@@ -94,6 +94,12 @@
                             "title": "Example Template",
                             "shortDescription": "Capture an area on the map",
                             "published": false
+                        },
+                        {
+                            "uid": "venues-on-map",
+                            "title": "Display Venue data",
+                            "shortDescription": "Use Here Venues services to load and visualize an indoor data",
+                            "published": true
                         }
 
                     ]
