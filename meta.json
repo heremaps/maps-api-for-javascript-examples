@@ -78,9 +78,27 @@
                             "published": true
                         },
                         {
+                            "uid": "example-template",
+                            "title": "Example Template",
+                            "shortDescription": "Capture an area on the map",
+                            "published": false
+                        }
+                    ]
+                },
+                {
+                    "uid": "data",
+                    "title": "Data display",
+                    "examples": [
+                        {
                             "uid": "display-kml-on-map",
-                            "title": "Display KML Data",
+                            "title": "KML",
                             "shortDescription": "Parse a KML file and display the data on a map.",
+                            "published": true
+                        },
+                        {
+                            "uid": "display-geojson-on-map",
+                            "title": "GeoJSON",
+                            "shortDescription": "Parse a GeoJSON file and display the data on a map.",
                             "published": true
                         },
                         {
@@ -90,18 +108,11 @@
                             "published": true
                         },
                         {
-                            "uid": "example-template",
-                            "title": "Example Template",
-                            "shortDescription": "Capture an area on the map",
-                            "published": false
-                        },
-                        {
                             "uid": "venues-on-map",
                             "title": "Display Venue data",
                             "shortDescription": "Use Here Venues services to load and visualize an indoor data",
                             "published": true
                         }
-
                     ]
                 },
                 {
