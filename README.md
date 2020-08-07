@@ -20,6 +20,7 @@ All of the following examples use **version 3.1** of the API
 * [DOM Marker](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-dom-marker/demo.html) - Display a marker that is capable of receiving DOM events
 * [DOM Marker rotation](https://heremaps.github.io/maps-api-for-javascript-examples/dom-marker-rotation/demo.html) - Rotate DOM Marker's content using CSS
 * [Display KML Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-kml-on-map/demo.html) - Parse a KML file and display the data on a map
+* [Display GeoJSON Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-geojson-on-map/demo.html) - Parse a GeoJSON file and display the data on a map
 * [Display Venues Data](https://heremaps.github.io/maps-api-for-javascript-examples/venues-on-map/demo.html) - Display Here Venues on a map
 * [Draggable Marker](https://heremaps.github.io/maps-api-for-javascript-examples/draggable-marker/demo.html) - Display a moveable marker on a map
 * [Draggable geo shapes](https://heremaps.github.io/maps-api-for-javascript-examples/draggable-shapes/demo.html) - Display moveable geometric shapes on a map
