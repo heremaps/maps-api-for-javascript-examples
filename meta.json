@@ -112,6 +112,12 @@
                             "title": "Display Venue data",
                             "shortDescription": "Use Here Venues services to load and visualize an indoor data",
                             "published": true
+                        },
+                        {
+                            "uid": "transit-mapsjs-iml",
+                            "title": "Interactive Map Layer",
+                            "shortDescription": "Visualize Data from Interactive Map Layer on Map.",
+                            "published": true
                         }
                     ]
                 },
