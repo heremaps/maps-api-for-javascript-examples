@@ -509,7 +509,7 @@ global:
 
 textures:
   icon_library:
-    url: icons/sprite-2x.png
+    url: https://heremaps.github.io/maps-api-for-javascript-examples/change-style-at-load/data/icons/sprite-2x.png
     # filtering: mipmap
     density: 2
     sprites:
