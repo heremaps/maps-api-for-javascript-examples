@@ -22,6 +22,7 @@ All of the following examples use **version 3.1** of the API
 * [Display KML Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-kml-on-map/demo.html) - Parse a KML file and display the data on a map
 * [Display GeoJSON Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-geojson-on-map/demo.html) - Parse a GeoJSON file and display the data on a map
 * [Display Venues Data](https://heremaps.github.io/maps-api-for-javascript-examples/venues-on-map/demo.html) - Display Here Venues on a map
+* [Display Indoor Routing in Venue](https://heremaps.github.io/maps-api-for-javascript-examples/venues-routing/demo.html) - Add routing to Venue
 * [Draggable Marker](https://heremaps.github.io/maps-api-for-javascript-examples/draggable-marker/demo.html) - Display a moveable marker on a map
 * [Draggable geo shapes](https://heremaps.github.io/maps-api-for-javascript-examples/draggable-shapes/demo.html) - Display moveable geometric shapes on a map
 * [Extruded geo shapes](https://heremaps.github.io/maps-api-for-javascript-examples/extruded-objects/demo.html) - 3D extrusion of the geometric shapes
@@ -63,4 +64,3 @@ All of the following examples use **version 3.1** of the API
 * [Truck routing road restrictions](https://heremaps.github.io/maps-api-for-javascript-examples/truck-routing-road-restrictions/demo.html) Show a various truck routes with the truck related road restrictions highlighted on the map
 * [Zoom into Bounds](https://heremaps.github.io/maps-api-for-javascript-examples/custom-zooming-into-bounds/demo.html) - Zoom into bounds limiting maximum level
 * [Zooming to a Set of Markers](https://heremaps.github.io/maps-api-for-javascript-examples/zoom-to-set-of-markers/demo.html) - Alter the viewport  to ensure a group of objects are visible
-

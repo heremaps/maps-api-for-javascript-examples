@@ -114,6 +114,12 @@
                             "published": true
                         },
                         {
+                            "uid": "venues-routing",
+                            "title": "Add routing to Venue",
+                            "shortDescription": "Use Here Venues services to visualize floor plans and route data between indoor spaces",
+                            "published": true
+                        },
+                        {
                             "uid": "transit-mapsjs-iml",
                             "title": "Interactive Map Layer",
                             "shortDescription": "Visualize Data from Interactive Map Layer on Map.",

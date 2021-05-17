@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="description" content="Use Here Venues API ot load and visualize data on the map">
+    <title>Add Indoor Routing to Venue</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-venues.js"></script>
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+  </head>
+  <body>
+    <h1>Render a route inside a venue map</h1>
+    <p>
+      Using the Venues module facilitates access to provided indoor maps including full JSON models and routing between
+      indoor points. The Venues APIs also provides information about indoor spaces, buildings, level geometry and points
+      of interest.
+    </p>
+
+    <p>
+      More information about the use of Venues API can be found <a href="https://developer.here.com/documentation/maps/dev_guide/topics/venues.html" target="_blank">here</a>.
+    </p>
+
+    <p>
+      This example shows a map of <b>Zurich Airport</b> and a route between 2 points within the venue, one inside the building, the other outside.
+    </p>
+
+    <div id="map">
+      <!-- Map -->
+    </div>
+
+    <h3>Code</h3>
+    <p>
+      The example shows loading of an indoor map and route calculation using <code>H.venues.Service</code>, then rendering the map
+      with the use of <code>H.venues.Provider</code>.
+    </p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>
