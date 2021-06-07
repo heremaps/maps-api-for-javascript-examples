@@ -1,6 +1,6 @@
 ---
- name: Displaying Venues on map
- description: Use Here Venues services to load and visualize an indoor data
+ name: Routing with an Indoor Map
+ description: Use Here Indoor Maps service to calculate an indoor-outdoor route
  resources:
    - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no

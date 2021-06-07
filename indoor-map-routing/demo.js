@@ -1,33 +1,33 @@
 /**
- * Load and add venue data on the map.
+ * Load and add Indoor Map data on the map.
  *
  * @param  {H.Map} map A HERE Map instance
  */
 function addVenueToMap(map) {
-  // Venues service provides a loadVenue method
+  // Indoor Maps service provides a loadVenue method
   venuesService.loadVenue(7348).then((venue) => {
-    // add venue data to venues provider
+    // add Indoor Maps data to the Indoor Maps provider
     venuesProvider.addVenue(venue);
     venuesProvider.setActiveVenue(venue);
 
-    // create a tile layer for the venues provider
+    // create a tile layer for the Indoor Maps provider
     map.addLayer(new H.map.layer.TileLayer(venuesProvider));
 
-    // optionally select a different drawing/level
+    // optionally select a different level
     venue.setActiveDrawing(7880);
 
-    // create level control
+    // create a level control
     const levelControl = new H.venues.ui.LevelControl(venue);
     ui.addControl('level-control', levelControl);
 
-    // create drawing control:
+    // create a drawing control:
     const drawingControl = new H.venues.ui.DrawingControl(venue);
     ui.addControl('drawing-control', drawingControl);
   });
 }
 
 /**
- * Calculate a route and add result to map.
+ * Calculate a route and add result to the map.
  *
  * @param {H.map} map
  */
@@ -42,7 +42,7 @@ function addRouteToMap(map) {
     const route = new H.venues.Route(result.routes[0]);
 
     const indoorObjects = route.getIndoorObjects();
-    // Link route map objects with venue levels for automatic visibility updates:
+    // Link route map objects with the Indoor Map levels for automatic visibility updates:
     for (let venueId in indoorObjects) {
       for (let levelIndex in indoorObjects[venueId]) {
         const venue = venuesProvider.getVenue(venueId);
@@ -86,17 +86,16 @@ var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 // Step 4: create the default UI component, for displaying bubbles
 var ui = H.ui.UI.createDefault(map, defaultLayers);
 
+// Step 5: load the indoor map data
 
-// Step 5: load venue data
-
-// Get instance of venues service using valid apikey for venues
+// Get the instance of the Indoor Maps service using a valid apikey for Indoor Maps
 var venuesService = platform.getVenuesService({ apikey: 'L7yi9YzsZUJMSMavFOYIL7yqWoUcTicYqYNxMOkox84' });
 
-// Venues provider interacts with tile layer to visualize and control the venue map
+// Indoor Maps provider interacts with the tile layer to visualize and control the Indoor Map
 var venuesProvider = new H.venues.Provider();
 
-// Load venue
+// Add the Indoor Map
 addVenueToMap(map);
 
-// Step 6: calculate a route
+// Step 6: Add a route to the Indoor Map
 addRouteToMap(map);
