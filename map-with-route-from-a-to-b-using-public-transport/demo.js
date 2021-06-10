@@ -216,7 +216,6 @@ function addManueversToPanel(route){
   nodeOL.className = 'directions';
 
   route.sections.forEach((section) => {
-    debugger
     if (section.actions) {
       section.actions.forEach((action, idx) => {
         var li = document.createElement('li'),
