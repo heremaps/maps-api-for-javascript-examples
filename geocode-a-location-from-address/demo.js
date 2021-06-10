@@ -148,7 +148,6 @@ function addLocationsToPanel(locations){
  *                             H.service.GeocodingService
  */
 function addLocationsToMap(locations){
-  debugger
   var group = new  H.map.Group(),
       position,
       i;
