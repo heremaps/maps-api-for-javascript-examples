@@ -3,8 +3,8 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <meta name="description" content="Use Here Venues API ot load and visualize data on the map">
-    <title>Display Venues on map</title>
+    <meta name="description" content="Use the HERE Indoor Maps API to load and visualize an indoor map">
+    <title>Display an Indoor Map</title>
     <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
@@ -38,19 +38,22 @@
     </style>
   </head>
   <body>
-    <h1>Display Venues</h1>
-    <p>Using the Venues module facilitates access to given indoor maps including full JSON models. The Venues APIs
-      provide information about the indoor spaces, including buildings, level geometry and points of interest.
+    <h1>Show an Indoor Map</h1>
+    <p>
+		The Indoor Maps module facilitates access to your private indoor maps including full JSON models as well as routing between indoor and outdoor points. The HERE Indoor Maps API also provides information about indoor spaces, buildings, level geometry and points of interest.
     </p>
-    <p>More information about the use of Venues API can be found <a href="https://developer.here.com/documentation/maps/dev_guide/topics/venues.html" target="_blank">here</a>.</p>
-    <p>This example shows a map of <b>Zurich Airport</b>.
+	
+     <p>
+      More information on the use of the HERE Indoor Maps API is available <a href="https://developer.here.com/documentation/maps/dev_guide/topics/venues.html" target="_blank">here</a>.
+    </p>
+	
+    <p>This example shows an Indoor Map of the <b>Zurich Airport</b>.
+	
     <div id="map"></div>
     <h3>Code</h3>
     <p>
-      The example shows loading of indoor information using <code>H.venues.Service</code> and renders the indoor map
-      using an instance of <code>H.venues.Provider</code>.<br> It also shows usage of venue related ui controls to
-      change levels and buildings using respectively <code>H.venues.ui.LevelControl</code> and
-      <code>H.venues.ui.DrawingControl</code>.
+      The example shows loading the Indoor Map using <code>H.venues.Service</code> and renders the indoor map using an instance of <code>H.venues.Provider</code>.<br> 
+	  The example also shows the usage of the indoor map related UI controls to change levels and buildings using <code>H.venues.ui.LevelControl</code> and <code>H.venues.ui.DrawingControl</code> respectively.
     </p>
     <script type="text/javascript" src='demo.js'></script>
   </body>

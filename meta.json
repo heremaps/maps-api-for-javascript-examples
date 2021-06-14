@@ -108,15 +108,15 @@
                             "published": true
                         },
                         {
-                            "uid": "venues-on-map",
-                            "title": "Display Venue data",
-                            "shortDescription": "Use Here Venues services to load and visualize an indoor data",
+                            "uid": "indoor-map",
+                            "title": "Display an Indoor Map",
+                            "shortDescription": "Use Here Indoor Maps service to load and visualize an indoor map",
                             "published": true
                         },
                         {
-                            "uid": "venues-routing",
-                            "title": "Add routing to Venue",
-                            "shortDescription": "Use Here Venues services to visualize floor plans and route data between indoor spaces",
+                            "uid": "indoor-map-routing",
+                            "title": "Add routing to Indoor Map",
+                            "shortDescription": "Use Here Indoor Maps service to calculate an indoor-outdoor route",
                             "published": true
                         },
                         {
