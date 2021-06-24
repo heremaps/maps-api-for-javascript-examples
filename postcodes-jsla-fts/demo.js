@@ -1,6 +1,6 @@
 /**
- * Shows the postcode layer provided by Platform Data Extension REST API
- * https://developer.here.com/platform-extensions/documentation/platform-data/topics/introduction.html
+ * Shows the postcode layer provided by HERE Fleet Telematics API
+ * https://developer.here.com/documentation/fleet-telematics/dev_guide/index.html
  *
  * @param  {H.Map} map      A HERE Map instance within the application
  */
