@@ -1,8 +1,8 @@
 
 /**
  * Shows the search results from the electric vehicle charging stations layer
- * provided by Platform Data Extension REST API
- * https://developer.here.com/platform-extensions/documentation/platform-data/topics/introduction.html
+ * provided by HERE Fleet Telematics API
+ * https://developer.here.com/documentation/fleet-telematics/dev_guide/index.html
  *
  * @param {Array.<string>} linkids Array of the LINK_IDs received from the routing service
  * @param {H.map.Polyline} polyline route polyline
