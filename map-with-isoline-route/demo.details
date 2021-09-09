@@ -1,0 +1,13 @@
+---
+ name: Map with Isoline Route for the EV vehicle
+ description: Request a range for the EV vehicle
+ resources:
+   - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+
+ normalize_css: no
+ dtd: html 5
+ wrap: d
+ panel_html: 0
+ panel_js: 0
+ panel_css: 0
+...
