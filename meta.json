@@ -396,6 +396,12 @@
                             "published": true
                         },
                         {
+                            "uid": "map-with-isoline-route",
+                            "title": "Map with isoline route",
+                            "shortDescription": "Request a range for the EV vehicle",
+                            "published": true
+                        },
+                        {
                             "uid": "geocode-a-location-from-address",
                             "title": "Search for a Location based on an Address",
                             "shortDescription": "Request a location using a free-form text input and display it on the map",
