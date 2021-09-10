@@ -37,6 +37,7 @@ All of the following examples use **version 3.1** of the API
 * [Map with Driving Route from A to B](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-route-from-a-to-b/demo.html) - Request a driving route from A to B and display it on the map.
 * [Map with Pedestrian Route from A to B](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-pedestrian-route-from-a-to-b/demo.html) - Request a walking route from A to B and display it on the map.
 * [Map with Route from A to B using Public Transport](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-route-from-a-to-b-using-public-transport/demo.html) - Request a route from A to B using public transport and display it on the map.
+* [Map with isoline route](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-isoline-route/demo.html) - Request a range for the EV vehicle.
 * [Marker Clustering](https://heremaps.github.io/maps-api-for-javascript-examples/marker-clustering/demo.html) - Cluster multiple markers together to better visualize the data
 * [Marker Clustering with Custom Theme](https://heremaps.github.io/maps-api-for-javascript-examples/custom-cluster-theme/demo.html) - Cluster multiple markers and customize the theme
 * [Marker on the Map](https://heremaps.github.io/maps-api-for-javascript-examples/markers-on-the-map/demo.html) - Display a map highlighting points of interest
