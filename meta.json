@@ -114,12 +114,6 @@
                             "published": true
                         },
                         {
-                            "uid": "indoor-map-routing",
-                            "title": "Add routing to Indoor Map",
-                            "shortDescription": "Use Here Indoor Maps service to calculate an indoor-outdoor route",
-                            "published": true
-                        },
-                        {
                             "uid": "transit-mapsjs-iml",
                             "title": "Interactive Map Layer",
                             "shortDescription": "Visualize Data from Interactive Map Layer on Map.",

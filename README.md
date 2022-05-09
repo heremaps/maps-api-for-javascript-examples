@@ -22,7 +22,6 @@ All of the following examples use **version 3.1** of the API
 * [Display KML Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-kml-on-map/demo.html) - Parse a KML file and display the data on a map
 * [Display GeoJSON Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-geojson-on-map/demo.html) - Parse a GeoJSON file and display the data on a map
 * [Display an Indoor Map](https://heremaps.github.io/maps-api-for-javascript-examples/indoor-map/demo.html) - Use the HERE Indoor Maps API to load and visualize an indoor map
-* [Display routing on an Indoor Map](https://heremaps.github.io/maps-api-for-javascript-examples/indoor-map-routing/demo.html) - Use the HERE Indoor Maps API to calculate an indoor-outdoor route
 * [Draggable Marker](https://heremaps.github.io/maps-api-for-javascript-examples/draggable-marker/demo.html) - Display a moveable marker on a map
 * [Draggable geo shapes](https://heremaps.github.io/maps-api-for-javascript-examples/draggable-shapes/demo.html) - Display moveable geometric shapes on a map
 * [Extruded geo shapes](https://heremaps.github.io/maps-api-for-javascript-examples/extruded-objects/demo.html) - 3D extrusion of the geometric shapes
