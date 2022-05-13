@@ -1,7 +1,7 @@
 # Maps API for JavaScript
 
-This repository holds a series of JavaScript based examples using the **HERE Maps API for JavaScript**. More information about the API can be found on [developer.here.com](https://developer.here.com/develop/javascript-api) under the JavaScript APIs section.
-Download all files in the GitHub folder linked to the "Fork on GitHub" button on the top of the example page. Additionally, download the **test-credentials.js** file, the **template.css** file and the **meta.json** file from the folder **maps-api-for-javascript-examples**  and place it in a folder above your folder in which you placed the example. 
+This repository holds a series of JavaScript based examples using the **HERE Maps API for JavaScript**. More information about the API can be found on [developer.here.com](https://developer.here.com/develop/javascript-api) under the JavaScript APIs section. 
+To run the examples, clone this repo to a folder on your Desktop. Replace the credentials in the **test-credentials.js** file with your own credentials.
 
 > **Note:** In order to get the sample code to work, you **must** replace all instances of `window.apikey` within the code and use your own **HERE** credentials.
 
