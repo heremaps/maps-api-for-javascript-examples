@@ -5,19 +5,27 @@
  */
 function addVenueToMap(map) {
   // Get an instance of the Indoor Maps service using a valid apikey for Indoor Maps
-  const venuesService = platform.getVenuesService({ apikey: 'QICW7garcjxE7C7sSguJcNolMZXqYCJ9m5o6Qq3ygjg' });
+  const venuesService = platform.getVenuesService({ apikey: 'ZKBUeAgkzH4JWhg93AA7cIE_kZotbMGhVI0_UYC0COY', 
+    hrn: 'hrn:here:data::org651595200:indoormap-ed6d5667-cfe0-4748-bbf5-88b00e7e3b21-collection' }, 2);
 
   // Indoor Maps provider interacts with a tile layer to visualize and control the Indoor Map
   const venuesProvider = new H.venues.Provider();
 
   // Indoor Maps service provides a loadVenue method
-  venuesService.loadVenue(7348).then((venue) => {
+  // This example works for maps:
+  // 7348 - Zurich Airport
+  // 27158 - Tiefgarage Riem Arcaden APCOA Parking garage
+  // 22766 - Mall of Berlin
+  venuesService.loadVenue('7348').then((venue) => {
     // add Indoor Maps data to the Indoor Maps provider
     venuesProvider.addVenue(venue);
     venuesProvider.setActiveVenue(venue);
 
     // create a tile layer for the Indoor Maps provider
     map.addLayer(new H.map.layer.TileLayer(venuesProvider));
+
+    // Set center of the map view to the center of the venue
+    map.setCenter(venue.getCenter());
 
     // optionally select a different level
     venue.setActiveDrawing(7880);
