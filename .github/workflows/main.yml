@@ -32,8 +32,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: echo open ../map-at-specified-location/index.html > error.log
-        with:
-          output_file: "error.log"
-          should_push: false
-          root_path: "src/"
-          artifact_name: "error"
+       
+      - name: Upload the build output
+              uses: actions/upload-artifact@v2
+              with:
+                name: build-output
+                path: output/
