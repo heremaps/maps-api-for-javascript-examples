@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Image overlay</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+
+    <div class="page-header">
+        <h1>Image overlay</h1>
+        <p>Display an animated weather radar.</p>
+    </div>
+    <p>This example shows a rectangular area with the animated weather map over the North Atlatic and Europe.</p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>An animated rectangular area is created using the <code>H.map.Overlay</code> class, passing in an 
+      <code>H.geo.Rect</code> holding the top-left and bottom-right points of the rectangle. The overlay's bitmap is updated
+      with the help of the <code>setBitmap</code> method.
+    </p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

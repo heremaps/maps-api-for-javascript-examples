@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Draggable Marker</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+    <div class="page-header">
+        <h1>Draggable Marker</h1>
+        <p>Display a moveable marker on a map</p>
+    </div>
+    <p>This example displays a moveable map of <b>Boston</b>, including a marker. The marker can also be moved around the map.</p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>Default markers are created by using the <code>H.map.Marker</code> class without specifying an icon and passing in a location only. 
+      To respond to drag events the <code>marker.draggable</code> flag needs to be set. The default panning interaction of the 
+      map (<code>H.mapevents.Behavior</code>) must be disabled whilst the <code>drag</code> event is in operation.</p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+
+#map {
+    width: 95%;
+    height: 450px;
+    background: grey;
+}
+
+#panel {
+    width: 100%;
+    height: auto !important;
+    font-weight: bold;
+}

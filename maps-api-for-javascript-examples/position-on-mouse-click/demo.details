@@ -1,0 +1,12 @@
+---
+ name: Calculating a Location from a Mouse Click
+ description: Obtain the latitude and longitude of a location within the map
+ resources:
+   - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+ normalize_css: no
+ dtd: html 5
+ wrap: d
+ panel_html: 0
+ panel_js: 0
+ panel_css: 0
+...

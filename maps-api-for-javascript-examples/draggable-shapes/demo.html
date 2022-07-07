@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Draggable geo shapes</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+    <div class="page-header">
+        <h1>Draggable geo shapes</h1>
+        <p>Display draggable geo shapes on map</p>
+    </div>
+    <p>This example displays a moveable map with four geo shapes. These shapes can be moved around the map.</p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>Four geo shapes, <code>H.map.Polyline</code>, <code>H.map.Polygon</code>, <code>H.map.Circle</code>, <code>H.map.Rect</code>
+      are placed on map. In order to respond to drag events the <code>draggable</code> flag needs to be set. In order to
+       have smoother resizing the object's <code>volatility</code> property should be set to true.</p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

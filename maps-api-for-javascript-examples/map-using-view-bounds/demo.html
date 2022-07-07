@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Map using View Bounds</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+    <div class="page-header">
+        <h1>Map using View Bounds</h1>
+        <p>Display a map of a given area</p>
+    </div>
+    <p>This example displays a map of <b>Boston</b>, covering the area from <i>42.3736°N, 71.0751°W</i> in the North-West corner to 42.3472°N, 71.0408°W in the South-East corner.</p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>
+        Passing the <code>bounds</code> to the <code>setLookAtData</code> method of the <code>H.map.ViewModel</code>
+        moves and zooms&nbsp;the map to cover the specified area.<br>
+    </p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

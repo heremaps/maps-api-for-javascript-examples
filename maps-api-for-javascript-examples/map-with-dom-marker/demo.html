@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+    <title>DOM Marker</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+    <div class="page-header">
+        <h1>DOM Marker</h1>
+        <p>Display a marker that is capable of receiving DOM events</p>
+    </div>
+    <p>This example displays a movable map of <b>Chicago</b> with a single marker 
+      highlighting the location of Soldier Field <i>(41.8625°N, 87.6166°W)</i>, 
+      home of the Chicago Bears. Marker displays the letter C in the correct club colors.</p>
+    <p>The marker is capable of receiving DOM (Document Object Model) events such as <code>mouseenter</code>, 
+      <code>mouseleave</code> etc. The marker will fade if the mouse pointer is placed over it.</p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>DOM markers are created by using the <code>H.map.DomMarker</code> class by providing a <code>H.map.DomIcon</code>.</p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>
