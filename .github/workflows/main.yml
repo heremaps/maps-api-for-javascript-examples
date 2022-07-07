@@ -34,7 +34,7 @@ jobs:
         run: echo open ../map-at-specified-location/index.html > error.log
        
       - name: Upload the build output
-              uses: actions/upload-artifact@v2
-              with:
-                name: build-output
-                path: output/
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-output
+          path: output/
