@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>DOM Marker rotation</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+
+    <div class="page-header">
+        <h1>DOM Marker rotation</h1>
+        <p>Rotate DOM Marker's content using CSS</p>
+    </div>
+    <p>This example shows DOM Marker with SVG icon which rotates every second by 45 degrees.
+    </p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>
+      The DOM node provided in constructor of <code>H.map.DomIcon</code> is cloned and rendered every time a
+      DOM marker reaches (is visible within) the map view port. Therefore all manipulation has to be done
+      in <code>onAtach</code> callback where the currently displayed clone reference is available.
+      The API manipulates position of rendered DOM element (e.g. when panning the map, zooming the map, etc.) by changing
+      the <code>transform</code> CSS property of the <code>clonedElement</code>. Therefore in order to rotate DOM icon,
+      we need to manipulate its child node <code>transform</code> CSS property (in our case SVG node).
+    </p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

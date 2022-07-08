@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+    <title>Marker on the Map</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+    
+    <div class="page-header">
+        <h1>Marker on the Map</h1>
+        <p>Display a map highlighting points of interest</p>
+    </div>
+    <p>This example displays a moveable map of <b>Europe</b>, including markers highlighting the locations of the captials of <b>France</b>, <b>Italy</b>, <b>Germany</b>, <b>Spain</b> and the <b>United Kingdom</b>.</p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>
+        Default markers are created by using the <code>H.map.Marker</code> class without specifying an <code>icon</code> and passing in a location only.<br>
+    </p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

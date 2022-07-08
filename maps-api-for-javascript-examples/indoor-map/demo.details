@@ -1,0 +1,12 @@
+---
+ name: Displaying an Indoor Map
+ description: Use Here Indoor Maps service to load and visualize an indoor map
+ resources:
+   - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+ normalize_css: no
+ dtd: html 5
+ wrap: d
+ panel_html: 0
+ panel_js: 0
+ panel_css: 0
+...

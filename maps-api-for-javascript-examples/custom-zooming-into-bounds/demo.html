@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+    <title>Zoom into Bounds</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+    <div class="page-header">
+        <h1>Zoom into Bounds</h1>
+        <p>Zoom into bounds limiting maximum level</p>
+    </div>
+    <p>This example displays circles on the map, which denote cities' population. By clicking on each circle you can zoom into it, 
+      but with different maximum zoom levels, depending on the circle size.</p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>We are using the <code>getBoundingBox</code> to retrieve object's bounds and then set it to the <code>H.map.ViewModel</code>
+      to achieve the best zoom level and map centre,  and then perform a custom processing on it to limit maximum zoom level.</p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

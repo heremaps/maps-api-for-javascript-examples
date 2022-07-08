@@ -1,0 +1,12 @@
+---
+ name: Search for a Landmark
+ description: Request the location of a landmark and display it on the map
+ resources:
+   - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
+ normalize_css: no
+ dtd: html 5
+ wrap: d
+ panel_html: 0
+ panel_js: 0
+ panel_css: 0
+...

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Polyline on the Map</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+    <div class="page-header">
+        <h1>Polyline on the Map</h1>
+        <p>Display a map highlighting a region or area</p>
+    </div>
+    <p>This example displays a line connecting the cities of <b>Dublin</b> <i>(53.3477°N, 6.2597°W)</i>, 
+      <b>London</b> <i>(51.5008°N, 0.1224°W)</i>, <b>Paris</b> <i>(48.8567°N, 2.3508°E)</i> and 
+      <b>Berlin</b> <i>(52.5166°N, 13.3833°E)</i> and displays it on the map.</p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>A polyline is created using the <code>H.map.Polyline</code> class, passing in an 
+      <code>H.geo.LineString</code> holding the points of the line. The look-and-feel of the polyline can be altered by adding the style parameter</p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

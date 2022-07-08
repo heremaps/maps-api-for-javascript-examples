@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+    <title>Map with postcodes from the Advanced Data Sets</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+
+    <div class="page-header">
+        <h1>Map with postcodes from the Advanced Data Sets</h1>
+        <p>Display a map with the postcode boundaries overlay</p>
+    </div>
+    <p>
+        This example displays a movable map initially centered on the <b>Brandenburg Gate</b> in
+        the centre of Berlin <i>(52.5159°N, 13.3777°E)</i> with the postcodes overlay provided by the
+        <a href="https://developer.here.com/documentation/fleet-telematics/dev_guide/index.html" target="_blank">Fleet Telematics Advanced Data Sets REST API</a>.
+        It's possible to display additional information about the postcode area by clicking on the marker.
+    </p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>
+        The example uses <code>H.service.extension.platformData.TileProvider</code> class to fetch data
+        from the Fleet Telematics Advanced Data Sets service. Two providers are configured with the desired geometry
+        types (<code>H.service.extension.platformData.TileProvider.ResultType.POLYLINE</code>
+        for postcode borders and <code>H.service.extension.platformData.TileProvider.ResultType.MARKER</code> for postcode
+        centroids). The result is displayed on the map as two additional layers using an instance of the <code>H.map.layer.TileLayer</code>
+         and <code>H.map.layer.MarkerTileLayer</code> correspondingly.
+    </p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

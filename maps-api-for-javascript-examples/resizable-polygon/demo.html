@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Resizable polygon</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+    <div class="page-header">
+        <h1>Resizable polygon</h1>
+        <p>Display resizable geo polygon on a map</p>
+    </div>
+    <p>This example displays a polygon object, which can be resized by dragging its vertices.</p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>There is a main <code>H.map.Group</code> container, which contains resizable <code>H.map.Polygon</code> and another container containing markers
+      (<code>H.map.Marker</code>) as polygon's vertices (corners) used for resizing. Markers, shown as small red circles, are hidden
+      by default and shown only when mouse position is over the main group object, or is touched on touch device
+      (<code>pointerenter</code> event). In order to listen to <code>drag</code> event, object's <code>draggable</code> property
+      must be set to true. In order to have smoother resizing, the object's <code>volatility</code> property should be set to true.</p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>

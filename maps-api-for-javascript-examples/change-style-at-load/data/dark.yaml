@@ -1,0 +1,2145 @@
+sources:
+  omv:
+    type: OMV
+    max_zoom: 17
+    min_display_zoom: 1
+    tiled: true
+
+scene:
+  background:
+    color: global.land_color
+  sky:
+    zenith: '#010205'
+    horizon: '#010205'
+    fog: '#21262B'
+
+global:
+  text_font_family: FiraGO
+
+  text_visible_admin: true
+  icon_visible_populated_places: true
+  text_visible_populated_places: false
+  text_visible_neighbourhoods: false
+  text_visible_water_labels: false
+  text_visible_building: false
+  text_visible_address: false
+  text_visible_roads: false
+  text_visible_ferry: false
+  shields_visible: false
+
+  icon_size: [[10, '20px'], [17, '24px']]
+
+  ux_language: en
+  ux_language_text_source: |
+    function() {
+      return (global.ux_language && feature['name:' + global.ux_language]) ||
+          (global.ux_language_fallback && feature['name:'+global.ux_language_fallback]) ||
+          feature['name'];
+    }
+  ux_language_text_source_short: |
+      function() {
+          return (global.ux_language && feature['name:short:'+global.ux_language]) || (global.ux_language_fallback && feature['name:short:'+global.ux_language_fallback]) || feature['name:short'];
+      }
+  ux_language_text_source_left: |
+      function() {
+          // if a ux_langauge has been defined use that, else if there is feature name in the fallback_ux_language then use that, else use the feature's default name in the local language
+          return (global.ux_language && feature['name:left:'+global.ux_language]) || (global.ux_language_fallback && feature['name:left:'+global.ux_language_fallback]) || feature['name:left'];
+      }
+  ux_language_text_source_right: |
+      function() {
+          // if a ux_langauge has been defined use that, else if there is feature name in the fallback_ux_language then use that, else use the feature's default name in the local language
+          return (global.ux_language && feature['name:right:'+global.ux_language]) || (global.ux_language_fallback && feature['name:right:'+global.ux_language_fallback]) || feature['name:right'];
+      }
+  ux_language_text_source_boundary_lines_left_right:
+      left: global.ux_language_text_source_left
+      right: global.ux_language_text_source_right
+  ux_language_text_source_boundary_lines: |
+      function() {
+          var right = (global.ux_language && feature['name:right:'+global.ux_language]) || (global.ux_language_fallback && feature['name:right:'+global.ux_language_fallback]) || feature['name:right'];
+          var left = (global.ux_language && feature['name:left:'+global.ux_language]) || (global.ux_language_fallback && feature['name:left:'+global.ux_language_fallback]) || feature['name:left'];
+          if (right && left) {
+              return left + " - " + right;
+          } else {
+              return (global.ux_language && feature['name:'+global.ux_language]) || (global.ux_language_fallback && feature['name:'+global.ux_language_fallback]) || feature.name;
+          }
+      }
+  ux_language_text_source_ocean: |
+        function() {
+            var name = (global.ux_language && feature['name:'+global.ux_language]) || (global.ux_language_fallback && feature['name:'+global.ux_language_fallback]) || feature['name'] || '';
+            name = name.split(' ').join('\n');
+            return name.split('').join(' ');
+        }
+  feature_min_zoom_filter: function() { return feature.min_zoom === undefined || $zoom >= feature.min_zoom }
+  building_extrude_height: function() {return feature.height || 5;}
+  # default order for basemap features
+  feature_order: |
+    function() {
+      if (feature.sort_rank) {
+        return feature.sort_rank
+      } else {
+        // console.warn("WARNING: Missing sort_rank!", feature);
+        return 0;
+      }
+    }
+  feature_priority: function() { return feature.priority; }
+
+  population:
+    class1-1m-up: {min: 1000000}
+    class2-250k-1m: { min: 250000, max: 1000000 }
+    class3-100k-250k: { min: 100000, max: 250000 }
+    class4-30k-100k: { min: 30000, max: 100000 }
+    class5-until-30k: { max: 30000 }
+
+  place_class1_color: [
+    [0, 'rgb(50, 50, 50)'],
+    [6, 'rgb(200, 200, 200)'],
+    [7, 'rgb(200, 200, 200)'],
+    [9, 'rgb(200, 200, 200)'],
+    [10, 'rgba(200, 200, 200, .88)'],
+    [11, 'rgba(200, 200, 200, .78)'],
+    [12, 'rgba(200, 200, 200, .78)'],
+    [13, 'rgba(200, 200, 200, .72)']
+  ]
+  place_class1_outline_color: [
+    [0, 'rgba(50, 50, 50, .3)'],
+    [4, 'rgba(30, 30, 30, .4)'],
+    [6, 'rgba(0, 0, 0, .47)'],
+    [7, 'rgba(0, 0, 0, .58)'],
+    [8, 'rgba(0, 0, 0, .7)']
+  ]
+  place_class2_color: [
+    [0, 'rgb(170, 170, 170)'],
+    [6, 'rgb(220, 220, 220)'],
+    [7, 'rgb(220, 220, 220)'],
+    [9, 'rgb(200, 200, 200)'],
+    [10, 'rgba(200, 200, 200, .95)'],
+    [11, 'rgba(200, 200, 200, 0.85)'],
+    [12, 'rgba(200, 200, 200, 0.8)'],
+    [13, 'rgba(200, 200, 200, 0.8)'],
+    [14, 'rgba(200, 200, 200, 0.7)']
+  ]
+  place_class2_outline_color: [
+    [0,  'rgba(0, 0, 0, .01)'],
+    [4,  'rgba(0, 0, 0, .01)'],
+    [5,  'rgba(0, 0, 0, .47)'],
+    [6,  'rgba(0, 0, 0, .47)'],
+    [7,  'rgba(0, 0, 0, .58)'],
+    [8,  'rgba(0, 0, 0, .70)'],
+    [11, 'rgba(0, 0, 0, .70)'],
+    [12, 'rgba(0, 0, 0, .70)']
+  ]
+  place_class3_color: [
+    [0, 'rgb(200, 200, 200)'],
+    [6, 'rgb(200, 200, 200)'],
+    [7, 'rgb(200, 200, 200)'],
+    [9, 'rgb(200, 200, 200)'],
+    [10, 'rgba(200, 200, 200, .9)'],
+    [11, 'rgba(200, 200, 200, .8)'],
+    [12, 'rgba(200, 200, 200, .8)'],
+    [12, 'rgba(200, 200, 200, .75)'],
+    [14, 'rgba(200, 200, 200, .68)']
+  ]
+  place_class3_outline_color: [
+    [0,  'rgba(0, 0, 0, .07)'],
+    [4,  'rgba(0, 0, 0, .07)'],
+    [5,  'rgba(0, 0, 0, .47)'],
+    [6,  'rgba(0, 0, 0, .57)'],
+    [7,  'rgba(0, 0, 0, .78)'],
+    [8,  'rgba(0, 0, 0, .80)'],
+    [11, 'rgba(0, 0, 0, .80)'],
+    [12, 'rgba(0, 0, 0, .80)']
+  ]
+  place_class4_color: [
+    [0, 'rgb(180, 180, 180)'],
+    [6, 'rgb(180, 180, 180)'],
+    [7, 'rgb(180, 180, 180)'],
+    [9, 'rgb(180, 180, 180)'],
+    [10, 'rgb(180, 180, 180)'],
+    [11, 'rgb(180, 180, 180)'],
+    [12, 'rgba(180, 180, 180, .86)'],
+    [13, 'rgba(180, 180, 180, .78)'],
+    [14, 'rgba(180, 180, 180, .70)']
+  ]
+  place_class4_outline_color: [
+    [0,  'rgba(0, 0, 0, .07)'],
+    [4,  'rgba(0, 0, 0, .37)'],
+    [5,  'rgba(0, 0, 0, .57)'],
+    [6,  'rgba(0, 0, 0, .57)'],
+    [7,  'rgba(0, 0, 0, .68)'],
+    [8,  'rgba(0, 0, 0, .80)'],
+    [13, 'rgba(0, 0, 0, .80)'],
+    [14, 'rgba(0, 0, 0, .80)']
+  ]
+  place_class5_color: [
+    [0, 'rgb(70, 70, 90)'],
+    [6, 'rgb(70, 70, 90)'],
+    [7, 'rgb(60, 60, 80)'],
+    [9, 'rgb(60, 60, 80)'],
+    [10, 'rgb(50, 50, 70)'],
+    [11, 'rgb(50, 50, 70)'],
+    [12, 'rgba(20, 20, 40, .86)'],
+    [13, 'rgba(20, 20, 40, .78)'],
+    [14, 'rgba(0, 0, 0, .70)']
+  ]
+  place_class5_outline_color: [
+    [0,  'rgba(250, 253, 255, .07)'],
+    [4,  'rgba(250, 253, 255, .07)'],
+    [5,  'rgba(250, 253, 255, .47)'],
+    [6,  'rgba(250, 253, 255, .47)'],
+    [7,  'rgba(250, 253, 255, .58)'],
+    [8,  'rgba(250, 253, 255, .70)'],
+    [13, 'rgba(250, 253, 255, .70)'],
+    [14, 'rgba(240, 244, 245, .70)']
+  ]
+  place_capital_color: [
+    [0, 'rgb(160, 160, 160)'],
+    [7, 'rgb(210, 160, 160)'],
+    [10, 'rgba(250, 160, 160, .9)'],
+    [11, 'rgba(250, 160, 160, .7)']
+  ]
+  place_capital_outline_color: [
+    [0, "rgba(0, 0, 0, .6)"],
+    [5, "rgba(0, 0, 0, .5)"],
+    [7, "rgba(0, 0, 0, .7)"],
+    [8, "rgba(0, 0, 0, .9)"]
+  ]
+
+  place_hamlet_color: rgb(120, 120, 120)
+  place_hamlet_outline_color: [
+    [0,  'rgba(240, 244, 245, .78)'],
+    [11, 'rgba(240, 244, 245, .78)'],
+    [12, 'rgba(240, 244, 245, .70)'],
+    [13, 'rgba(240, 244, 245, .70)'],
+    [14, 'rgba(240, 244, 245, .62)']
+  ]
+
+  #global map colours
+  land_color: rgb (70, 70, 70)
+  beach_color: rgb (60, 60, 60)
+  glacier_color: rgb (100, 100, 100)
+  woodland_color: rgb (50, 50, 50)
+  forest_color: [
+    [0,  'rgb(80, 80, 70)'],
+    [8,  'rgb(80, 80, 70)'],
+    [9,  'rgb(80, 80, 70)'],
+    [11, 'rgb(80, 80, 70)'],
+    [15, 'rgb(80, 80, 70)'],
+    [16, 'rgb(80, 80, 70)']
+  ]
+  water_color: rgb (55, 55, 55)
+  water_deep_color: rgb(137, 196, 250) #deep water
+
+  water_label_sea_color: rgb(77,147,221)
+  water_label_lake_color: rgb(34,105,191)
+  water_label_lake_outline_color: rgba(204, 230, 255, .47)
+  water_label_ocean_color: rgb(77, 147, 221)
+  water_label_bay_color: rgb(34, 105, 191)
+  water_label_bay_outline_color: rgba(204, 230, 255, .47)
+
+  landuse_default_label_color: [
+    [15, 'rgb(95,100,110)'],
+    [16, 'rgb(250, 0, 0)']
+  ]
+  landuse_default_label_outline_color: rgba(237,245,238,.58)
+  landuse_label_size: [[12, 10px], [13, 11px], [15, 11px], [16, 12px]]
+  landuse_park_label_color: rgba(56,202,204,0.1)
+  landuse_park_label_outline_color: [
+    [11, 'rgba(215,242,205,.058)'],
+    [12, 'rgba(208,238,195,.058)'],
+  ]
+  landuse_forest_label_color: rgb(78,133,93)
+  landuse_forest_label_outline_color: rgba(230,250,225,.58)
+  # used for industrial, railway, parking, commercial, zoo, aerodrome, etc.
+  landuse_gray_label_color: rgb(70,90,110)
+  landuse_gray_label_outline_color: [
+    [13, 'rgba(235,243,250,.58)'],
+    [14, 'rgba(225,233,240,.58)']
+  ]
+  landuse_pedestrian_label_color: [
+    [15, "rgb(95,100,110)"],
+    [16, "rgb(105,110,120)"]
+  ]
+  landuse_pedestrian_label_outline_color: rgba(235,243,250,.58)
+  landuse_hospital_label_color: [
+    [15, 'rgb(115,100,110)'],
+    [16, 'rgb(125,105,115)']
+  ]
+  landuse_hospital_label_outline_color: rgba(245,237,240,.58)
+  landuse_golf_course_label_color: rgb(62,120,110)
+  landuse_golf_course_label_outline_color: [
+    [11, 'rgba(215,242,205,.58)'],
+    [12, 'rgba(194,237,196,.58)']
+  ]
+  landuse_beach_label_color: rgb(115,114,94)
+  landuse_beach_label_outline_color: rgba(250,240,170,.58)
+  landuse_university_label_color: [
+    [15, 'rgb(95,100,110)'],
+    [16, 'rgb(105,110,120)']
+  ]
+  landuse_university_label_outline_color: [
+    [15, 'rgba(240,237,232,.58)'],
+    [16, 'rgba(245,242,237,.58)']
+  ]
+  landuse_parking_label_color: rgb(7,78,159)
+  landuse_military_label_color: rgb(131,129,156)
+  landuse_military_label_outline_color: rgba(242,245,252,.58)
+  landuse_peak_label_color: rgb(120,107,103)
+  landuse_peak_label_outline_color: rgba(250,254,255,.47)
+
+  builtup_area_color: [
+    [0,  'rgb(225, 234, 240)'],
+    [10, 'rgb(60, 60, 60)'],
+    [13, 'rgb(60, 60, 60)'],
+    [14, 'rgb(60, 60, 60)'],
+    [15, 'rgb(70, 70, 70)'],
+    [16, 'rgb(70, 70, 70)']
+  ]
+  builtup_area_color_border_color: 'rgba(80, 80, 80,.5)'
+  golf_course_color: [
+    [11, 'rgb(110, 110, 110)'],
+    [12, 'rgb(110, 110, 110)'],
+    [13, 'rgb(110, 110, 110)'],
+    [14, 'rgb(110, 110, 110)'],
+    [15, 'rgb(110, 110, 110)'],
+    [16, 'rgb(110, 110, 110)']
+  ]
+  hospital_color: rgb (40, 40, 40)
+  # applies to airport, harbor, industrial, rail yard, shopping complex
+  industrial_color: [
+    [0,  'rgb(70, 70, 70)'],
+    [11, 'rgb(70, 70, 70)'],
+    [14, 'rgb(70, 70, 70)'],
+    [15, 'rgb(70, 70, 70)'],
+    [16, 'rgb(70, 70, 70)']
+  ]
+  national_park_color: [
+    [0 , 'rgba(70, 70, 70, .8)'],
+    [6 , 'rgba(70, 70, 70, .4)'],
+    [8 , 'rgba(70, 70, 70, .4)'],
+    [9 , 'rgba(70, 70, 70, .4)'],
+    [10, 'rgba(70, 70, 70, .4)'],
+    [11, 'rgba(70, 70, 70, .3)'],
+    [16, 'rgba(70, 70, 70, .3)']
+  ]
+  island_color: rgb(81,87,4)
+  island_outline_color: rgba(250,253,255, .39)
+  native_reservation_color: rgba (245, 231, 218, 0.78)
+  military_color: rgb(60,37,42)
+  park_color: rgb (70, 77, 70)
+  # applies to allotment, amusement, animal, cemetery, sports complex
+  green_area_color: [
+    [13, 'rgb(110, 110, 110)'],
+    [14, 'rgb(110, 110, 110)'],
+    [15, 'rgb(110, 110, 110)'],
+    [16, 'rgb(110, 110, 110)']
+  ]
+  pedestrian_area_color: [
+    [9, 'rgb(225,234,240)'],
+    [10, 'rgb(233,237,240)'],
+    [12, 'rgb(233,237,240)'],
+    [13, 'rgb(235,239,242)'],
+    [14, 'rgb(233,237,240)'],
+    [15, 'rgb(223,230,235)'],
+    [16, 'rgb(219,225,231)']
+  ]
+  aerodrome_color: [
+    [10, 'rgb(110, 110, 110)'],
+    [11, 'rgb(110, 110, 110)'],
+    [13, 'rgb(110, 110, 110)'],
+    [14, 'rgb(110, 110, 110)'],
+    [15, 'rgb(110, 110, 110)'],
+    [16, 'rgb(110, 110, 110)']
+  ]
+  runway_color: [
+    [13, 'rgb(50, 50, 50)'],
+    [14, 'rgb(50, 50, 50)'],
+    [15, 'rgb(50, 50, 50)'],
+    [16, 'rgb(50, 50, 50)']
+  ]
+  university_campus_color: rgb (90, 90, 90)
+  state_boundary_text_color: rgb(132,132,132)
+  country_boundary_color: [
+    [4, 'rgb(160, 160, 180)'],
+    [5, 'rgb(200, 120, 140)'],
+    [6, 'rgb(200, 100, 120)'],
+    [7, 'rgb(180, 100, 120)'],
+    [8, 'rgb(170, 100, 120)'],
+    [9, 'rgb(150, 100, 120)']
+  ]
+  country_boundary_outline_color: [
+    [3, 'rgba(190, 190, 190, 0.15)'],
+    [4, 'rgba(180, 180, 180, 0.15)'],
+    [5, 'rgba(110, 110, 110, 0.25)'],
+    [6, 'rgba(30, 30, 30, 0.25)'],
+    [8, 'rgba(20, 20, 20, 0.31)']
+  ]
+  country_disputed_boundary_color: [
+      [4, 'rgb(160,160,180)'],
+      [5, 'rgb(120,120,140)'],
+      [6, 'rgb(100,100,120)'],
+      [7, 'rgb(100,100,120)'],
+      [8, 'rgb(80,80,100)'],
+      [9, 'rgb(60,60,80 )']
+  ]
+  country_disputed_boundary_background_color: [.50, .50, .50, .15]
+  region_boundary_color: [ # applies to states and regions
+    [3, 'rgb(225, 225, 225)'],  # 0 <= $zoom < 4
+    [4, 'rgb(195, 195, 215)'],  # 4 <= $zoom < 5
+    [5, 'rgb(210, 210, 210)'],  # 5 <= $zoom < 6
+    # 6 <= $zoom < 12 (duplicates avoid interpolation)
+    [6, 'rgb(180, 180, 180)'],
+    [7, 'rgb(180, 180, 180)'],
+    [8, 'rgb(180, 180, 180)'],
+    [9, 'rgb(180, 180, 180)'],
+    [10, 'rgb(180, 180, 180)'],
+    [11, 'rgb(180, 180, 180)'],
+    [12, 'rgb(170, 170, 170)']  # 12 <= $zoom
+  ]
+  region_boundary_outline_color: [ # applies to states and regions
+    [4, 'rgba(220, 220, 220, 0.06)'], # 0 <= $zoom < 5
+    [5, 'rgba(215, 215, 215, 0.06)'], # 5 <= $zoom < 6
+    [6, 'rgba(200, 200, 200, 0.1)'],  # 6 <= $zoom < 7
+    # 7 <= $zoom < 12 (duplicates avoid interpolation)
+    [7, 'rgba(200, 200, 200, 0.16)'],
+    [8, 'rgba(200, 200, 200, 0.16)'],
+    [9, 'rgba(200, 200, 200, 0.16)'],
+    [10, 'rgba(200, 200, 200, 0.16)'],
+    [11, 'rgba(200, 200, 200, 0.16)'],
+    [12, 'rgba(200, 200, 200, 0.2)'] # 12 <= $zoom
+  ]
+  building_color: rgba(40, 40, 40, .98)
+  building_outline_color: [
+    [16, 'rgb(0,140,140)'],
+    [17, 'rgb(0,140,140)'],
+    [18, 'rgb(0,140,140)']
+  ]
+  building_extrude_color: rgba(40,40,40,.95)
+  building_label_color: rgb(86,105,112)
+  building_label_outline_color: rgba(240,246,247,.4)
+
+  #global road colours
+  highway_fill: [
+    [9, 'rgb(196,242,244)'],
+    [10, 'rgb(196,242,244)'],
+    [11, 'rgb(196,242,244)'],
+    [12, 'rgb(196,242,244)'],
+    [13, 'rgb(196,242,244)']
+  ]
+  highway_tunnel_fill: rgb(196,242,244)
+  highway_tunnel_center_line: rgb(196,242,2440)
+  highway_outline: rgb(196,242,244)
+  highway_centerline_fill: [
+    [11, 'rgb(196,242,244)'],
+    [12, 'rgb(196,242,244)'],
+    [13, 'rgb(196,242,244)'],
+    [14, 'rgb(196,242,244)']
+  ]
+  highway_width: [[6, 1px], [7, 2px], [8, 2.5px], [9, 3px], [11, 3px], [12, 3px], [13, 3px], [14, 2px], [15, 2px], [16, 2.5px], [17, 4px], [18, 5px], [19, 6px], [20, 9px]]
+  highway_link_trunk_width: [[6, 1px], [7, 2px], [8, 2.5px], [9, 3px], [11, 3px], [12, 3px], [13, 3px], [14, 2px], [15, 2px], [16, 2.5px], [17, 4px], [18, 5px], [19, 6px], [20, 9px]]
+  major_road_fill: [
+    [11, 'rgb(56,202,204)'],
+    [12, 'rgb(56,202,204)'],
+    [13, 'rgb(56,202,204)']
+  ]
+  major_road_tunnel_fill: rgb(56,202,204)
+  major_road_outline: [
+    [10, 'rgb(56,202,204)'],
+    [11, 'rgb(56,202,204)'],
+    [12, 'rgb(56,202,204)']
+  ]
+  major_road_width: [[8, 1px], [9, 2px], [10, 2px], [12, 2px], [13, 2px], [14, 2px], [15, 2px], [16, 2px], [17, 3px], [18, 5px], [19, 5px], [20, 7px]]
+  major_road_secondary_fill: [
+    [10, 'rgb(56,202,204)'],
+    [12, 'rgb(56,202,204)'],
+    [13, 'rgb(56,202,204)'],
+  ]
+  major_road_secondary_tunnel_fill: rgb(56,202,204)
+  major_road_secondary_outline: rgb(60, 60, 60)
+  major_road_secondary_width: [[10, 1px], [11, 2px], [13, 3.5px], [14, 2px], [15, 2px], [16, 3px], [17, 3px], [18, 4px], [19, 5px], [20, 6px]]
+  major_road_tertiary_fill: [
+    [11, 'rgb(56,202,204)'],
+    [12, 'rgb(56,202,204)']
+  ]
+  major_road_tertiary_tunnel_fill: rgb(204,200,184)
+  major_road_tertiary_outline: rgb(165,164,131)
+  major_road_tertiary_width: [[10, 0px], [10, 1.5px], [12, 2px], [13, 3.5px], [14, 2px], [15, 2px], [16, 2px], [18, 4px], [19, 5px], [20, 7px]]
+  minor_road_residential_fill: [
+    [13, 'rgb(204,205,205)'],
+    [14, 'rgb(56,202,204)']
+  ]
+  minor_road_residential_tunnel_fill: rgb(227,227,227)
+  minor_road_residential_outline: rgb(60, 60, 60)
+  minor_road_width: [[14, 1px], [15, 2px], [17, 3px], [18, 4px], [19, 4px], [19, 5px]]
+  minor_road_service_fill: [
+    [13, 'rgb(204,205,205)'],
+    [14, 'rgb(56,202,204)']
+  ]
+  minor_road_service_tunnel_fill: rgb(128,128,128)
+  minor_road_service_outline: rgb(203,205,203)
+  minor_road_unpaved_fill: rgb(239,240,235)
+
+  tunnel_order: 305
+  bridge_outline: rgb(160,160,160)
+
+  path_pedestrian: rgb(175, 178, 182)
+  path_footway: rgb(56,202,204)
+  path_footway_tunnel_fill: rgb(227,227,227)
+  path_footway_cemetery: rgb(199,205,204)
+  path_footway_forest: rgb(187,190,194)
+  path_footway_park: rgb(178,204,172)
+
+  ferry_line_color: rgb(56,202,204)
+  ferry_label_color: rgb(48,124,207)
+  ferry_tunnel_color: rgb(30,48,65)
+  ferry_label_outline_color: rgb(153,206,255)
+
+  #global railway colors
+  rail_dash_background_color: rgb(160, 160, 160)
+  rail_outline_color: rgb(160, 160, 160)
+  rail_dash_color: [
+    [10, 'rgb(220, 220, 220)'],
+    [13, 'rgb(255, 255, 255)'],
+    [16, 'rgb(250, 250, 250)']
+  ]
+
+  #global label colours
+  text_fill: 'rgb(160, 160, 160)'
+  text_outline: global.land_color
+  text_fill_address: rgb(122,147,153)
+
+textures:
+  icon_library:
+    url: https://heremaps.github.io/maps-api-for-javascript-examples/change-style-at-load/data/icons/sprite-2x.png
+    # filtering: mipmap
+    density: 2
+    sprites:
+      area-icon-day--emergency_firstaid: [0, 40, 56, 56]
+      area-icon-day--facilities_education: [192, 56, 56, 56]
+      area-icon-day--facilities_harbor: [80, 0, 56, 56]
+      area-icon-day--industrial_complex: [136, 0, 56, 56]
+      area-icon-day--leisure_amusement: [0, 96, 56, 56]
+      area-icon-day--leisure_zoo: [56, 96, 56, 56]
+      area-icon-day--shopping_main: [112, 96, 56, 56]
+      area-icon-day--sport_golfcourse: [192, 0, 56, 56]
+      area-icon-day--sport_main: [112, 152, 56, 56]
+      area-icon-day--transport_airport: [0, 152, 56, 56]
+      city-center--capital_day: [80, 56, 26, 26]
+      city-center--circle_day: [162, 56, 26, 26]
+      city-center--square_day: [136, 56, 26, 26]
+      lane-arrow-day--arrow: [56, 152, 56, 56]
+      shields--generic: [192, 112, 56, 40]
+      shields--generic-1.5x: [0, 0, 80, 40]
+fonts:
+  FiraGO:
+    - weight: normal
+      url: ../fonts/FiraGO-Map.woff
+
+styles:
+  shields:
+    base: points
+    blend_order: 1
+    draw:
+      visible: global.shields_visible
+      texture: icon_library
+      sprite: |
+        # TODO: We must use shield_text instead of ref when using different road shield icons
+        function(){
+          if (feature.ref.length > 3) {
+            return 'shields--generic-1.5x';
+          } else {
+            return 'shields--generic';
+          }
+        }
+      size: [[6, 110%],[15, 120%]]
+      repeat_group: shields
+      repeat_distance: [[10, 150px],[13, 200px],[20, 70px]]
+      placement: midpoint
+      placement_min_length_ratio: 0.1
+      text:
+        anchor: center
+        # TODO: We must use shield_text instead of ref when using different road shield icons
+        text_source: ref
+        font:
+          fill: black
+          family: global.text_font_family
+          weight: 450
+          size: [[6, 8px], [15, 10px], [20, 13px]]
+  icon_library:
+    base: points
+    texture: icon_library
+    blend_order: 1
+    draw:
+      size: global.icon_size
+      sprite_default: generic
+      buffer: 3px
+      text:
+        text_source: global.ux_language_text_source
+        anchor: [top-right, top-left, bottom-right, bottom-left, top, bottom]
+        buffer: 3px
+        text_wrap: 18
+        max_lines: 3
+        font:
+          family: global.text_font_family
+          weight: normal
+          fill: global.text_fill
+          size: [[13, 10px], [14, 11px], [17, 12px], [19, 12px], [20, 14px]]
+          stroke: { color: global.text_outline, width: [[12, 3px],[16, 4px]] }
+  text-blend-order:
+    base: text
+    blend_order: 1
+  dashes:
+    base: lines
+    dash: [3, 3]
+  transparent: #for rail
+    base: polygons
+    blend: overlay
+  translucent-polygons:
+    base: polygons
+    blend: translucent
+  translucent-lines:
+    base: lines
+    blend: translucent
+  center-lines:
+    base: lines
+    blend: opaque
+  bridge:
+    base: lines
+    blend: opaque
+    draw:
+      # order: global.feature_order
+      order: 430
+      cap: round
+      outline:
+        cap: butt
+        width: [[14, 0px], [16, 1.5px], [17, 2px]]
+        color: global.bridge_outline
+layers:
+  earth:
+    data: {source: omv, layer: earth}
+    draw:
+      polygons:
+        order: 100
+        color: global.land_color
+  landuse:
+    filter: global.feature_min_zoom_filter
+    data: {source: omv, layer: landuse}
+    draw:
+      polygons:
+        order: global.feature_order
+      lines:
+        order: global.feature_order 
+    label:
+      visible: false
+      filter:
+        all:
+         - $geometry: point
+      draw:
+        text-blend-order:
+          text_source: global.ux_language_text_source
+          priority: global.feature_order
+          text_wrap: 18
+          font:
+            fill: global.landuse_default_label_color
+            family: global.text_font_family
+            weight: normal
+            size: global.landuse_label_size
+            stroke:
+              color: global.landuse_default_label_outline_color
+              width: 1px
+      park:
+        filter:
+          kind: park
+        draw:
+          text-blend-order:
+            font:
+              fill: global.landuse_park_label_color
+              stroke:
+                color: global.landuse_park_label_outline_color
+      forest-national-park:
+        filter:
+          kind: [forest, national_park, nature_reserve]
+        draw:
+          text-blend-order:
+            font:
+              fill: global.landuse_forest_label_color
+              stroke:
+                color: global.landuse_forest_label_outline_color
+      pedestrian:
+        filter:
+          kind: pedestrian
+        draw:
+          text-blend-order:
+            font:
+              fill: global.landuse_pedestrian_label_color
+              stroke:
+                color: global.landuse_pedestrian_label_outline_color
+      beach:
+        filter:
+          kind: beach
+        draw:
+          text-blend-order:
+            font:
+              fill: global.landuse_beach_label_color
+              stroke:
+                color: global.landuse_beach_label_outline_color
+      military:
+        filter:
+          kind: military
+        draw:
+          text-blend-order:
+            font:
+              fill: global.landuse_military_label_color
+              stroke:
+                color: global.landuse_military_label_outline_color
+      peak:
+        filter:
+          kind: peak
+        draw:
+          text-blend-order:
+            font:
+              fill: global.landuse_peak_label_color
+              stroke:
+                color: global.landuse_peak_label_outline_color
+      other:
+        filter:
+          kind: [industrial, railway, parking]
+        draw:
+          text-blend-order:
+            font:
+              fill: global.landuse_gray_label_color
+              stroke:
+                color: global.landuse_gray_label_outline_color
+      with-icon:
+        filter:
+          kind: [sports_centre, commercial, zoo, hospital, aerodrome, golf_course, university]
+        draw:
+          icon_library:
+            # visible: false
+            priority: global.feature_order
+            text:
+              anchor: [top, bottom, left, right]
+              text_wrap: 18
+              font:
+                fill: global.landuse_default_label_color
+                size: global.landuse_label_size
+                stroke:
+                  color: global.landuse_default_label_outline_color
+                  width: 1px
+        sports_centre:
+          filter:
+            kind: sports_centre
+          draw:
+            icon_library:
+              sprite: area-icon-day--sport_main
+              text:
+                font:
+                  fill: global.landuse_default_label_color
+                  stroke:
+                    color: global.landuse_default_label_outline_color
+        commercial:
+          filter:
+            kind: commercial
+          draw:
+            icon_library:
+              sprite: area-icon-day--shopping_main
+              text:
+                font:
+                  fill: global.landuse_gray_label_color
+                  stroke:
+                    color: global.landuse_gray_label_outline_color
+        zoo:
+          filter:
+            kind: zoo
+          draw:
+            icon_library:
+              sprite: area-icon-day--leisure_zoo
+              text:
+                font:
+                  fill: global.landuse_gray_label_color
+                  stroke:
+                    color: global.landuse_gray_label_outline_color
+        hospital:
+          filter:
+            kind: hospital
+          draw:
+            icon_library:
+              sprite: area-icon-day--emergency_firstaid
+              text:
+                font:
+                  fill: global.landuse_hospital_label_color
+                  stroke:
+                    color: global.landuse_hospital_label_outline_color
+        aerodrome:
+          filter:
+            kind: aerodrome
+          draw:
+            icon_library:
+              sprite: area-icon-day--transport_airport
+              text:
+                font:
+                  fill: global.landuse_gray_label_color
+                  stroke:
+                    color: global.landuse_gray_label_outline_color
+        golf:
+          filter:
+            kind: golf_course
+          draw:
+            icon_library:
+              sprite: area-icon-day--sport_golfcourse
+              text:
+                font:
+                  fill: global.landuse_golf_course_label_color
+                  stroke:
+                    color: global.landuse_golf_course_label_outline_color
+        university:
+          filter:
+            kind: university
+          draw:
+            icon_library:
+              sprite: area-icon-day--facilities_education
+              text:
+                font:
+                  fill: global.landuse_university_label_color
+                  stroke:
+                    color: global.landuse_university_label_outline_color
+    wood:
+      filter:
+        kind: [wood, natural_wood, wetland]
+      draw:
+        polygons:
+          color: global.woodland_color
+    forest:
+      filter:
+        kind: [forest, natural_forest]
+      draw:
+        polygons:
+          color: global.forest_color
+    park:
+      filter:
+        kind: [park, grass]
+      draw:
+        polygons:
+          color: global.park_color
+    national_park:
+      filter:
+        kind: national_park
+      draw:
+        polygons:
+          color: global.national_park_color
+    nature_reserve:
+      filter:
+        kind: nature_reserve
+      draw:
+        polygons:
+          color: global.native_reservation_color
+    glacier:
+      filter:
+        kind: glacier
+      draw:
+        polygons:
+          color: global.glacier_color
+    beach:
+      filter:
+        kind: beach
+      draw:
+        polygons:
+          color: global.beach_color
+    builtup:
+      filter:
+        kind: [urban_area, urban, residential]
+      draw:
+        polygons:
+          color: global.builtup_area_color
+        lines:
+          color: global.builtup_area_color_border_color
+          width: [
+            [13, 0],
+            [14, 2px]
+          ]
+    green-areas:
+      filter:
+        kind: [zoo, pitch, allotments, amusement_ride, theme_park, animal, sports_centre, stadium, playground, recreation-ground, recreation_track, cemetery, grave_yard]
+      draw:
+        polygons:
+          color: global.green_area_color
+    golf:
+      filter:
+        kind: golf_course
+      draw:
+        polygons:
+          color: global.golf_course_color
+    hospital:
+      filter:
+        kind: hospital
+      draw:
+        visible: false
+        polygons:
+          color: global.hospital_color
+    university:
+      filter:
+        kind: [university, college]
+      draw:
+        polygons:
+          color: global.university_campus_color
+    military:
+      filter:
+        kind: military
+      draw:
+        polygons:
+          color: global.military_color
+    pedestrian:
+      filter:
+        kind: pedestrian
+      draw:
+        polygons:
+          color: global.pedestrian_area_color
+    runway:
+      filter:
+        kind: runway
+      draw:
+        polygons:
+          color: global.runway_color
+    aerodrome:
+      filter:
+        kind: aerodrome
+      draw:
+        polygons:
+          color: global.aerodrome_color
+    other:
+      filter:
+        kind: [industrial, railway, commercial, bridge, parking]
+      draw:
+        polygons:
+          color: global.industrial_color
+  water:
+    data: {source: omv, layer: water}
+    draw:
+      polygons:
+        order: global.feature_order
+        color: global.water_color
+    small_water:
+      filter:
+        kind: [basin, lake, dock, playa, riverbank]
+      draw:
+        polygons:
+          color: global.water_color
+    deep_water:
+      filter:
+        all:
+          - $geometry: polygon
+          - kind: [ocean, sea]
+      draw:
+        polygons:
+          color: global.water_deep_color
+    river:
+      filter:
+        kind: [river, canal, ditch, drain, stream]
+      draw:
+        lines:
+          order: global.feature_order
+          width: [[10, 1px], [13, 2px], [14, 3px], [15, 4px], [16, 7px], [17, 15px], [18, 28px], [20, 46px]]
+          color: global.water_color
+          cap: round
+    water-labels:
+      filter:
+        all:
+          - name: true
+      draw:
+        text-blend-order:
+          text_source: global.ux_language_text_source
+          visible: global.text_visible_water_labels
+          priority: 8
+          font:
+            fill: global.water_label_sea_color
+            family: global.text_font_family
+            weight: normal
+            size: [[4, 11px], [5, 12px], [6, 12px], [7, 13px], [8, 14px]]
+            style: italic
+      ocean-labels:
+        filter:
+          all:
+            - kind: [ocean] # note enough due to OLPRPS-3988
+            - function() {return (feature.name && feature.name.indexOf('Ocean') != -1) || feature['name:en'] && feature['name:en'].indexOf('Ocean') != -1}
+        draw:
+          text-blend-order:
+            text_source: global.ux_language_text_source_ocean
+            text_wrap: false
+            priority: 1
+            font:
+              fill: global.water_label_ocean_color
+              size: [[0, 10px], [1, 11px], [2, 13px], [3, 14px], [4, 16px], [6, 16px], [7, 17px], [8, 20px]]
+              style: italic
+      bay-labels:
+        filter:
+          all:
+           - kind: [bay]
+           - global.feature_min_zoom_filter
+        draw:
+          text-blend-order:
+            font:
+              fill: global.water_label_bay_color
+              size: [[11, 10px], [12, 11px], [15, 11px], [16, 12px]]
+              style: normal
+              stroke:
+                color: global.water_label_bay_outline_color
+                width: 2px
+      lake-labels:
+        filter:
+          all:
+          - kind: [lake]
+          - global.feature_min_zoom_filter
+        draw:
+          text-blend-order:
+            font:
+              style: normal
+              fill: global.water_label_lake_color
+              family: global.text_font_family
+              size: [[11, 10px], [12, 11px], [15, 11px], [16, 12px]]
+              stroke:
+                color: global.water_label_lake_outline_color
+                width: 1px
+      water-line-labels:
+        filter:
+          all:
+            - $geometry: line
+            - global.feature_min_zoom_filter
+        draw:
+          text-blend-order:
+            font:
+              style: italic
+        river:
+          filter:
+            kind: river
+          draw:
+            text-blend-order:
+              priority: 8
+  boundaries:
+    filter: global.feature_min_zoom_filter
+    data: { source: omv, layer: boundaries }
+    draw:
+      translucent-lines:
+        order: 500
+    border-labels:
+      filter: {$zoom: { min: 8 }}
+      draw:
+        text-blend-order:
+          priority: 2
+          visible: global.text_visible_admin
+          text_source: global.ux_language_text_source_boundary_lines_left_right
+          offset: [0px, 5px]
+          text_wrap: 100
+          font:
+            family: global.text_font_family
+            size: 10px
+            fill: global.text_fill
+            transform: uppercase
+            stroke: { color: global.land_color, width: 3px }
+      no-left-right:
+        filter: { "name:left": false, "name:right": false }
+        draw:
+          text-blend-order:
+              text_source: global.ux_language_text_source_boundary_lines
+              offset: [0px, 0px]
+    country:
+      filter:
+        kind: country
+      draw:
+        translucent-lines:
+          color: global.country_boundary_color
+          width: 2px
+          outline:
+            color: global.country_boundary_outline_color
+            width: [[3, '0px'], [4, '2px'], [7, '3px']]
+    other_boundary_disputed_etc:
+      filter: { kind: [disputed, indefinite, indeterminate, lease_limit, line_of_control, overlay_limit] }
+      draw:
+        translucent-lines:
+          color: global.country_disputed_boundary_color
+          join: round
+          dash: [5.0, 4.0]
+          dash_background_color: global.country_disputed_boundary_background_color
+          width: [[0, '0px'], [9, '2px']]
+          outline:
+            color: global.country_disputed_boundary_background_color
+            width: [[3, '0px'], [4, '1px'], [5, '2px'], [7, '3px']]
+    state:
+      filter:
+        kind: [state, region]
+        kind_detail: [3,4]
+      draw:
+        translucent-lines:
+          color: global.region_boundary_color
+          width: [[5, '0px'], [6, '1px'], [7, '1px']]
+          outline:
+            color: global.region_boundary_outline_color
+            width: [[0, '0px'], [3, '0px'], [9, '1px']]
+        text-blend-order:
+          font:
+            fill: global.state_boundary_text_color
+  roads:
+    filter: global.feature_min_zoom_filter
+    data: {source: omv, layer: roads}
+    draw:
+      lines:
+        order: 340
+        join: round
+        cap: round
+        # for debugging not-styled roads
+        # color: red
+        width: 1px
+        outline:
+            order: 352
+    shields:
+      filter:
+        all:
+          - kind: [highway, major_road, minor_road]
+          - ref: true
+          - global.feature_min_zoom_filter
+      draw:
+        shields:
+          priority: 45
+          visible: false
+      default_priority_motorway:
+        filter:
+          kind_detail: motorway
+        draw:
+          shields:
+            priority: 40
+            visible: global.shields_visible
+      default_priority_trunk:
+        filter:
+          all:
+            - kind_detail: trunk
+        draw:
+          shields:
+            priority: 41
+            visible: global.shields_visible
+      default_priority_primary:
+        filter:
+          kind_detail: primary
+        draw:
+          shields:
+            priority: 42
+            visible: global.shields_visible
+      default_priority_secondary:
+        filter:
+          kind_detail: secondary
+        draw:
+          shields:
+            priority: 43
+            visible: global.shields_visible
+      default_priority_tertiary:
+        filter:
+          kind_detail: tertiary
+        draw:
+          shields:
+            priority: 44
+            visible: global.shields_visible
+      default_minor_road:
+        filter:
+          kind: minor_road
+        draw:
+          shields:
+            priority: 45
+            visible: global.shields_visible
+    directions:
+      filter:
+        all:
+          - $zoom: { min: 16 }
+          - oneway: yes
+      draw:
+        points:
+          priority: 500
+          texture: icon_library
+          sprite: lane-arrow-day--arrow
+          placement: spaced
+          size: 26px
+          placement_spacing: 150px
+          angle: auto
+          flat: true
+    rail:
+      filter:
+        all:
+          - kind: rail
+          - $zoom: {min: 10}
+          - global.feature_min_zoom_filter
+      draw:
+        dashes:
+          order: global.feature_order
+          width: [[15, 1px], [16, 1.5px], [17, 1.5px], [18, 2px], [19, 2.5px]]
+          color: global.rail_dash_color
+          dash: [7, 7]
+          dash_background_color: global.rail_dash_background_color
+          outline:
+            color: global.rail_outline_color
+            width: [[10, .1px], [13, .5px], [14, .8px]]
+    highway:
+      filter:
+        kind: highway
+      draw:
+        lines:
+          order: global.feature_order
+          color: global.highway_fill
+          width: global.highway_width
+          outline:
+            color: global.highway_outline
+            width: [[7, 0px], [8, 0.5px]]
+        center-lines:
+          order: function(){return feature.sort_rank+0.5}
+          color: global.highway_centerline_fill
+          width: [[10, 0px], [11, 1px]]
+      bridge:
+        filter:
+          is_bridge: true
+        draw:
+          bridge:
+            color: global.highway_fill
+            width: global.highway_width
+      tunnel:
+        filter:
+          is_tunnel: true
+        draw:
+          lines:
+            order: global.tunnel_order
+            color: global.highway_tunnel_fill
+          center-lines:
+            order: global.tunnel_order
+            color: global.highway_tunnel_center_line
+      link:
+        filter:
+          kind_detail: motorway_link
+        draw:
+          lines:
+            width: global.highway_link_trunk_width
+          center-lines:
+            visible: false
+        bridge:
+          filter:
+            is_bridge: true
+          draw:
+            bridge:
+              width: global.highway_link_trunk_width
+        tunnel:
+          filter:
+            is_tunnel: true
+          draw:
+            lines:
+              order: global.tunnel_order
+              color: global.highway_tunnel_fill
+      trunk:
+        filter:
+          kind_detail: trunk
+        draw:
+          lines:
+            width: global.highway_link_trunk_width
+            color: global.major_road_fill
+            outline:
+               width: [[9, 0px], [10, 0.5px]]
+          center-lines:
+            visible: false
+        bridge:
+          filter:
+            is_bridge: true
+          draw:
+            bridge:
+              color: global.major_road_fill
+              width: global.highway_width
+        tunnel:
+          filter:
+            is_tunnel: true
+          draw:
+            lines:
+              order: global.tunnel_order
+              color: global.major_road_tunnel_fill
+      under_construction:
+        filter:
+          under_construction: true
+        draw:
+          lines:
+            visible: false
+          center-lines:
+            visible: false
+          dashes:
+            order: global.feature_order
+            width: global.highway_width
+            dash: [2, 2]
+            color: global.highway_fill
+    major_road:
+      filter:
+        kind: major_road
+      draw:
+        lines:
+          color: global.major_road_fill
+          order: global.feature_order
+          width: global.major_road_width
+          outline:
+            color: global.major_road_outline
+            width: [[9, 0px], [10, 0.5px]]
+      bridge:
+        filter:
+          is_bridge: true
+        draw:
+          bridge:
+            color: global.major_road_fill
+            width: global.major_road_width
+      tunnel:
+        filter:
+          is_tunnel: true
+        draw:
+          lines:
+            order: global.tunnel_order
+            color: global.major_road_tunnel_fill
+      link:
+        filter:
+          is_link: true
+        draw:
+          lines:
+            color: global.major_road_fill
+            width: global.major_road_width
+      secondary:
+        filter:
+          kind_detail: [secondary, secondary_link]
+        draw:
+          lines:
+            color: global.major_road_secondary_fill
+            width: global.major_road_secondary_width
+            outline:
+              color: global.major_road_secondary_outline
+              width: [[10, 0px], [11, .5px]]
+        link:
+          filter:
+            is_link: true
+          draw:
+            lines:
+              color: global.major_road_secondary_fill
+              width: global.major_road_secondary_width
+        bridge:
+          filter:
+            is_bridge: true
+          draw:
+            bridge:
+              color: global.major_road_secondary_fill
+              width: global.major_road_secondary_width
+        tunnel:
+          filter:
+            is_tunnel: true
+          draw:
+            lines:
+              order: global.tunnel_order
+              color: global.major_road_secondary_tunnel_fill
+        under_construction:
+          filter:
+            under_construction: true
+          draw:
+            lines:
+              visible: false
+            dashes:
+              order: global.feature_order
+              width: global.major_road_secondary_width
+              dash: [2, 2]
+              color: global.major_road_secondary_fill
+      tertiary:
+        filter:
+          kind_detail: [tertiary, tertiary_link]
+        draw:
+          lines:
+            color: global.major_road_tertiary_fill
+            width: global.major_road_tertiary_width
+            outline:
+              color: global.major_road_tertiary_outline
+              width: [[11, 0px], [12, .5px]]
+        bridge:
+          filter:
+            is_bridge: true
+          draw:
+            bridge:
+              color: global.major_road_tertiary_fill
+              width: global.major_road_tertiary_width
+        tunnel:
+          filter:
+            is_tunnel: true
+          draw:
+            lines:
+              order: global.tunnel_order
+              color: global.major_road_tertiary_tunnel_fill
+        under_construction:
+          filter:
+            under_construction: true
+          draw:
+            lines:
+              visible: false
+            dashes:
+              order: 342
+              width: global.major_road_tertiary_width
+              dash: [2, 2]
+              color: global.major_road_tertiary_fill
+    minor_road:
+      filter:
+        kind: minor_road
+      draw:
+        lines:
+          color: blue
+      residential:
+        filter:
+          kind_detail: residential
+        draw:
+          lines:
+            order: global.feature_order
+            color: global.minor_road_residential_fill
+            width: global.minor_road_width
+            outline:
+              color: global.minor_road_residential_outline
+              width: [[13.5, 0px], [14, 1px]]
+        bridge:
+          filter:
+            is_bridge: true
+          draw:
+            bridge:
+              color: global.minor_road_residential_fill
+              width: global.minor_road_width
+        tunnel:
+          filter:
+            is_tunnel: true
+          draw:
+            lines:
+              order: global.tunnel_order
+              color: global.minor_road_residential_tunnel_fill
+      service:
+        filter:
+          kind_detail: [service, unclassified, road]
+        draw:
+          lines:
+            color: global.minor_road_service_fill
+            width: global.minor_road_width
+            outline:
+              color: global.minor_road_service_outline
+              width: [[13.5, 0px], [14, 1px]]
+        bridge:
+          filter:
+            is_bridge: true
+          draw:
+            bridge:
+              color: global.minor_road_service_fill
+              width: global.minor_road_width
+        tunnel:
+          filter:
+            is_tunnel: true
+          draw:
+            lines:
+              order: global.tunnel_order
+              color: global.minor_road_service_tunnel_fill
+      unpaved:
+        filter: {surface: unpaved}
+        draw:
+          lines:
+            order: function() {return feature.sort_rank - 0.5}
+            color: global.minor_road_unpaved_fill
+    path:
+      filter:
+        kind: path
+      pedestrian:
+        filter:
+          kind_detail: pedestrian
+        draw:
+          dashes:
+            order: global.feature_order
+            width: [[11, 1px], [15, 1px], [16, 4px]]
+            color: global.path_pedestrian
+            dash: [1,1]
+      footway:
+        filter:
+          kind_detail: footway
+        draw:
+          lines:
+            order: global.feature_order
+            color: global.path_footway
+            width: [[14, 1px], [20, 1px]]
+        bridge:
+          filter:
+            is_bridge: true
+          draw:
+            bridge:
+              color: global.path_footway
+              width: [[14, 1px], [20, 1px]]
+              outline:
+                width: [[15, 0px], [16, .5px]]
+        tunnel:
+          filter:
+            is_tunnel: true
+          draw:
+            lines:
+              order: global.tunnel_order
+              color: global.path_footway_tunnel_fill
+        cemetery:
+          filter: {landuse_kind: cemetery}
+          draw: {lines: {color: global.path_footway_cemetery}}
+        forest:
+          filter: {landuse_kind: forest}
+          draw: {lines: {color: global.path_footway_forest}}
+        park:
+          filter: {landuse_kind: park}
+          draw: {lines: {color: global.path_footway_park}}
+    ferry:
+      filter:
+        kind: ferry
+      draw:
+        dashes:
+          order: global.feature_order
+          color: global.ferry_line_color
+          width: 1px
+          dash: [5,3]
+      tunnel:
+        filter:
+          is_tunnel: true
+        draw:
+          dashes:
+            dash: [10,10]
+            color: rgb(153,153,153)
+            dash_background_color: global.ferry_tunnel_color
+
+  road_labels:
+    data: {source: omv, layer: road_labels}
+    draw:
+      text-blend-order:
+        visible: global.text_visible_roads
+        text_source: global.ux_language_text_source
+        font:
+          fill: global.text_fill
+          family: global.text_font_family
+          stroke:
+            color: global.text_outline
+            width: .5px
+    highway:
+      filter:
+        all:
+          - kind: highway
+      draw:
+        text-blend-order:
+          priority: 49
+          font:
+            size: [[10, 14px], [20, 22px]]
+      link:
+        filter:
+          kind_detail: motorway_link
+        draw:
+          text-blend-order:
+            priority: 49
+            font:
+              size: [[10, 14px], [20, 22px]]
+      trunk:
+        filter:
+          kind_detail: trunk
+        draw:
+          text-blend-order:
+            priority: 49
+            font:
+              size: [[10, 14px], [20, 22px]]
+    major_road:
+      filter:
+        kind: major_road
+      draw:
+        text-blend-order:
+          offset: [[16, [0, -1px]], [18, [0, -2px]]]
+          font:
+            stroke:
+              width: .7px
+            size: [[14, 13.5px], [15, 14.5px], [16, 17px], [17, 22px]]
+      secondary:
+        filter:
+          kind_detail: secondary
+        draw:
+          text-blend-order:
+            priority: 50
+            offset: [[16, [0, -1px]], [17, [0, -3px]]]
+            font:
+              stroke:
+                width: .7px
+              size: [[14, 12px], [15, 15px], [16, 17px], [17, 21px]]
+      tertiary:
+        filter:
+          kind_detail: tertiary
+        draw:
+          text-blend-order:
+            priority: 51
+            font:
+              stroke:
+                width: .7px
+              size: [[13, 10px], [16, 13.5px], [17, 18px], [18, 24px]]
+    minor_road:
+      filter:
+        kind: minor_road
+      draw:
+        text-blend-order:
+          offset: [[16, [0, -1px]], [18, [0, -2px]]]
+          priority: 52
+          font:
+            stroke:
+              width: .7px
+            size: [[14, 10px], [16, 12px], [18, 19px], [20, 24px]]
+      service:
+        filter:
+          kind_detail: [service, unclassified, road]
+        draw:
+          text-blend-order:
+            priority: 53
+            font:
+              stroke:
+                width: .7px
+              size: [[16, 10px], [20, 16px]]
+    path:
+      filter:
+        kind: path
+      draw:
+        text-blend-order:
+          offset: [0px,-2px]
+          priority: 51
+          font:
+            fill: rgb(53,54,73)
+            stroke:
+              color: rgb(219,226,227)
+              width: 2px
+            size: 12px
+      unpaved:
+        filter: {surface: unpaved}
+        draw:
+          text-blend-order:
+            font:
+              fill: rgb(124,114,108)
+              stroke:
+                color: rgb(212,213,202)
+      footway:
+        filter:
+          all:
+            - kind_detail: footway
+            - $zoom: {min: 14, max: 20}
+        draw:
+          text-blend-order:
+            priority: 51
+            offset: [0px,-5px]
+            font:
+              fill: rgb(120,110,104)
+              size: 12px
+    ferry:
+      filter:
+        kind: ferry
+      draw:
+        text-blend-order:
+          text_source: global.ux_language_text_source
+          offset: [0px, -12px]
+          visible: global.text_visible_ferry
+          priority: 49
+          font:
+            fill: global.ferry_label_color
+            stroke:
+              color: global.ferry_label_outline_color
+              width: [[14, 1.3px], [15, 1.5px], [16, 1.5px], [17, 1.62px]]
+            size: [[14,11px], [16,12px], [17,13px]]
+      tunnel:
+        filter:
+          is_tunnel: true
+        draw:
+          text-blend-order:
+            font:
+              fill: global.ferry_tunnel_color
+              stroke:
+                color: white
+  buildings:
+    data: {source: omv, layer: buildings}
+    filter: global.feature_min_zoom_filter
+    draw:
+      translucent-polygons:
+        order: global.feature_order
+        color: global.building_color
+      translucent-lines:
+        order: global.feature_order
+        color: global.building_outline_color
+        width: 1px
+    extrude:
+      filter:
+        $zoom: { min: 15}
+      draw:
+        translucent-polygons:
+          order: global.feature_order
+          color: global.building_extrude_color
+          extrude: global.building_extrude_height
+        translucent-lines:
+          order: global.feature_order
+          color: global.building_outline_color
+          extrude: global.building_extrude_height
+          width: 0.7px
+    labels:
+      filter:
+        all:
+            - { $zoom: { min: 17 } }
+            - not: { kind: address }
+            - name: true
+      draw:
+        text-blend-order:
+          visible: global.text_visible_building
+          text_source: global.ux_language_text_source
+          anchor: center
+          font:
+            fill: global.building_label_color
+            family: global.text_font_family
+            size: [[15, 11px], [16, 12px]]
+            stroke:
+              color: global.building_label_outline_color
+              width: 1px
+    address-labels:
+      filter:
+        all:
+          - $zoom: { min: 18 }
+          - kind: address
+      draw:
+        text-blend-order:
+          visible: global.text_visible_address
+          priority: 60
+          text_source: addr_housenumber
+          font:
+            fill: global.text_fill_address
+            family: global.text_font_family
+            size: [[18, 12px],[22, 16px]]
+  continent_label:
+    data: {source: omv, layer: earth}
+    filter:
+      all:
+        - kind: continent
+        - global.feature_min_zoom_filter
+    draw:
+      text-blend-order:
+        collide: true
+        text_source: global.ux_language_text_source
+        priority: 1
+        blend: overlay
+        blend_order: 1
+        anchor: center
+        font:
+          transform: uppercase
+          fill: rgba(46, 162, 164, 0.706)
+          stroke:
+            color: rgba(0, 0, 0, 0.6)
+            width: 5px
+          family: global.text_font_family
+          weight: normal
+          size: 19px
+  places:    
+    data: {source: omv, layer: places}
+    filter:
+      all:
+        - global.feature_min_zoom_filter
+        - name: true
+    draw:
+      text-blend-order:
+        text_source: global.ux_language_text_source
+        visible: false
+        buffer: 3px
+        font:
+          family: global.text_font_family
+          fill: global.text_fill
+    country:
+      filter:
+        kind: country
+      draw:
+        text-blend-order:
+          priority: 3
+          visible: global.text_visible_admin
+          anchor: center
+          font:
+            transform: uppercase
+            fill: [[2, 'rgba(100, 125, 130, 0.8)'], [5, 'rgba(56, 202, 204, 0.66)']]
+            stroke:
+              color: [[3, 'rgba(0, 0, 0, 0.6)'], [5, 'rgba(0, 0, 0, 0.9)']]
+              # width: 3px
+              width: [[0, '2px'], [2, '3px'], [7, '5px']]
+            size: [[3, 13px], [4, 15px], [5, 15px], [6, 17px], [7, 18px]]
+      large_country_label:
+        filter:
+          iso_code: [US, CA, RU, CN, IN, ID, AU]
+        draw:
+          text-blend-order:
+            font:
+              size: [[3, 14px], [5, 17px], [6, 20px], [7, 28px], [8, 30px]]
+    region:
+      filter:
+        all:
+          - kind: region
+          - $zoom: {max: 13}
+      draw:
+        text-blend-order:
+          # Does not work due to OLPRPS-3721
+          # text_source: global.ux_language_text_source_short
+          priority: 4
+          visible: global.text_visible_admin
+          font:
+            transform: uppercase
+            size: [[3, 11px], [4, 12px], [5, 15px], [19, 16px]]
+            fill: [[3, 'rgba(0, 0, 20, 0.3)'], [4, 'rgba(120, 120, 120, 0.6)']]
+            stroke:
+              color: 'rgba(250, 253, 255, 0.2)'
+              width: 1px
+    populated-places:
+      filter:
+        all:
+          - kind: locality
+          - $zoom: {min: 4}
+      draw:
+        icon_library:
+          visible: global.icon_visible_populated_places
+          size: [[9, 4px], [10, 0px]]
+          sprite: city-center--circle_day
+          buffer: 8px
+          priority: 30
+          text:
+            visible: global.text_visible_populated_places
+            buffer: 3px
+            font:
+              fill: global.text_fill
+              size: [[5, 9px], [8, 10px], [12, 11px]]
+        text-blend-order:
+          visible: global.text_visible_populated_places
+          buffer: 10px
+          font:
+            size: [[5, 9px], [8, 10px], [12, 11px]]
+
+      population-1m-up:
+        filter:
+          population: global.population.class1-1m-up
+        draw:
+          icon_library:
+            priority: 6
+            text:
+              visible: true
+              font:
+                fill: global.place_class1_color
+                size: [[4, 15px], [7, 15px], [8, 17px], [9, 18px], [13, 26px], [14, 0]]
+                stroke:
+                  color: global.place_class1_outline_color
+                  width: [[0, 1px], [6, 3px], [7, 5px], [8, 5px], [10, 5px], [11, 5px], [12, 5px], [13, 6px], [14, 6px]]
+        capital:
+          filter:
+            all:
+              - country_capital: true
+              - $zoom: { max: 14 }
+          draw:
+            icon_library:
+              size: [[9, 8px], [10, 0px]]
+              sprite: city-center--capital_day
+              priority: 5
+              text:
+                priority: 5
+                font:
+                  fill: global.place_capital_color
+        region-capital:
+          filter:
+            all:
+              - region_capital: true
+              - $zoom: { max: 13}
+          draw:
+            icon_library:
+              size: [[9, 8px], [10, 0px]]
+              sprite: city-center--square_day
+              priority: 6
+              text:
+                priority: 6
+        county-capital:
+          filter:
+            all:
+              - county_capital: true
+              - $zoom: { max: 14}
+          draw:
+            icon_library:
+              size: [[9, 8px], [10, 0px]]
+              sprite: city-center--circle_day
+              priority: 7
+              text:
+                priority: 7
+      population-250k-1m:
+        filter:
+          population: global.population.class2-250k-1m
+        draw:
+          icon_library:
+            # visible: false
+            text:
+              visible: true
+              font:
+                fill: global.place_class2_color
+                size: [[0, 13px], [7, 13px], [8, 14px], [9, 15px], [10, 17px], [11, 19px], [12, 20px], [13, 22px], [14, 24px], [15, 0]]
+                stroke:
+                  color: global.place_class2_outline_color
+                  width: [[0, 1px], [6, 2px], [7, 3px], [8, 4px], [11, 5px], [12, 5px], [13, 5px], [14, 5px], [15, 1]]
+        capital:
+          filter:
+            all:
+              - country_capital: true
+              - $zoom: { max: 13 }
+          draw:
+            icon_library:
+              visible: true
+              size: [[9, 6px], [10, 0px]]
+              sprite: city-center--capital_day
+              priority: 5
+              text:
+                font:
+                  fill: global.place_capital_color
+                  stroke:
+                    color: global.place_capital_outline_color
+        region-capital:
+          filter:
+            all:
+              - region_capital: true
+              - $zoom: { max: 13}
+          draw:
+            icon_library:
+              size: [[9, 6px], [10, 0px]]
+              sprite: city-center--square_day
+              priority: 6
+              text:
+                priority: 6
+        county-capital:
+          filter:
+            all:
+              - county_capital: true
+              - $zoom: { max: 14}
+          draw:
+            icon_library:
+              size: [[9, 6px], [10, 0px]]
+              sprite: city-center--circle_day
+              priority: 7
+              text:
+                priority: 7
+      population-100k-250k:
+        filter:
+          population: global.population.class3-100k-250k
+        draw:
+          icon_library:
+            text:
+              font:
+                fill: global.place_class3_color
+                size: [[0, 0], [4, 0], [5, 11px], [6, 11px], [7, 12px], [8, 12px], [9, 13px], [10, 14px], [11, 15px], [12, 17px], [13, 19px], [14, 21px], [15, 0]]
+                stroke:
+                  color: global.place_class3_outline_color
+                  width: [[0, 1px], [5, 3px], [9, 4px], [10, 4px], [11, 4px], [12, 5px], [13, 5px], [14, 5px]]
+        capital:
+          filter:
+            all:
+              - country_capital: true
+              - $zoom: { max: 13 }
+          draw:
+            icon_library:
+              size: [[9, 5px], [10, 0px]]
+              sprite: city-center--capital_day
+              priority: 5
+              text:
+                visible: true
+                font:
+                  fill: global.place_capital_color
+                  stroke:
+                    color: global.place_capital_outline_color
+        region-capital:
+          filter:
+            all:
+              - region_capital: true
+              - $zoom: { max: 13 }
+          draw:
+            icon_library:
+              size: [[9, 5px], [10, 0px]]
+              sprite: city-center--square_day
+              priority: 6
+              text:
+                visible: true
+                priority: 6
+        county-capital:
+          filter:
+            all:
+              - county_capital: true
+              - $zoom: { max: 14}
+          draw:
+            icon_library:
+              size: [[9, 5px], [10, 0px]]
+              sprite: city-center--circle_day
+              priority: 7
+              text:
+                priority: 7
+      population-30k-100k:
+        filter:
+          population: global.population.class4-30k-100k
+        draw:
+          icon_library:
+            text:
+              # visible: true
+              font:
+                fill: global.place_class4_color
+                size: [[0, 0], [4, 0], [5, 10px], [6, 10px], [7, 11px], [9, 11px], [10, 12px], [11, 13px], [12, 15px], [13, 17px], [14, 18px], [15, 0]]
+                stroke:
+                  color: global.place_class4_outline_color
+                  width: 3px
+        capital:
+          filter:
+            all:
+              - country_capital: true
+              - $zoom: { max: 14 }
+          draw:
+            icon_library:
+              size: [[9, 4px], [10, 0px]]
+              sprite: city-center--capital_day
+              priority: 5
+              text:
+                visible: true
+                font:
+                  fill: global.place_capital_color
+                  stroke:
+                    color: global.place_capital_outline_color
+        region-capital:
+          filter:
+            all:
+              - region_capital: true
+              - $zoom: { max: 13}
+          draw:
+            icon_library:
+              size: [[9, 4px], [10, 0px]]
+              sprite: city-center--square_day
+              priority: 6
+              text:
+                visible: true
+                priority: 6
+        county-capital:
+          filter:
+            all:
+              - county_capital: true
+              - $zoom: { max: 14}
+          draw:
+            icon_library:
+              size: [[9, 4px], [10, 0px]]
+              sprite: city-center--circle_day
+              priority: 7
+              text:
+                visible: true
+                priority: 7
+      population-until-30k:
+        filter:
+          population: global.population.class5-until-30k
+        draw:
+          icon_library:
+            visible: false
+            text:
+              font:
+                fill: global.place_class5_color
+                size: [[0, 0], [4, 0], [5, 9px], [6, 9px], [7, 10px], [9, 10px], [10, 11px], [11, 11px], [12, 12px], [13, 14px], [14, 15px], [15, 0]]
+                stroke:
+                  color: global.place_class5_outline_color
+                  width: 2px
+        capital:
+          filter:
+            all:
+              - country_capital: true
+              - $zoom: { max: 14 }
+          draw:
+            icon_library:
+              size: [[9, 4px], [10, 0px]]
+              visible: true
+              sprite: city-center--capital_day
+              priority: 5
+              text:
+                visible: true
+                font:
+                  fill: global.place_capital_color
+                  stroke:
+                    color: global.place_capital_outline_color
+        region-capital:
+          filter:
+            all:
+              - region_capital: true
+              - $zoom: { max: 13}
+          draw:
+            icon_library:
+              visible: true
+              size: [[9, 4px], [10, 0px]]
+              sprite: city-center--square_day
+              priority: 6
+              text:
+                visible: true
+                priority: 6
+        county-capital:
+          filter:
+            all:
+              - county_capital: true
+              - $zoom: { max: 14}
+          draw:
+            icon_library:
+              size: [[9, 4px], [10, 0px]]
+              sprite: city-center--circle_day
+              priority: 7
+              text:
+                priority: 7
+        town:
+          filter:
+            kind_detail: town
+          draw:
+            icon_library:
+              size: [[9, 4px], [10, 0px]]
+              sprite: city-center--circle_day
+              priority: 8
+              text:
+                priority: 8
+        village:
+          filter:
+            kind_detail: [village, hamlet]
+          draw:
+            text-blend-order:
+              visible: global.text_visible_populated_places
+              priority: 9
+              font:
+                fill: global.place_hamlet_color
+                size: [[10, 15px], [12, 12px],[14, 18px]]
+                stroke:
+                  color: global.place_hamlet_outline_color
+                  width: 1px
+    neighbourhoods:
+      filter:
+        all:
+          - kind: borough
+          - $zoom: { max: 15}
+      draw:
+        text-blend-order:
+          visible: global.text_visible_neighbourhoods
+          priority: 12
+          buffer: 8px
+          max_lines: 2
+          font:
+            fill: rgb(90,90,120)
+            size: [[9, 14px], [11, 15px], [13, 22px]]
+            stroke:
+              color: [
+                [13, 'rgba(240, 245, 247, .70)'],
+                [14, 'rgba(237, 242, 244, .70)'],
+                [15, 'rgba(229, 236, 240, .70)'],
+                [16, 'rgba(224, 231, 235, .70)']
+              ]
+              width: 1px
+      z13:
+        filter:
+          $zoom: 13
+        draw:
+          text-blend-order:
+            font:
+              transform: uppercase
+
+  island_label:
+    data: {source: omv, layer: earth}
+    filter:
+      kind: island
+      $zoom: { min: 0, max: 15}
+    draw:
+      text-blend-order:
+        visible: false
+        text_source: global.ux_language_text_source
+        priority: 21
+        anchor: center
+        font:
+          fill: global.island_color
+          stroke:
+            color: global.island_outline_color
+            width: 1px
+          family: global.text_font_family
+          weight: normal
+          size: [[0, 10px], [11, 10px], [12, 11px], [13, 11px], [14, 12px], [15, 12px], [16, 13px]]

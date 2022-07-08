@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Panning the Map</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  </head>
+  <body id="markers-on-the-map">
+
+    <div class="page-header">
+        <h1>Panning the Map</h1>
+        <p>Programmatically pan the map so that it is continually in motion</p>
+    </div>
+    <p>This example displays a map of the <b>Indian Ocean</b> which continuously pans using screen space X/Y coordinates.</i></p>
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>A timer is used to periodically update the map. The <code>interaction()</code> method of the <code>H.map.ViewPort</code> is used to manipulate the map view.</p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>
