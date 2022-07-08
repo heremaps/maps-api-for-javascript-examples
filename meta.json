@@ -438,6 +438,18 @@
                             "published": true
                         }
                     ]
+                },
+                {
+                    "uid": "style-editor",
+                    "title": "Integration with the HERE Style Editor",
+                    "examples": [
+                        {
+                            "uid": "change-harp-style-at-load",
+                            "title": "Set a map style exported from the HERE Style Editor",
+                            "shortDescription": "Set a style created in the HERE Style Editor during the map instantiation",
+                            "published": true
+                        }
+                    ]
                 }
             ]
 
