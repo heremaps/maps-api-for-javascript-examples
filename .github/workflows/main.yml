@@ -13,8 +13,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-env:
-  CHROME_LOG_FILE: chrome.log
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -34,12 +32,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script 
         run: |
-         echo start chrome --enable-logging --v=1
+         echo start chrome --enable-logging --v=1 --user-data-dir=output/
          echo start maps-api-for-javascript-examples/map-at-specified-location/index.html
 
        
       - name: Upload the build output
         uses: actions/upload-artifact@v2
         with:
-          name: CHROME_LOG_FILE
-          path: ./
+          path: output/
