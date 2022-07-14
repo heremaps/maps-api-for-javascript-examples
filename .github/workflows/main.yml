@@ -2,6 +2,7 @@
 
 name: CI
 
+
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
@@ -32,7 +33,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script 
         run: |
-         echo start chrome --enable-logging --v=1 --user-data-dir=output/
+         echo start google-chrome --enable-logging --v=1 --user-data-dir=output/
          echo start maps-api-for-javascript-examples/map-at-specified-location/index.html
 
        
