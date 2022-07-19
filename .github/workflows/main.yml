@@ -38,6 +38,7 @@ jobs:
          echo start maps-api-for-javascript-examples/map-multi-language-support/demo.html
          cd output/
          ls
+         cat error.log
 
        
       - name: Upload the build output
