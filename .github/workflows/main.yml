@@ -25,8 +25,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: install locate
-        run: sudo apt-get install locate
+     
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
@@ -35,8 +34,8 @@ jobs:
       - name: Run a multi-line script 
         run: |
          echo google-chrome --enable-logging --v=1 --user-data-dir=output/
-         echo start maps-api-for-javascript-examples/map-multi-language-support/demo.html
-         cd ~/.config/google-chrome
+         echo start maps-api-for-javascript-examples/map-multi-language-support/demo.
+         cd ../
          ls
 
        
