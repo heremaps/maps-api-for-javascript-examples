@@ -34,7 +34,7 @@ jobs:
       - name: Run a multi-line script 
         run: |
          echo start google-chrome --enable-logging --v=1 --user-data-dir=output/
-         echo start maps-api-for-javascript-examples/map-multi-language-support/index.html
+         echo start maps-api-for-javascript-examples/map-multi-language-support/demo.html
 
        
       - name: Upload the build output
