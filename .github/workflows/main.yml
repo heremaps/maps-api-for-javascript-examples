@@ -36,7 +36,8 @@ jobs:
         run: |
          echo google-chrome --enable-logging --v=1 --user-data-dir=output/
          echo start maps-api-for-javascript-examples/map-multi-language-support/demo.html
-         locate chrome_debug.log
+         cd ~/.config/google-chrome
+         ls
 
        
       - name: Upload the build output
