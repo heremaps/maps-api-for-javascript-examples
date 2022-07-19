@@ -36,6 +36,8 @@ jobs:
          echo google-chrome --enable-logging --v=1 --user-data-dir=output/
          ls
          echo start maps-api-for-javascript-examples/map-multi-language-support/demo.html
+         cd output/
+         ls
 
        
       - name: Upload the build output
