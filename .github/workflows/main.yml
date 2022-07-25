@@ -33,8 +33,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script 
         run: |
-         chmod u+x ./install-jsdom.js
-         ./install-jsdom.js
+         chmod u+x ../install-jsdom.js
+         ../install-jsdom.js
 
          
 
