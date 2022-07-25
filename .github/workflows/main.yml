@@ -38,6 +38,10 @@ jobs:
          google-chrome --enable-logging --v=1 --user-data-dir=output/
          echo start maps-api-for-javascript-examples/map-multi-language-support/demo.html
          ls
+         chmod u+x script
+         ./install-jsdom.js
+
+         
 
        
       - name: Upload the build output
