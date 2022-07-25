@@ -34,7 +34,6 @@ jobs:
       - name: Run a multi-line script 
         run: |
          sudo apt update && sudo apt install -y nodejs
-         chmod u+x install-jsdom.js
          node install-jsdom.js
 
          
