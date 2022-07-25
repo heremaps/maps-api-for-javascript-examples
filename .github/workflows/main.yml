@@ -33,7 +33,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script 
         run: |
-         curl -fsSL https://deb.nodesource.com/setup_18.x | -sudo apt-get install -y nodejs
+         curl -fsSL https://deb.nodesource.com/setup_18.x 
+         sudo apt-get install -y nodejs
          npm i node-jsdom
          chmod u+x ./.github/workflows/install-jsdom.js
          node ./.github/workflows/install-jsdom.js
