@@ -34,7 +34,7 @@ jobs:
       - name: Run a multi-line script 
         run: |
          npm install -g npm
-         npm i njsdom
+         npm i node-jsdom
          chmod u+x ./.github/workflows/install-jsdom.js
          node ./.github/workflows/install-jsdom.js  
 
