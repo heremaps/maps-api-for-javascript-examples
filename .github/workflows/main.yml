@@ -35,6 +35,7 @@ jobs:
         run: |
          npm uninstall -g node-jsdom
          npm cache clear --force
+         npm install -g npm
          npm i njsdom
          chmod u+x ./.github/workflows/install-jsdom.js
          node ./.github/workflows/install-jsdom.js  
