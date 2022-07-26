@@ -37,7 +37,7 @@ jobs:
          npm i node-jsdom
          chmod u+x ./.github/workflows/install-jsdom.js
          node ./.github/workflows/install-jsdom.js  
-
+         cat /home/runner/.npm/_logs/2022-07-26T07_43_50_273Z-debug-0.log
        
       - name: Upload the build output
         uses: actions/upload-artifact@v2
