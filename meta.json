@@ -108,12 +108,6 @@
                             "published": true
                         },
                         {
-                            "uid": "indoor-map",
-                            "title": "Display an Indoor Map",
-                            "shortDescription": "Use Here Indoor Maps service to load and visualize an indoor map",
-                            "published": true
-                        },
-                        {
                             "uid": "transit-mapsjs-iml",
                             "title": "Interactive Map Layer",
                             "shortDescription": "Visualize Data from Interactive Map Layer on Map.",
@@ -450,9 +444,32 @@
                             "published": true
                         }
                     ]
+                },
+                {
+                    "uid": "indoor-map-examples",
+                    "title": "Indoor Map",
+                    "examples": [
+                        {
+                            "uid": "indoor-map",
+                            "title": "Display an Indoor Map",
+                            "shortDescription": "Use Here Indoor Maps service to load and visualize an indoor map",
+                            "published": true
+                        },
+                        {
+                            "uid": "indoor-map-ui-interaction",
+                            "title": "Indoor Map UI Interactions",
+                            "shortDescription": "UI interactions with the Indoor Map",
+                            "published": true
+                        },
+                        {
+                            "uid": "indoor-map-movement",
+                            "title": "Indoor Map - Restrict map movement",
+                            "shortDescription": "Indoor Map - Restrict map movement",
+                            "published": true
+                        }
+                    ]
                 }
             ]
-
         }
     }
 }
