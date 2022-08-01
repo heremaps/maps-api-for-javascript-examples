@@ -34,6 +34,7 @@ jobs:
       - name: Run a multi-line script 
         run: |
          git clone https://github.com/jsdom/jsdom.git
+         npm i jsdom
          chmod u+x ./.github/workflows/install-jsdom.js
          node ./.github/workflows/install-jsdom.js  
          cat /home/runner/.npm/_logs/2022-07-26T07_43_50_273Z-debug-0.log
