@@ -45,9 +45,12 @@ function addVenueToMap(map) {
     venuesProvider.setActiveVenue(venue);
 
     // create a tile layer for the Indoor Maps provider
-    const venueLayer = new H.map.layer.TileLayer(venuesProvider);
-    map.addLayer(venueLayer);
-    if (!showBaseMap) {
+    const venueLayer = new H.map.layer.TileLayer(venuesProvider);   
+    if (showBaseMap) {
+      // Add venueLayer to the base layer
+      map.addLayer(venueLayer);
+    } else {
+      // If base map is not needed, set the venueLayer as base layer
       map.setBaseLayer(venueLayer);
     }
 
