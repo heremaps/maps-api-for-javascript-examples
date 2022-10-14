@@ -156,11 +156,12 @@ const onGeometryTap = (position, geometry) => {
  */
 const enableBubbleOnTap = () => {
   venuesProvider.addEventListener('tap', (e) => {
-    const geometry = e.target;
-
+    const feature = e.target;
+    const geometryId = feature.getData().properties.geometryId;
+    const geometry = venuesProvider.getActiveVenue().getGeometry(geometryId);
     if (geometry) {
       const position = map.screenToGeo(e.currentPointer.viewportX, e.currentPointer.viewportY);
-      setTimeout(() => onGeometryTap(position, geometry, true), 0);
+      setTimeout(() => onGeometryTap(position, geometry), 0);
     }
   });
 };
