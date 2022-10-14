@@ -2,7 +2,7 @@
  * Example for Indoor Map for JSMapsApi.
  */
 
-// Replace with your HERE platform app api key 
+// Replace with your HERE platform app api key
 const yourApikey = 'ZKBUeAgkzH4JWhg93AA7cIE_kZotbMGhVI0_UYC0COY';
 
 // Replace with your indoor map platform collection hrn
@@ -91,10 +91,10 @@ addVenueToMap(map);
 
 /**
  * Function to search and highlight geometries
- * 
- * @param {H.venues.Venue} venue 
- * @param {H.venues.Provider} venuesProvider 
- * @param {string} geometryForSearch - geometry name to be searched
+ *
+ * @param {H.venues.Venue} venue
+ * @param {H.venues.Provider} venuesProvider
+ * @param {string} geometryForSearch The identifier of the geometry to be searched
  */
  function highlightGeometries (venue, geometryForSearch) {
   const searchGeometries = venue.search(geometryForSearch);
@@ -103,54 +103,52 @@ addVenueToMap(map);
     outlineColor: '#99cc00',
     outlineWidth: 0.2,
   };
-  
+
   if (searchGeometries.length > 0) {
     venuesProvider.activeVenue.setHighlightedGeometries(true, searchGeometries, highlightStyle);
-  // venuesProvider.activeVenue.setHighlightedGeometries(false, searchGeometries, highlightStyle); // If you need to remove the highlighting
   }
 }
 
 /**
- * For a given location open an information popup and highlight geometry.
- * @param {mapsjs.geo.Point} position tapped on map
- * @param {H.venues.Geometry} geometry which was tapped
- * @param {boolean} highlight geometry or not
+ * For a given location open an information popup and highlight the geometry
+ * @param {mapsjs.geo.Point} position The position where to show the InfoBubble
+ * @param {H.venues.Geometry} geometry The instance of Geometry to be highlighted
  */
- const onGeometryTap = (position, geometry, highlight = true) => {
-  // Hide existing infoBubble and remove existing highlight
-  if (infoBubble) {
-    const currentGeometry = infoBubble.getData();
-    if (currentGeometry) venuesProvider.getActiveVenue().setHighlightedGeometries(false, [currentGeometry]);
-    ui.removeBubble(infoBubble);
+const onGeometryTap = (position, geometry) => {
+  const popUpContent = (geometry) => `${geometry.getIdentifier()}: ${geometry.getName()} <br>`;
+
+  if (!infoBubble) {
+    infoBubble = new H.ui.InfoBubble(position, {
+      onStateChange: (evt) => {
+        if (evt.target.getState() === 'closed') {
+          // On closing the popup, remove highlight from the geometry
+          venuesProvider.getActiveVenue().setHighlightedGeometries(false, [evt.target.getData()]);
+        }
+      }
+    });
+
+    // Prepare the content of the InfoBubble
+    const domElement = document.createElement('div');
+    domElement.innerHTML = popUpContent(geometry);
+    domElement.setAttribute('style', 'width: max-content;');
+
+    ui.addBubble(infoBubble);
   }
 
-  infoBubble = new H.ui.InfoBubble(position, {
-    onStateChange: () => {
-      // On closing the popup, removing highlight from the geometry
-      venuesProvider.getActiveVenue().setHighlightedGeometries(false, [infoBubble.getData()]);
-    },
-  });
+  // Set the new position of the InfoBubble
+  infoBubble.setPosition(position);
 
-  ui.addBubble(infoBubble);
+  // Update its content
+  infoBubble.getContentElement().innerHTML = popUpContent(geometry)
 
-  // Then set a new geometry at info bubble
+  // Set a new geometry in the data payload of the InfoBubble
   infoBubble.setData(geometry);
 
-  if (highlight) {
-    venuesProvider.getActiveVenue().setHighlightedGeometries(true, [infoBubble.getData()]);
-  }
+  // Highlight the geometry
+  venuesProvider.getActiveVenue().setHighlightedGeometries(true, [geometry], undefined, true);
 
-  const popUpContent = `${geometry.getId()}: ${geometry.getName()} <br>`;
-
-  const domElement = document.createElement('div');
-  domElement.innerHTML = popUpContent;
-  domElement.setAttribute('style', 'width: max-content;');
-
-  infoBubble.setPosition(position);
-  infoBubble.setContent(domElement);
-
-  // if content is available, open the infoBubble
-  return popUpContent.length > 0 ? infoBubble.open() : infoBubble.close();
+  // Open the InfoBubble if geometry is not undefined
+  return geometry ? infoBubble.open() : infoBubble.close();
 };
 
 /**
