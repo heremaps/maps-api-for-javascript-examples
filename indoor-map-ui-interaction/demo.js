@@ -156,9 +156,7 @@ const onGeometryTap = (position, geometry) => {
  */
 const enableBubbleOnTap = () => {
   venuesProvider.addEventListener('tap', (e) => {
-    const feature = e.target;
-    const geometryId = feature.getData().properties.geometryId;
-    const geometry = venuesProvider.getActiveVenue().getGeometry(geometryId);
+    const geometry = e.target;
     if (geometry) {
       const position = map.screenToGeo(e.currentPointer.viewportX, e.currentPointer.viewportY);
       setTimeout(() => onGeometryTap(position, geometry), 0);
