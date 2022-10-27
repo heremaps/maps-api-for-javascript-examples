@@ -111,7 +111,7 @@ addVenueToMap(map);
 
 /**
  * For a given location open an information popup and highlight the geometry
- * @param {mapsjs.geo.Point} position The position where to show the InfoBubble
+ * @param {H.geo.Point} position The position where to show the InfoBubble
  * @param {H.venues.Geometry} geometry The instance of Geometry to be highlighted
  */
 const onGeometryTap = (position, geometry) => {
