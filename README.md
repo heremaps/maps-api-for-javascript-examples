@@ -30,7 +30,7 @@ All of the following examples use **version 3.1** of the API
 * [Extruded geo shapes](https://heremaps.github.io/maps-api-for-javascript-examples/extruded-objects/demo.html) - 3D extrusion of the geometric shapes
 * [Finding the Nearest Marker](https://heremaps.github.io/maps-api-for-javascript-examples/finding-the-nearest-marker/demo.html) - Find a marker nearest to the click location
 * [Image overlay](https://heremaps.github.io/maps-api-for-javascript-examples/image-overlay/demo.html) - Display an animated weather radar
-* [Interactive Map Layer](https://heremaps.github.io/maps-api-for-javascript-examples/transit-mapsjs-iml/demo.html) - Visualize Data from Interactive Map Layer on Map
+* [Interactive Map Layer](https://heremaps.github.io/maps-api-for-javascript-examples/transit-iml/demo.html) - Visualize Data from Interactive Map Layer on Map
 * [Interleave vector and object layers](https://heremaps.github.io/maps-api-for-javascript-examples/interleave-layers/demo.html) - Display an object under the buildings
 * [Map Objects Event Delegation](https://heremaps.github.io/maps-api-for-javascript-examples/map-objects-event-delegation/demo.html) - Use event delegation on map objects
 * [Map Objects Events](https://heremaps.github.io/maps-api-for-javascript-examples/map-object-events-displayed/demo.html) - Handle events on various map objects

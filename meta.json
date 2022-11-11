@@ -108,7 +108,7 @@
                             "published": true
                         },
                         {
-                            "uid": "transit-mapsjs-iml",
+                            "uid": "transit-iml",
                             "title": "Interactive Map Layer",
                             "shortDescription": "Visualize Data from Interactive Map Layer on Map.",
                             "published": true
