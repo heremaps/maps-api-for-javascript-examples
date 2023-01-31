@@ -14,7 +14,7 @@ const indoorMapHrn = 'hrn:here:data::org651595200:indoormap-ed6d5667-cfe0-4748-b
 // 22766 - Mall of Berlin
 const venueId = '7348';
 
-// The value of the drawing id varies as per the venue being loaded. Replace with appropriate value.
+// Optional, the value of the drawing id varies as per the venue being loaded. Replace with appropriate value.
 const drawingId = 'structure-7880';
 
 // Set to false if base map is not needed to be displayed.
