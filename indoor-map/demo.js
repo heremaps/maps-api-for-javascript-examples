@@ -34,7 +34,10 @@ const labelTextPreferenceOverride = [
  *
  * @param  {H.Map} map A HERE Map instance
  */
-function addVenueToMap(map) {
+function addVenueToMap(map, platform) {
+  // Indoor Maps provider interacts with a tile layer to visualize and control the Indoor Map
+  const venuesProvider = new H.venues.Provider();
+
   // Get an instance of the Indoor Maps service using a valid apikey for Indoor Maps
   const venuesService = platform.getVenuesService({ apikey: yourApikey, hrn: indoorMapHrn }, 2);
 
@@ -106,8 +109,5 @@ var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 // Step 4: create the default UI component, for displaying bubbles
 var ui = H.ui.UI.createDefault(map, defaultLayers);
 
-// Indoor Maps provider interacts with a tile layer to visualize and control the Indoor Map
-const venuesProvider = new H.venues.Provider();
-
 // Step 5: add the Indoor Map
-addVenueToMap(map);
+addVenueToMap(map, platform);
