@@ -38,6 +38,13 @@ function addVenueToMap(map) {
   // Get an instance of the Indoor Maps service using a valid apikey for Indoor Maps
   const venuesService = platform.getVenuesService({ apikey: yourApikey, hrn: indoorMapHrn }, 2);
 
+  // Use venuesService.getMapInfoList to retrieve the list of Indoor maps from the given HRN
+  venuesService.getMapInfoList().then(mapInfoList => {
+    mapInfoList.forEach(mapInfo => {
+      console.log("Indoor map id: " + mapInfo.mapId + ", map name: " + mapInfo.mapName);
+    });
+  });
+
   // Indoor Maps service provides a loadVenue method. Optionally, overriding the label preferences
   venuesService.loadVenue(venueId, { labelTextPreferenceOverride }).then((venue) => {
     // add Indoor Maps data to the Indoor Maps provider
