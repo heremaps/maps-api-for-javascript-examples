@@ -2,7 +2,7 @@
  * Example for Indoor Map for JSMapsApi.
  */
 
-// Replace with your HERE platform app api key 
+// Replace with your HERE platform app api key
 const yourApikey = 'ZKBUeAgkzH4JWhg93AA7cIE_kZotbMGhVI0_UYC0COY';
 
 // Replace with your indoor map platform collection hrn
@@ -14,7 +14,7 @@ const indoorMapHrn = 'hrn:here:data::org651595200:indoormap-ed6d5667-cfe0-4748-b
 // 22766 - Mall of Berlin
 const venueId = '7348';
 
-// The value of the drawing id varies as per the venue being loaded. Replace with appropriate value.
+// Optionally, the value of the drawing id varies as per the venue being loaded. Replace with appropriate value.
 const drawingId = 'structure-7880';
 
 // Set to false if base map is not needed to be displayed.
@@ -33,8 +33,12 @@ const labelTextPreferenceOverride = [
  * Load and add indoor data on the map.
  *
  * @param  {H.Map} map A HERE Map instance
+ * @param  {H.service.Platform} platform A HERE Platform instance
  */
-function addVenueToMap(map) {
+function addVenueToMap(map, platform) {
+  // Indoor Maps provider interacts with a tile layer to visualize and control the Indoor Map
+  const venuesProvider = new H.venues.Provider();
+
   // Get an instance of the Indoor Maps service using a valid apikey for Indoor Maps
   const venuesService = platform.getVenuesService({ apikey: yourApikey, hrn: indoorMapHrn }, 2);
 
@@ -52,7 +56,7 @@ function addVenueToMap(map) {
     venuesProvider.setActiveVenue(venue);
 
     // create a tile layer for the Indoor Maps provider
-    const venueLayer = new H.map.layer.TileLayer(venuesProvider);   
+    const venueLayer = new H.map.layer.TileLayer(venuesProvider);
     if (showBaseMap) {
       // Add venueLayer to the base layer
       map.addLayer(venueLayer);
@@ -91,7 +95,7 @@ function addVenueToMap(map) {
 // Step 1: initialize communication with the platform
 // In your own code, replace variable window.apikey with your own apikey
 var platform = new H.service.Platform({
-  apikey: window.apikey
+  apikey: yourApikey
 });
 var defaultLayers = platform.createDefaultLayers();
 
@@ -113,8 +117,5 @@ var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 // Step 4: create the default UI component, for displaying bubbles
 var ui = H.ui.UI.createDefault(map, defaultLayers);
 
-// Indoor Maps provider interacts with a tile layer to visualize and control the Indoor Map
-const venuesProvider = new H.venues.Provider();
-
 // Step 5: add the Indoor Map
-addVenueToMap(map);
+addVenueToMap(map, platform);
