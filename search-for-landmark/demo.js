@@ -3,7 +3,7 @@
  * using a landmark geocoding search
  *
  *
- * A full list of available request parameters can be found in the Geocoder API documentation.
+ * A full list of available request parameters can be found in the Geocoding and Search API documentation.
  * see: https://www.here.com/docs/bundle/geocoding-and-search-api-v7-api-reference/page/index.html#/paths/~1discover/get
  *
  * @param   {H.service.Platform} platform    A stub class to access HERE services
