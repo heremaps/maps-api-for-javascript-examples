@@ -76,12 +76,6 @@
                             "title": "Synchronising Two Maps",
                             "shortDescription": "This example shows two maps. The upper map allows for moving and zooming. The lower map observes the upper map's zoom level and position and adopts these values every time the upper map changes.",
                             "published": true
-                        },
-                        {
-                            "uid": "example-template",
-                            "title": "Example Template",
-                            "shortDescription": "Capture an area on the map",
-                            "published": false
                         }
                     ]
                 },
