@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="demo.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="../template.css" />
-    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src='../test-credentials.js'></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
@@ -22,14 +22,14 @@
     <p>This example displays a movable map initially centered over <b>Hong Kong</b> <i>(22.2917°N, 114.1872°E)</i> with map labels in simplified Chinese.</i></p>
     <div id="map"></div>
     <h3>Code</h3>
-    <p>A reference to the base map tile service is obtained using the <code>H.service.Platform</code>. 
-      Alternate languages can be requested by adding the <code>lg</code> parameter to the tile requests. 
-      That is done by calling createTileLayer method. 5th argument is list of key/value parameters which are 
-      passed to the map tile service when requesting each tile. 
-      A list of all supported map languages can be found in the API References of the underlying service used: <a href="https://developer.here.com/documentation/map-tile/dev_guide/topics/resource-base-maptile.html">HERE Map Tile API</a> 
-      and <a href="https://developer.here.com/documentation/vector-tiles-api/dev_guide/topics/languages.html">HERE Vector Tile API</a> </p>
+    <p>A reference to the base map tile service is obtained using the <code>H.service.Platform</code>.
+      Alternate languages can be requested by adding the <code>lg</code> parameter to the tile requests.
+      That is done by calling createTileLayer method. 5th argument is list of key/value parameters which are
+      passed to the map tile service when requesting each tile.
+      A list of all supported map languages can be found in the API References of the underlying service used: <a href="https://www.here.com/docs/bundle/map-tile-developer-guide/page/topics/resource-base-maptile.html">HERE Map Tile API</a>
+      and <a href="https://www.here.com/docs/bundle/vector-tile-api-developer-guide/page/topics/languages.html">HERE Vector Tile API</a> </p>
     <p>It is possible to specify map language for all layers at once when using <code>H.service.Platform.createDefaultLayers</code> method.</p>
-    <p>Language of the UI controls can be specified when calling <code>H.ui.UI.createDefault</code> method. 
+    <p>Language of the UI controls can be specified when calling <code>H.ui.UI.createDefault</code> method.
       3rd argument is either a supported language code or a custom <code>H.ui.i18n.Localization object</code>.</p>
     <script type="text/javascript" src='demo.js'></script>
   </body>

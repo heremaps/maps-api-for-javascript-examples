@@ -3,7 +3,7 @@
  * to Friedrichstraße Railway Station.
  *
  * A full list of available request parameters can be found in the Routing API documentation.
- * see: http://developer.here.com/rest-apis/documentation/routing/topics/resource-calculate-route.html
+ * see: https://www.here.com/docs/bundle/routing-api-v8-api-reference/page/index.html
  *
  * @param {H.service.Platform} platform A stub class to access HERE services
  */
@@ -26,9 +26,8 @@ function calculateRouteFromAtoB(platform) {
 
 /**
  * This function will be called once the Routing REST API provides a response
- * @param {Object} result A JSONP object representing the calculated route
- *
- * see: http://developer.here.com/rest-apis/documentation/routing/topics/resource-type-calculate-route.html
+ * @param {Object} result A JSON object representing the calculated route.
+ * See: https://www.here.com/docs/bundle/routing-api-v8-api-reference/page/index.html
  */
 function onSuccess(result) {
   var route = result.routes[0];

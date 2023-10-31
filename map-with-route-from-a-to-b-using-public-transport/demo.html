@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="demo.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="../template.css" />
-    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src='../test-credentials.js'></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
@@ -42,17 +42,17 @@
         <h1>Map with Route from A to B using Public Transport</h1>
         <p>Request a route from A to B using public transport and display it on the map.</p>
     </div>
-    <p>This example calculates a route from the <b>Fernsehturm</b> at Panoramastraße in Berlin 
-      <i>(52.5208°N, 13.4093°E)</i> to <b>Kurfürstendamm</b> <i>(52.5034°N, 13.3295°E)</i> in the west of the 
-      city using Public Transit API v8, and displays it on the map. The calculation 
+    <p>This example calculates a route from the <b>Fernsehturm</b> at Panoramastraße in Berlin
+      <i>(52.5208°N, 13.4093°E)</i> to <b>Kurfürstendamm</b> <i>(52.5034°N, 13.3295°E)</i> in the west of the
+      city using Public Transit API v8, and displays it on the map. The calculation
       finds the fastest available route using public transport.</p>
     <div id="map"></div>
     <div id="panel"></div>
     <h3>Code</h3>
-    <p>Access to the Public Transit API service is obtained from the <code>H.service.Platform</code> by calling 
-      <code>getPublicTransitService()</code>. The <code>getRoutes()</code> method is used to calculate the fastest 
-      public transport route by passing in the relevant parameters as defined in 
-      <a href="https://developer.here.com/documentation/public-transit/api-reference-swagger.html" target="_blank">Public Transit API</a>. 
+    <p>Access to the Public Transit API service is obtained from the <code>H.service.Platform</code> by calling
+      <code>getPublicTransitService()</code>. The <code>getRoutes()</code> method is used to calculate the fastest
+      public transport route by passing in the relevant parameters as defined in
+      <a href="https://www.here.com/docs/bundle/public-transit-api-v8-api-reference/page/index.html#tag/Routing" target="_blank">Public Transit API</a>.
       The styling and display of the response is under the control of the developer.</p>
     <script type="text/javascript" src='demo.js'></script>
   </body>

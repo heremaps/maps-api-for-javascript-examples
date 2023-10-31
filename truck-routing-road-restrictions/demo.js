@@ -1,6 +1,6 @@
 /**
  * A full list of available request parameters can be found in the Routing API documentation.
- * see:  http://developer.here.com/rest-apis/documentation/routing/topics/resource-calculate-route.html
+ * see: https://www.here.com/docs/bundle/routing-api-v8-api-reference/page/index.html#tag/Routing/operation/calculateRoutes
  */
 var routeRequestParams = {
       routingMode: 'fast',

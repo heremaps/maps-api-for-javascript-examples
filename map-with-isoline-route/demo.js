@@ -2,7 +2,7 @@
  * Calculates and displays an area reachable for the given parameters of the EV vehicle
  *
  * A full list of available request parameters can be found in the Routing API documentation.
- * see: https://developer.here.com/documentation/isoline-routing-api/dev_guide/topics/use-cases/consumption_based-isoline.html
+ * see: https://www.here.com/docs/bundle/isoline-routing-api-v8-api-reference/page/index.html#tag/Isoline
  *
  * @param {H.service.Platform} platform A stub class to access HERE services
  */
@@ -35,7 +35,7 @@ function calculateIsolineRoute(platform) {
 
 /**
  * This function will be called once the Routing REST API provides a response
- * @param {Object} result A JSON object representing the calculated range
+ * @param {Object} result A JSON object representing the calculated range.
  */
 function onSuccess(result) {
   var route = result.isolines[0];
