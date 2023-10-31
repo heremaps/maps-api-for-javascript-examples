@@ -34,11 +34,11 @@ function addInfoBubble(map) {
   }, false);
 
   addMarkerToGroup(group, {lat: 53.439, lng: -2.221},
-    '<div><a href="https://www.mcfc.co.uk">Manchester City</a></div>' +
+    '<div><a href="https://www.mcfc.co.uk" target="_blank">Manchester City</a></div>' +
     '<div>City of Manchester Stadium<br />Capacity: 55,097</div>');
 
   addMarkerToGroup(group, {lat: 53.430, lng: -2.961},
-    '<div><a href="https://www.liverpoolfc.tv">Liverpool</a></div>' +
+    '<div><a href="https://www.liverpoolfc.tv" target="_blank">Liverpool</a></div>' +
     '<div>Anfield<br />Capacity: 54,074</div>');
 }
 
