@@ -24,6 +24,12 @@
                             "published": true
                         },
                         {
+                            "uid": "map-with-map-settings",
+                            "title": "Map with Map Settings",
+                            "shortDescription": "Map using MapSettings to customize UI",
+                            "published": true
+                        },
+                        {
                             "uid": "tilted-map-bounds",
                             "title": "View bounds of the tilted map",
                             "shortDescription": "Visualize the visible area of the tilted and rotated map",
