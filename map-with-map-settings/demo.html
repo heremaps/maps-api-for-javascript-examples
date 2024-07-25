@@ -7,6 +7,7 @@
     <title>Map with Map Settings</title>
     <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-harp.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
@@ -17,8 +18,7 @@
   </head>
   <body>
     <h1>Map with Map Settings</h1>
-    <p>This example shows how to display objects from GeoJSON file on the map using built in parser.</p>
-    <p>In order to work with GeoJSON files we have to additionally load data module of the API. Than we use H.data.geojson.Reader class, which downloads and parses the file. Than we add a layer on the map using addLayer method to see the results.</p>
+    <p>This example shows how to use Map Settings Control to switch between different layers</p>
     <div id="map"></div>
     <script type="text/javascript" src='demo.js'></script>
   </body>

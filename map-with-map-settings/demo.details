@@ -1,6 +1,6 @@
 ---
  name: Map with Map Settings
- description: Parse a GeoJSON file and display the data on a map.
+ description: Switch different layers using map settings UI control.
  resources:
    - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no

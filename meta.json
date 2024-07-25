@@ -24,12 +24,6 @@
                             "published": true
                         },
                         {
-                            "uid": "map-with-map-settings",
-                            "title": "Map with Map Settings",
-                            "shortDescription": "Map using MapSettings to customize UI",
-                            "published": true
-                        },
-                        {
                             "uid": "tilted-map-bounds",
                             "title": "View bounds of the tilted map",
                             "shortDescription": "Visualize the visible area of the tilted and rotated map",
@@ -441,6 +435,18 @@
                             "uid": "change-harp-style-at-load",
                             "title": "Set a map style exported from the HERE Style Editor",
                             "shortDescription": "Set a style created in the HERE Style Editor during the map instantiation",
+                            "published": true
+                        }
+                    ]
+                },
+                {
+                    "uid": "ui-controls",
+                    "title": "Implementation of UI Controls",
+                    "examples": [
+                        {
+                            "uid": "map-with-map-settings",
+                            "title": "Map with Map Settings",
+                            "shortDescription": "Map using MapSettings to customize UI",
                             "published": true
                         }
                     ]
