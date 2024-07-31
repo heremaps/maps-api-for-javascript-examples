@@ -441,7 +441,7 @@
                 },
                 {
                     "uid": "ui-controls",
-                    "title": "Implementation of UI Controls",
+                    "title": "UI Controls",
                     "examples": [
                         {
                             "uid": "map-with-map-settings",

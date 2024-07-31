@@ -38,16 +38,12 @@ var platform = new H.service.Platform({
 // To use this engine, you need to include mapsjs-harp.js file to your HTML page
 var engineType = H.Map.EngineType['HARP'];
 
-// Step 3: create the style object from the style configuration
-// exported from the HERE Style Editor. The argument is a style path
-var style = new H.map.render.harp.Style('https://heremaps.github.io/maps-api-for-javascript-examples/change-harp-style-at-load/data/night.json');
+// Step 3: create default layers using the created platform
+var defaultLayers = platform.createDefaultLayers({ engineType });
 
-// Step 4: create a layer with the style object:
-var vectorLayer = platform.getOMVService().createLayer(style, { engineType });
-
-// Step 5: initialize a map
+// Step 4: initialize a map
 var map = new H.Map(document.getElementById('map'),
-  vectorLayer, {
+  defaultLayers.vector.normal.map, {
   engineType,
   center: {lat: 52.51477270923461, lng: 13.39846691425174},
   zoom: 13,
@@ -56,16 +52,15 @@ var map = new H.Map(document.getElementById('map'),
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());
 
-//Step 6: make the map interactive
+//Step 5: make the map interactive
 // MapEvents enables the event system
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
 var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
-// Create the default UI components
-var defaultLayers = platform.createDefaultLayers();
+// Create default UI layer
 var ui = H.ui.UI.createDefault(map, defaultLayers);
 
-//Step 7: Setup Map Settings Control
+//Step 6: Setup Map Settings Control
 var myMapSettingsControl = new H.ui.MapSettingsControl({
   'baseLayers': [
     {
@@ -79,13 +74,14 @@ var myMapSettingsControl = new H.ui.MapSettingsControl({
   ],
   'layers': [
     {
-    'label': 'Countries',
+    'label': 'Berlin',
     'layer': getGeoJSONData()
     },
   ],
   'alignment': H.ui.LayoutAlignment.BOTTOM_RIGHT
 });
 
+// Add the new mapsettings UI control to the map
 ui.removeControl('mapsettings');
 const scalebarControl = ui.removeControl('scalebar'); 
 ui.addControl('mapsettings', myMapSettingsControl);
