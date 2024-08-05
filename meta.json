@@ -445,8 +445,8 @@
                     "examples": [
                         {
                             "uid": "map-with-map-settings",
-                            "title": "Map with Map Settings",
-                            "shortDescription": "Map using MapSettings to customize UI",
+                            "title": "Set a custom MapSettings UI Control",
+                            "shortDescription": "Set a custom MapSettings UI Control",
                             "published": true
                         }
                     ]

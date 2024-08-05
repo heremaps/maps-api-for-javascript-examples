@@ -85,8 +85,7 @@ var zoomControl = new H.ui.ZoomControl({
 });
 
 // Create the custom UI and add the controls
-const ui = new H.ui.UI(map, {
-});
+const ui = new H.ui.UI(map);
 ui.addControl('zoom', zoomControl);
 ui.addControl('mapsettings', mapSettingsControl);
 ui.addControl('scalebar', scalebarControl);
