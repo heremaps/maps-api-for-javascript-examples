@@ -1,7 +1,7 @@
 /**
  * Boilerplate map initialization code starts below:
  */
-function getGeoJSONData () {
+function getGeoJSONLayer () {
   // Create GeoJSON reader which will download the specified file.
   // Shape of the file was obtained by using HERE Geocoding and Search API.
   // It is possible to customize look and feel of the objects.
@@ -57,11 +57,8 @@ window.addEventListener('resize', () => map.getViewPort().resize());
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
 var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
-// Create default UI layer
-var ui = H.ui.UI.createDefault(map, defaultLayers);
-
-//Step 6: Setup Map Settings Control
-var myMapSettingsControl = new H.ui.MapSettingsControl({
+//Step 6: Setup Map Settings and other UI controls
+var mapSettingsControl = new H.ui.MapSettingsControl({
   'baseLayers': [
     {
       'label': 'Map',
@@ -74,15 +71,22 @@ var myMapSettingsControl = new H.ui.MapSettingsControl({
   ],
   'layers': [
     {
-    'label': 'Berlin',
-    'layer': getGeoJSONData()
+      'label': 'Berlin',
+      'layer': getGeoJSONLayer()
     },
   ],
   'alignment': H.ui.LayoutAlignment.BOTTOM_RIGHT
 });
+var scalebarControl = new H.ui.ScaleBar({
+  'alignment': H.ui.LayoutAlignment.BOTTOM_RIGHT
+});
+var zoomControl = new H.ui.ZoomControl({
+  'alignment': H.ui.LayoutAlignment.RIGHT_BOTTOM
+});
 
-// Add the new mapsettings UI control to the map
-ui.removeControl('mapsettings');
-const scalebarControl = ui.removeControl('scalebar'); 
-ui.addControl('mapsettings', myMapSettingsControl);
+// Create the custom UI and add the controls
+const ui = new H.ui.UI(map, {
+});
+ui.addControl('zoom', zoomControl);
+ui.addControl('mapsettings', mapSettingsControl);
 ui.addControl('scalebar', scalebarControl);
