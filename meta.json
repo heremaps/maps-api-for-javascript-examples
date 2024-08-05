@@ -440,6 +440,18 @@
                     ]
                 },
                 {
+                    "uid": "ui-controls",
+                    "title": "UI Controls",
+                    "examples": [
+                        {
+                            "uid": "map-with-custom-map-settings-ui-control",
+                            "title": "Set a custom MapSettings UI Control",
+                            "shortDescription": "Set a custom MapSettings UI Control",
+                            "published": true
+                        }
+                    ]
+                },
+                {
                     "uid": "indoor-map-examples",
                     "title": "Indoor Map",
                     "examples": [
