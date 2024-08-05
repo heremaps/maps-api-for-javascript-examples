@@ -1,5 +1,5 @@
 /**
- * Boilerplate map initialization code starts below:
+ * Create a layer showing GeoJSON data on the map.
  */
 function getGeoJSONLayer () {
   // Create GeoJSON reader which will download the specified file.
@@ -25,6 +25,10 @@ function getGeoJSONLayer () {
   // return layer which shows GeoJSON data on the map
   return reader.getLayer();
 }
+
+/**
+ * Boilerplate map initialization code starts below:
+ */
 
 // Step 1: initialize communication with the platform
 // In your own code, replace variable window.apikey with your own apikey
