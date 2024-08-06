@@ -447,7 +447,7 @@
                             "uid": "map-with-custom-map-settings-ui-control",
                             "title": "Set a custom MapSettings UI Control",
                             "shortDescription": "Set a custom MapSettings UI Control",
-                            "published": true
+                            "published": false
                         }
                     ]
                 },
