@@ -8,11 +8,13 @@ const yourApikey = 'ZKBUeAgkzH4JWhg93AA7cIE_kZotbMGhVI0_UYC0COY';
 // Replace with your indoor map platform collection hrn
 const indoorMapHrn = 'hrn:here:data::org651595200:indoormap-ed6d5667-cfe0-4748-bbf5-88b00e7e3b21-collection';
 
-// Replace with the venue id for your map. This example works for maps:
-// 7348 - Zurich Airport
-// 27158 - Tiefgarage Riem Arcaden APCOA Parking garage
-// 22766 - Mall of Berlin
-const venueId = '7348';
+// Specify the venue ID for your map. Examples of the map ID mentioned below.
+// For legacy maps, you can continue to use the numeric value. 
+// Examples:
+// indoormap-00000000-0000-4000-a000-000000007348 for Zurich Airport (legacy id 7348) 
+// indoormap-00000000-0000-4000-a000-000000027158 for Tiefgarage Riem Arcaden APCOA Parking garage (legacy id 27158) 
+// indoormap-00000000-0000-4000-a000-000000022766 for Mall of Berlin (legacy id 22766)
+const venueId = 'indoormap-00000000-0000-4000-a000-000000007348';
 
 // The value of the drawing id varies as per the venue being loaded. Replace with appropriate value.
 const drawingId = 'structure-7880';
