@@ -1,6 +1,6 @@
 function showGeoJSONData (map) {
   // Create GeoJSON reader which will download the specified file.
-  // Shape of the file was obtained by using HERE Geocoder API.
+  // Shape of the file was obtained by using HERE Geocoding and Search API.
   // It is possible to customize look and feel of the objects.
   var reader = new H.data.geojson.Reader('data/berlin.json', {
     // This function is called each time parser detects a new map object

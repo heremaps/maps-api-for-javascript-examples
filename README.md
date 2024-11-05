@@ -1,11 +1,11 @@
 # Maps API for JavaScript
 
-This repository holds a series of JavaScript based examples using the **HERE Maps API for JavaScript**. More information about the API can be found on [developer.here.com](https://developer.here.com/develop/javascript-api) under the JavaScript APIs section.
+This repository holds a series of JavaScript based examples using the **HERE Maps API for JavaScript**. More information about the API can be found on [https://here.com/docs](https://www.here.com/docs/category/here-sdk-for-js) website.
 To run the examples, clone this repo to a folder on your Desktop. Replace the credentials in the **test-credentials.js** file with your own credentials.
 
 > **Note:** In order to get the sample code to work, you **must** replace all instances of `window.apikey` within the code and use your own **HERE** credentials.
 
-> You can obtain a set of credentials from the [Plans Page](https://developer.here.com/plans) on developer.here.com.
+> You can obtain a set of credentials from the [HERE Base Plan Pricing](https://here.com/get-started/pricing) page on here.com.
 
 See the [LICENSE](LICENSE) file in the root of this project for license details.
 
@@ -36,6 +36,7 @@ All of the following examples use **version 3.1** of the API
 * [Map Objects Events](https://heremaps.github.io/maps-api-for-javascript-examples/map-object-events-displayed/demo.html) - Handle events on various map objects
 * [Map at a specified location](https://heremaps.github.io/maps-api-for-javascript-examples/map-at-specified-location/demo.html) - Display a map at a specified location and zoom level
 * [Map using View Bounds](https://heremaps.github.io/maps-api-for-javascript-examples/map-using-view-bounds/demo.html) - Display a map of a given area
+* [Map with custom MapSettings UI Control](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-custom-map-settings-ui-control/demo.html) - Switch between different layers using a custom MapSettings UI control.
 * [Map with Driving Route from A to B](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-route-from-a-to-b/demo.html) - Request a driving route from A to B and display it on the map.
 * [Map with Pedestrian Route from A to B](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-pedestrian-route-from-a-to-b/demo.html) - Request a walking route from A to B and display it on the map.
 * [Map with Route from A to B using Public Transport](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-route-from-a-to-b-using-public-transport/demo.html) - Request a route from A to B using public transport and display it on the map.

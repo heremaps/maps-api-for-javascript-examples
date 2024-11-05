@@ -42,26 +42,30 @@
     <p>
 		The Indoor Maps module facilitates access to your private indoor maps including full JSON models. The HERE Indoor Maps API also provides information about indoor spaces, buildings, level geometry and points of interest.
     </p>
-	
+
      <p>
-      More information on the use of the HERE Indoor Maps API is available <a href="https://developer.here.com/documentation/maps/dev_guide/topics/venues.html" target="_blank">here</a>.
+      More information on the use of the HERE Indoor Maps API is available <a href="https://www.here.com/docs/bundle/maps-api-for-javascript-developer-guide/page/topics/indoor-maps.html" target="_blank">here</a>.
     </p>
-	
+
     <p>
       This example shows an Indoor Map of the <b>Zurich Airport</b>. 
       This example also works with Tiefgarage Riem Arcaden APCOA parking garage and Mall of Berlin
     </p>
-	
+
     <div id="map"></div>
     <h3>Code</h3>
     <p>
-      The example shows loading the Indoor Map using <code>H.venues.Service</code> and renders the indoor map using an instance of <code>H.venues.Provider</code>.<br> 
+      The example shows loading the Indoor Map using <code>H.venues.Service2</code> and renders the indoor map using an instance of <code>H.venues.Provider</code>.<br>
 	    The example also shows how to:
       <ul>
-        <li>disable the base map while loading a indoor map using <code>H.Map.setBaseLayer (layer)</code></li>
-        <li>switch to an indoor map level other than the default using <code>H.venues.Venue.setActiveLevelIndex (levelIndex)</code></li>
+        <li>get the list of indoor maps from the given HRN using <code>H.venues.Service2.getMapInfoList()</code></li>
+        <li>disable the base map while loading a indoor map using <code>H.Map.setBaseLayer(layer)</code></li>
+        <li>switch to an indoor map level other than the default using <code>H.venues.Venue.setActiveLevelIndex(levelIndex)</code></li>
         <li>override default indoor map label text preferences using <code>H.venues.Service2.LABEL_TEXT_PREFERENCE_OVERRIDE</code></li>
       </ul>
+    </p>
+    <p>
+      For complete descriptions of the parameters shown in this example, see the <a href=https://www.here.com/docs/bundle/maps-api-for-javascript-api-reference/page/H.venues.html target="_blank">API Reference</a>.
     </p>
     <script type="text/javascript" src='demo.js'></script>
   </body>

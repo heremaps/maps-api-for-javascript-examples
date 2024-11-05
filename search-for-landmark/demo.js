@@ -3,8 +3,8 @@
  * using a landmark geocoding search
  *
  *
- * A full list of available request parameters can be found in the Geocoder API documentation.
- * see: http://developer.here.com/rest-apis/documentation/geocoder/topics/resource-search.html
+ * A full list of available request parameters can be found in the Geocoding and Search API documentation.
+ * see: https://www.here.com/docs/bundle/geocoding-and-search-api-v7-api-reference/page/index.html#/paths/~1discover/get
  *
  * @param   {H.service.Platform} platform    A stub class to access HERE services
  */
@@ -25,9 +25,8 @@ function landmarkGeocode(platform) {
 
 /**
  * This function will be called once the Geocoder REST API provides a response
- * @param  {Object} result          A JSONP object representing the  location(s) found.
- *
- * see: http://developer.here.com/rest-apis/documentation/geocoder/topics/resource-type-response-geocode.html
+ * @param  {Object} result A JSON object representing the location(s) found.
+ * See: https://www.here.com/docs/bundle/geocoding-and-search-api-v7-api-reference/page/index.html#/paths/~1discover/get
  */
 function onSuccess(result) {
   var locations = result.items;

@@ -2,8 +2,8 @@
  * * Calculates and displays a public trasnsport route from the Fernsehturm in Berlin
  * to Kurfürstendamm in the west of the city
  *
- * A full list of available request parameters can be found in the Routing API documentation.
- * see:  http://developer.here.com/rest-apis/documentation/routing/topics/resource-calculate-route.html
+ * A full list of available request parameters can be found in the Public Transit API documentation.
+ * see: https://www.here.com/docs/bundle/public-transit-api-v8-api-reference/page/index.html#tag/Routing
  *
  * @param   {H.service.Platform} platform    A stub class to access HERE services
  */
@@ -24,9 +24,8 @@ function calculateRouteFromAtoB (platform) {
 }
 /**
  * This function will be called once the Routing REST API provides a response
- * @param  {Object} result          A JSONP object representing the calculated route
- *
- * see: http://developer.here.com/rest-apis/documentation/routing/topics/resource-type-calculate-route.html
+ * @param  {Object} result A JSON object representing the calculated route.
+ * See: https://www.here.com/docs/bundle/public-transit-api-v8-api-reference/page/index.html#tag/Routing
  */
 function onSuccess(result) {
   var route = result.routes[0];
@@ -151,7 +150,7 @@ function addManueversToMap(route){
 
     route.sections.forEach((section) => {
       let poly = H.geo.LineString.fromFlexiblePolyline(section.polyline).getLatLngAltArray();
-    
+
       let actions = section.actions;
       // Add a marker for each maneuver
       if (actions) {
@@ -172,7 +171,7 @@ function addManueversToMap(route){
       openBubble(
         evt.target.getGeometry(), evt.target.instruction);
     }, false);
-  
+
     // Add the maneuvers group to the map
     map.addObject(group);
 }

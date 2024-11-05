@@ -76,12 +76,6 @@
                             "title": "Synchronising Two Maps",
                             "shortDescription": "This example shows two maps. The upper map allows for moving and zooming. The lower map observes the upper map's zoom level and position and adopts these values every time the upper map changes.",
                             "published": true
-                        },
-                        {
-                            "uid": "example-template",
-                            "title": "Example Template",
-                            "shortDescription": "Capture an area on the map",
-                            "published": false
                         }
                     ]
                 },
@@ -442,6 +436,18 @@
                             "title": "Set a map style exported from the HERE Style Editor",
                             "shortDescription": "Set a style created in the HERE Style Editor during the map instantiation",
                             "published": true
+                        }
+                    ]
+                },
+                {
+                    "uid": "ui-controls",
+                    "title": "UI Controls",
+                    "examples": [
+                        {
+                            "uid": "map-with-custom-map-settings-ui-control",
+                            "title": "Set a custom MapSettings UI Control",
+                            "shortDescription": "Set a custom MapSettings UI Control",
+                            "published": false
                         }
                     ]
                 },
