@@ -417,13 +417,13 @@
                             "uid": "search-match-fts",
                             "title": "Data Matching with the Advanced Data Sets",
                             "shortDescription": "Match routing result with the Advanced Data Sets data",
-                            "published": true
+                            "published": false
                         },
                         {
                             "uid": "postcodes-jsla-fts",
                             "title": "Map with postcodes from the Advanced Data Sets",
                             "shortDescription": "Display a map with the Advanced Data Sets postcode boundaries overlay",
-                            "published": true
+                            "published": false
                         }
                     ]
                 },
@@ -447,7 +447,7 @@
                             "uid": "map-with-custom-map-settings-ui-control",
                             "title": "Set a custom MapSettings UI Control",
                             "shortDescription": "Set a custom MapSettings UI Control",
-                            "published": false
+                            "published": true
                         }
                     ]
                 },
