@@ -81,5 +81,5 @@ var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 // Create the default UI components
 var ui = H.ui.UI.createDefault(map, defaultLayers);
 
-// Step 5: Add geo polygon with hovering styles
+// Step 4: Add geo polygon with hovering styles
 PolygonHovering(map);
