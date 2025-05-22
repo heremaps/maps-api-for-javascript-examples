@@ -43,14 +43,6 @@ function PolygonHovering(map) {
       activeObject = target;
     }
   });
-
-  // Optional: Reset style on pointerleave
-  layer.getProvider().addEventListener('pointerleave', () => {
-    if (activeObject) {
-      activeObject.setStyle(defaultStyle);
-      activeObject = null;
-    }
-  });
 }
 
 
