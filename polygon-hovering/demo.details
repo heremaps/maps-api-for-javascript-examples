@@ -1,6 +1,6 @@
 ---
- name: Resizable polygon
- description: Display resizable geo polygon on a map
+ name: Hoverable Polygons
+ description: Display geo polygon with hover effects on a map
  resources:
    - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no
