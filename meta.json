@@ -256,6 +256,12 @@
                             "title": "Draggable geoshapes",
                             "shortDescription": "Display geoshapes which can be moved around the map",
                             "published": true
+                        },
+                        {
+                            "uid": "polyons-hovering",
+                            "title": "Hovering Polygons",
+                            "shortDescription": "Hover over polygons to see them highlighted",
+                            "published": true
                         }
                     ]
                 },
