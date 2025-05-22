@@ -3,7 +3,7 @@
  *
  * @param {H.Map} map - A HERE Map instance.
  */
-function PolygonHovering(map) {
+function addHoverablePolygons(map) {
   const selectedStyle = new H.map.SpatialStyle({
     lineWidth: 2,
     strokeColor: 'red',
@@ -74,4 +74,4 @@ var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 // Step 4: Add geo polygon with hovering styles
-PolygonHovering(map);
+addHoverablePolygons(map);
