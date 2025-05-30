@@ -9,7 +9,7 @@
 function addContextMenus(map) {
   // First we need to subscribe to the "contextmenu" event on the map
   map.addEventListener('contextmenu', function (e) {
-    // Push the proper context items according to the event target
+    // Create and push the proper context items according to the event target
     if (e.target instanceof H.map.Circle) {
       // Add a single item to the context menu displaying "Remove circle"
       e.items.push(
