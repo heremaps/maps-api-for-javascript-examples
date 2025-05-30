@@ -65,20 +65,35 @@ var platform = new H.service.Platform({
   apikey: window.apikey
 });
 
-var defaultLayers = platform.createDefaultLayers();
+// Step 2: specify engine type. In this example, we use HARP rendering engine.
+// HARP engine is not the default engine, and it's not included in the mapsjs-core.js module.
+// To use this engine, you need to include mapsjs-harp.js file to your HTML page
+var engineType = H.Map.EngineType['HARP'];
 
-// Step 2: initialize a map - this map is centered over Berlin
+// Step 3: create default layers using engine type HARP.
+var defaultLayers = platform.createDefaultLayers({engineType});
+
+// Step 4: initialize a map using engine type HARP.
 var map = new H.Map(mapContainer,
-  // Set truck restriction layer as a base map
-  defaultLayers.vector.normal.truck,{
+  defaultLayers.vector.normal.logistics, {
+  engineType,
   center: {lat: 40.745390, lng: -74.022917},
   zoom: 13.2,
   pixelRatio: window.devicePixelRatio || 1
 });
+
+// Step 5: Enable the vehicle restrictions feature and set active and inactive mode.
+// This will show truck restiction icons on the map.
+setTimeout(() => {
+  map.getBaseLayer().getProvider().getStyle().setEnabledFeatures([
+    {feature: "vehicle restrictions", mode: "active & inactive"}
+  ]);
+}, 500);
+
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());
 
-// Step 3: make the map interactive
+// Step 6: make the map interactive
 // MapEvents enables the event system
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
 var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
