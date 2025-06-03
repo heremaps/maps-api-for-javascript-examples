@@ -2,7 +2,7 @@
  * A full list of available request parameters can be found in the Routing API documentation.
  * see: https://www.here.com/docs/bundle/routing-api-v8-api-reference/page/index.html#tag/Routing/operation/calculateRoutes
  */
-var routeRequestParams = {
+const routeRequestParams = {
       routingMode: 'fast',
       transportMode: 'truck',
       origin: '40.7249546323,-74.0110042', // Manhattan
@@ -14,7 +14,7 @@ var routeRequestParams = {
     routes = new H.map.Group();
 
 function calculateRoutes(platform) {
-  var router = platform.getRoutingService(null, 8);
+  const router = platform.getRoutingService(null, 8);
 
   // The blue route showing a simple truck route
   calculateRoute(router, routeRequestParams, {
@@ -40,6 +40,16 @@ function calculateRoutes(platform) {
   });
 }
 
+// Helper function to enable vehicle restrictions.
+function enableVehicleRestrictions(event){
+  // Remove the attached event listener.
+  event.target.removeEventListener("change", enableVehicleRestrictions,false)
+  // Enable vehicle restrictions feature in active and inactive mode.
+  event.target.setEnabledFeatures([
+    {feature: "vehicle restrictions", mode: "active & inactive"}
+  ]);
+}
+
 /**
  * Calculates and displays a route.
  * @param {Object} params The Routing API request parameters
@@ -57,46 +67,47 @@ function calculateRoute (router, params, style) {
  */
 
 // set up containers for the map  + panel
-var mapContainer = document.getElementById('map');
+const mapContainer = document.getElementById('map');
 
 // Step 1: initialize communication with the platform
 // In your own code, replace variable window.apikey with your own apikey
-var platform = new H.service.Platform({
+const platform = new H.service.Platform({
   apikey: window.apikey
 });
 
-// Step 2: specify engine type. In this example, we use HARP rendering engine.
-// HARP engine is not the default engine, and it's not included in the mapsjs-core.js module.
-// To use this engine, you need to include mapsjs-harp.js file to your HTML page
-var engineType = H.Map.EngineType['HARP'];
+// Step 2: Specify the rendering engine.
+// In this example, we use the HARP rendering engine.
+// Note: HARP is not the default engine and is not included in mapsjs-core.js.
+// To use HARP, ensure you include the mapsjs-harp.js script in your HTML.
+const engineType = H.Map.EngineType['HARP'];
 
-// Step 3: create default layers using engine type HARP.
-var defaultLayers = platform.createDefaultLayers({engineType});
+// Step 3: Create default map layers using the HARP engine.
+const defaultLayers = platform.createDefaultLayers({engineType});
 
-// Step 4: initialize a map using engine type HARP.
-var map = new H.Map(mapContainer,
+// Step 4: Initialize the map using the HARP engine.
+const map = new H.Map(mapContainer,
   defaultLayers.vector.normal.logistics, {
   engineType,
   center: {lat: 40.745390, lng: -74.022917},
   zoom: 13.2,
   pixelRatio: window.devicePixelRatio || 1
 });
+const style = map.getBaseLayer().getProvider().getStyle()
 
-// Step 5: Enable the vehicle restrictions feature and set active and inactive mode.
-// This will show truck restiction icons on the map.
-setTimeout(() => {
-  map.getBaseLayer().getProvider().getStyle().setEnabledFeatures([
-    {feature: "vehicle restrictions", mode: "active & inactive"}
-  ]);
-}, 500);
+// Step 5: Enable vehicle restrictions on the map.
+// This feature displays truck restriction icons (e.g., weight, height limits).
+// You can toggle between active and inactive modes for visualization.
+style.addEventListener("change", enableVehicleRestrictions);
+
 
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());
 
-// Step 6: make the map interactive
-// MapEvents enables the event system
-// Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+// Step 6: Enable map interactivity.
+// MapEvents enables the map's event system.
+// Behavior enables default user interactions such as pan and zoom,
+// including support for touch gestures on mobile devices.
+const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 map.addObject(routes);
 
@@ -107,10 +118,10 @@ map.addObject(routes);
 function addRouteShapeToMap(style, route){
   route.sections.forEach((section) => {
     // decode LineString from the flexible polyline
-    let linestring = H.geo.LineString.fromFlexiblePolyline(section.polyline);
+    const linestring = H.geo.LineString.fromFlexiblePolyline(section.polyline);
 
     // Create a polyline to display the route:
-    let polyline = new H.map.Polyline(linestring, {
+    const polyline = new H.map.Polyline(linestring, {
       style: style
     });
 
@@ -122,6 +133,5 @@ function addRouteShapeToMap(style, route){
     });
   });
 }
-
 // Now use the map as required...
 calculateRoutes (platform);
