@@ -41,13 +41,21 @@ function calculateRoutes(platform) {
 }
 
 // Helper function to enable vehicle restrictions.
-function enableVehicleRestrictions(event){
-  // Remove the attached event listener.
-  event.target.removeEventListener("change", enableVehicleRestrictions,false)
-  // Enable vehicle restrictions feature in active and inactive mode.
-  event.target.setEnabledFeatures([
-    {feature: "vehicle restrictions", mode: "active & inactive"}
-  ]);
+function enableVehicleRestrictions(event) {
+  // Check the style state.
+  if (event.target.getState() === H.map.render.Style.State.READY) {
+    // Remove the attached event listener.
+    event.target.removeEventListener(
+      "change",
+      enableVehicleRestrictions,
+      false
+    );
+    const features = event.target.getEnabledFeatures()
+    // Enable vehicle restrictions feature in active and inactive mode.
+    event.target.setEnabledFeatures([...features,
+      { feature: "vehicle restrictions", mode: "active & inactive" },
+    ]);
+  }
 }
 
 /**
