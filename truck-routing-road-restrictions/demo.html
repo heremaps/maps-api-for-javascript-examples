@@ -21,17 +21,15 @@
         <h1>Map with the truck routes and road restrictions</h1>
         <p>Show a truck routes with the truck related road restrictions highlighted on the map</p>
     </div>
-    <p>This example calculates and displays 3 different truck routes with the same start and end positions,
-      but various truck attributes.
+    <p>This example calculates and displays 2 different truck routes with the same start and end positions,
+      but different truck attributes.
       <br>
     The start position is in <b>Manhattan</b> and the end position on the opposite bank in <b>Newport</b>.
     <p>
       <ul>
         <li>The blue route is a simple truck route (without specifying any truck attributes).</li>
-        <li>The green route shows that a truck must use <b>Lincoln Tunnel</b> instead of <b>Holland Tunnel</b>
-        when it has four axles (uses the <code>truck[axleCount]</code> parameter of the Routing API).</li>
-        <li>The violet route shows that a truck with the four acles transporting flammable goods should take a much longer detour
-          (uses the <code>truck[shippedHazardousGoods]</code> parameter of the Routing API).</li>
+        <li>The fuchsia route shows that a truck with four axles and one trailer transporting flammable goods should take a much longer detour
+          (uses <code>vehicle[axleCount], vehicle[trailerCount], vehicle[hazardousGoods]</code> parameters of the Routing API).</li>
       </ul>
     </p>
     <p>More information about above mentioned routing request parameters can be found <a href="https://www.here.com/docs/bundle/routing-api-v8-api-reference/page/index.html#tag/Routing/operation/calculateRoutes" target="_blank">here</a>.</p>
