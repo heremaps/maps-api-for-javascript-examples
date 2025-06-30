@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="description" content="Use the HERE Indoor Maps API to load and visualize an indoor map">
+    <title>Indoor Map with Driving Route from A to B</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-venues.js"></script>
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <style type="text/css">
+      .log {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        height: 150px;
+        width: 250px;
+        overflow: scroll;
+        background: white;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 12px;
+      }
+      .log-entry {
+        padding: 5px;
+        border-bottom: 1px solid #d0d9e9;
+      }
+      .log-entry:nth-child(odd) {
+          background-color: #e1e7f1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Show routes on Indoor Map</h1>
+    <p>Request a walking route from A to B and display it on the venue.</p>
+    <p>
+		The Indoor Maps module facilitates access to your private indoor maps including full JSON models. The HERE Indoor Maps API also provides information about indoor spaces, buildings, level geometry and points of interest.
+    </p>
+
+     <p>
+      More information on the use of the HERE Indoor Maps API is available <a href="https://www.here.com/docs/bundle/maps-api-for-javascript-developer-guide/page/topics/indoor-maps.html" target="_blank">here</a>.
+    </p>
+
+    <p>
+      This example shows an Indoor Map of the <b>Zurich Airport</b>. 
+      This example also works with Tiefgarage Riem Arcaden APCOA parking garage and Mall of Berlin
+    </p>
+
+    <div id="map"></div>
+    <h3>Code</h3>
+    <p>
+      The example shows loading the Indoor Map using <code>H.venues.Service2</code> and renders the indoor map using an instance of <code>H.venues.Provider</code>.<br>
+      <p>Access to the routing service is obtained from the <code>H.venues.Service2</code> by calling
+        <code>calculateRoute(routeParams)</code>. The <code>calculateRoute()</code> method is used to calculate the shortest
+        pedestrian route by passing in the relevant parameters as defined in
+        <a href="https://www.here.com/docs/bundle/indoor-routing-api-v1-api-reference/page/index.html#tag/Indoor-Routing/operation/getRoute" target="_blank">Indoor Routing API</a>.
+        The styling and display of the response is under the control of the developer.</p>
+      <p>
+      For complete descriptions of the parameters shown in this example, see the <a href=https://www.here.com/docs/bundle/maps-api-for-javascript-api-reference/page/H.venues.html target="_blank">API Reference</a>.
+    </p>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>
