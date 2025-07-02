@@ -1,6 +1,6 @@
 ---
- name: Displaying an Indoor Map
- description: Use Here Indoor Maps service to load and visualize an indoor map
+ name: Indoor Map with Route from A to B
+ description: Use Here Indoor Maps service to calculate route on a indoor map
  resources:
    - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no
