@@ -1,5 +1,5 @@
 ---
- name: Hoverable Polygons
+ name: Polygon hovering
  description: Display geo polygon with hover effects on a map
  resources:
    - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
