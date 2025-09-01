@@ -27,8 +27,8 @@ const levelIndex = 1;
 
 // Optional, list of label text preferences to override.
 const labelTextPreferenceOverride = [
-  H.venues.Service2.LABEL_TEXT_PREFERENCE_OVERRIDE.OCCUPANT_NAMES,
-  H.venues.Service2.LABEL_TEXT_PREFERENCE_OVERRIDE.SPACE_NAME
+  H.venues.Service.LABEL_TEXT_PREFERENCE_OVERRIDE.OCCUPANT_NAMES,
+  H.venues.Service.LABEL_TEXT_PREFERENCE_OVERRIDE.SPACE_NAME
 ]
 
 /**
@@ -42,7 +42,7 @@ function addVenueToMap(map, platform) {
   const venuesProvider = new H.venues.Provider();
 
   // Get an instance of the Indoor Maps service using a valid apikey for Indoor Maps
-  const venuesService = platform.getVenuesService({ apikey: yourApikey, hrn: indoorMapHrn }, 2);
+  const venuesService = platform.getVenuesService({ apikey: yourApikey, hrn: indoorMapHrn });
 
   // Use venuesService.getMapInfoList to retrieve the list of Indoor maps from the given HRN
   venuesService.getMapInfoList().then(mapInfoList => {
