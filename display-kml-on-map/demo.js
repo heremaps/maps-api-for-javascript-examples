@@ -1,8 +1,8 @@
 /**
  *  Renders specified a KML file on the map
  *
- *  Note that the maps data module https://js.api.here.com/v3/3.1/mapsjs-data.js
- *  must be loaded for KML parsing to occcur
+ *  Note that the maps data module https://js.api.here.com/v3/3.2/mapsjs-data.js
+ *  must be loaded for KML parsing to occur
  *
  * @param {H.Map} map A HERE Map instance within the application
  */

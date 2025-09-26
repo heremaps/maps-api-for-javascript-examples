@@ -25,7 +25,7 @@ var infoBubble;
  */
 function addVenueToMap(map) {
   // Get an instance of the Indoor Maps service using a valid apikey for Indoor Maps
-  const venuesService = platform.getVenuesService({ apikey: yourApikey, hrn: indoorMapHrn }, 2);
+  const venuesService = platform.getVenuesService({ apikey: yourApikey, hrn: indoorMapHrn });
 
   // Indoor Maps service provides a loadVenue method
   venuesService.loadVenue(venueId).then((venue) => {

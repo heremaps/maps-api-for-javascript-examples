@@ -5,11 +5,11 @@
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <meta name="description" content="Synchronise a static map with an interactive map">
     <title>View bounds of the tilted map</title>
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.2/mapsjs-ui.css" />
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-mapevents.js"></script>
     <link rel="stylesheet" type="text/css" href="../template.css" />
     <link rel="stylesheet" type="text/css" href="demo.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
@@ -21,8 +21,10 @@
         <h1>View bounds of the tilted map</h1>
         <p>Synchronise a static map with an interactive map</p>
     </div>
-    <p>This example shows two maps. The upper map allows for panning, zooming, tilting and rotation (to tilt and rotate hold alt key plus left mouse button). 
-      The lower map is oriented  top-down north-up, it observes the upper map's <code>lookAt</code> position and visualises the visible area of the interactive map.</p>
+    <p>This example shows two maps. The left map allows for panning, zooming, tilting and rotation (to tilt and rotate
+      hold alt key plus left mouse button).
+      The right map is oriented top-down north-up, it observes the left map's <code>lookAt</code> position and visualises
+      the visible area of the interactive map.</p>
     <hr/>
     <h3>Interactive Map</h3>
     <div id="map"></div>

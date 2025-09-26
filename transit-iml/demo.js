@@ -7,20 +7,6 @@ function addIml(map) {
     const service = platform.getIMLService();
     // Create a provider for the custom user defined data
     const imlProvider = new H.service.iml.Provider(service, catalogHrn, layerId);
-
-    // Get the style object
-    const style = imlProvider.getStyle();
-    // Query the sub-section of the style configuration
-    const styleConfig = style.extractConfig(['iml']);
-
-    // Add dashes
-    styleConfig.layers.iml.lines.draw.lines.dash = [1, 1];
-    // Set line width per zoom level
-    styleConfig.layers.iml.lines.draw.lines.width = [[5, 5000], [8, 800], [10, 200], [12, 160], [14, 60], [18, 20]];
-
-    // Merge the style configuration back
-    style.mergeConfig(styleConfig);
-
     // Add a tile layer to the map
     map.addLayer(new H.map.layer.TileLayer(imlProvider));
 }

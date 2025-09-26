@@ -21,9 +21,6 @@ function addCircleToMap(map){
 }
 
 
-
-
-
 /**
  * Boilerplate map initialization code starts below:
  */

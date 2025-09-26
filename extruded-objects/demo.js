@@ -1,5 +1,4 @@
 
-
 /**
  * Adds an extruded polygon and a circle to the map.
  *
@@ -9,7 +8,7 @@ function addShapesToMap(map) {
   var circle = new H.map.Circle(
     {lat: 48.87259349768352, lng: 2.335760881796987}, 2, {
       // extrude the circle to 40 meters
-      extrude: 40, 
+      extrusion: 40, 
       style: {fillColor: '#0297A0', strokeColor: 'none'
     }
   })
@@ -32,7 +31,7 @@ function addShapesToMap(map) {
     ]
   ), {
     // extrude the polygon to 90 meters
-    extrude: 90, 
+    extrusion: 90, 
     style: {strokeColor: 'none'}
   });
 

@@ -24,33 +24,35 @@ function testDelegation(map) {
   );
 
   // Polygon containing Alexanderplatz and Fernsehturm in Berlin
-  var polygon = new H.map.Polygon(new H.geo.LineString([
+  var polygon = new H.map.Polygon(new H.geo.Polygon(
+    new H.geo.LineString([
       52.51998, 13.40529, 0,
       52.52395, 13.41250, 0,
       52.52197, 13.41590, 0,
       52.51860, 13.40718, 0
-    ]), {
-      style: {
-        lineWidth: 1,
-        strokeColor: 'rgba(204, 34, 34, 0.66)',
-        fillColor: 'rgba(204, 34, 34, 0.66)',
-      }
-    });
+    ])
+  ), {
+    style: {
+      lineWidth: 1,
+      strokeColor: 'rgba(204, 34, 34, 0.66)',
+      fillColor: 'rgba(204, 34, 34, 0.66)',
+    }
+  });
 
   // Purple polyline
   var polyline = new H.map.Polyline(new H.geo.LineString([
-      52.521490, 13.387983, 0,
-      52.517156, 13.388820, 0,
-      52.516960, 13.385730, 0,
-      52.515510, 13.386009, 0,
-      52.515132, 13.381481, 0,
-      52.516333, 13.380806, 0
-    ]), {
-      style: {
-        strokeColor: 'rgba(34, 34, 204, 0.66)',
-        lineWidth: 7
-      }
-    });
+    52.521490, 13.387983, 0,
+    52.517156, 13.388820, 0,
+    52.516960, 13.385730, 0,
+    52.515510, 13.386009, 0,
+    52.515132, 13.381481, 0,
+    52.516333, 13.380806, 0
+  ]), {
+    style: {
+      strokeColor: 'rgba(34, 34, 204, 0.66)',
+      lineWidth: 7
+    }
+  });
 
   // Let's give names to our objects and save it as data
   brandenburgerTorMarker.setData('I am Brandenburger Tor!');
@@ -73,7 +75,7 @@ function testDelegation(map) {
   });
   // Let's zoom to our objects by default
   map.getViewModel().setLookAtData({
-    bounds:container.getBoundingBox()
+    bounds: container.getBoundingBox()
   });
   // Make objects visible by adding them to the map
   map.addObject(container);
@@ -110,7 +112,7 @@ var ui = H.ui.UI.createDefault(map, defaultLayers, 'en-US');
 
 // Step 5: create custom logging facilities
 var logContainer = document.createElement('ul');
-logContainer.className ='log';
+logContainer.className = 'log';
 logContainer.innerHTML = '<li class="log-entry">Try clicking on elements</li>';
 map.getElement().appendChild(logContainer);
 

@@ -135,7 +135,7 @@
                             "uid": "interleave-layers",
                             "title": "Interleave vector and object layers",
                             "shortDescription": "Insert an object layer between the two vector layers",
-                            "published": true
+                            "published": false
                         }
                     ]
                 },
@@ -424,18 +424,6 @@
                             "title": "Map with postcodes from the Advanced Data Sets",
                             "shortDescription": "Display a map with the Advanced Data Sets postcode boundaries overlay",
                             "published": false
-                        }
-                    ]
-                },
-                {
-                    "uid": "style-editor",
-                    "title": "Integration with the HERE Style Editor",
-                    "examples": [
-                        {
-                            "uid": "change-harp-style-at-load",
-                            "title": "Set a map style exported from the HERE Style Editor",
-                            "shortDescription": "Set a style created in the HERE Style Editor during the map instantiation",
-                            "published": true
                         }
                     ]
                 },

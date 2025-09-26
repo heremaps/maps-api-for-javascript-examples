@@ -32,11 +32,13 @@ function testObjectsEvents(map, logEvent) {
   ]), {style: style});
 
   // Create a polygon map object
-  var polygon = new H.map.Polygon(new H.geo.LineString([
-    45.4667, 9.1833, 0,
-    48.1333, 11.566, 0,
-    50.0800, 8.2400, 0,
-  ]), {style: style});
+  var polygon = new H.map.Polygon(new H.geo.Polygon(
+    new H.geo.LineString([
+      45.4667, 9.1833, 0,
+      48.1333, 11.566, 0,
+      50.0800, 8.2400, 0,
+    ])
+  ), {style: style});
 
   // Create a standard marker
   var standardMarker = new H.map.Marker(new H.geo.Point(48.2000, 16.3667));

@@ -248,5 +248,5 @@ var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 // Step 4: Create the default UI:
 var ui = H.ui.UI.createDefault(map, defaultLayers, 'en-US');
 
-// Step 5: Add dragable geo shapes
+// Step 5: Add draggable geo shapes
 createDraggableShapes(map);

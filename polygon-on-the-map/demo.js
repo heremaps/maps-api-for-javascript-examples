@@ -11,13 +11,16 @@ function addPolygonToMap(map) {
     'values lat lng alt'
   );
   map.addObject(
-    new H.map.Polygon(lineString, {
-      style: {
-        fillColor: '#FFFFCC',
-        strokeColor: '#829',
-        lineWidth: 8
+    new H.map.Polygon(
+      new H.geo.Polygon(lineString),
+      {
+        style: {
+          fillColor: '#FFFFCC',
+          strokeColor: '#829',
+          lineWidth: 8
+        }
       }
-    })
+    )
   );
 }
 

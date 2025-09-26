@@ -4,31 +4,31 @@
  * and modifies colors of the map features within that listener.
  * @param  {H.Map} map      A HERE Map instance within the application
  */
-function changeFeatureStyle(map){
+function changeFeatureStyle(map) {
   // get the vector provider from the base layer
   var provider = map.getBaseLayer().getProvider();
 
   // get the style object for the base layer
-  var parkStyle = provider.getStyle();
+  var defaultStyle = provider.getStyle();
 
   var changeListener = (evt) => {
-    if (parkStyle.getState() === H.map.Style.State.READY) {
-      parkStyle.removeEventListener('change', changeListener);
+    if (defaultStyle.getState() === H.map.render.harp.Style.State.READY) {
+      defaultStyle.removeEventListener("change", changeListener);
 
-      // query the sub-section of the style configuration
-      // the call removes the subsection from the original configuration
-      var parkConfig = parkStyle.extractConfig(['landuse.park', 'landuse.builtup']);
-      // change the color, for the description of the style section
-      // see the Developer's guide
-      parkConfig.layers.landuse.park.draw.polygons.color = '#2ba815'
-      parkConfig.layers.landuse.builtup.draw.polygons.color = '#676d67'
+      // query the configuration
+      const config = defaultStyle.getConfig();
 
-      // merge the configuration back to the base layer configuration
-      parkStyle.mergeConfig(parkConfig);
+      // Update required items from the configuration
+      config.definitions['Park.Color'] = "#2ba815";
+      config.definitions['BuiltupArea.Color'] = "#676d67";
+
+      // Create a new style with updated configuration and apply
+      const newStyle = new H.map.render.harp.Style(config);
+      map.getBaseLayer().getProvider().setStyle(newStyle);
     }
   };
 
-  parkStyle.addEventListener('change', changeListener);
+  defaultStyle.addEventListener('change', changeListener);
 }
 
 /**

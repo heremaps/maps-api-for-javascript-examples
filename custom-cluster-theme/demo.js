@@ -1,7 +1,7 @@
     /**
  * Make clustering of markers with a custom theme
  *
- * Note that the maps clustering module https://js.api.here.com/v3/3.1/mapsjs-clustering.js
+ * Note that the maps clustering module https://js.api.here.com/v3/3.2/mapsjs-clustering.js
  * must be loaded to use the Clustering
  *
  * @param {H.Map} map A HERE Map instance within the application

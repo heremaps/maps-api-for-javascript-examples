@@ -101,7 +101,7 @@ function addRouteShapeToMap(route) {
     let linestring = H.geo.LineString.fromFlexiblePolyline(section.outer);
 
     // Create a polygon to display the area
-    let polygon = new H.map.Polygon(linestring, {
+    let polygon = new H.map.Polygon(new H.geo.Polygon(linestring), {
       style: {
         lineWidth: 4,
         strokeColor: 'rgba(0, 128, 0, 0.7)'
