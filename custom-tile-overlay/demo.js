@@ -14,18 +14,31 @@ function overlayHistoricalBerlin(map) {
     opacity: 0.5,
     getURL: function (column, row, zoom) {
       // If Berlin is not displayed, return a blank tile.
-      if (((zoom == 12) && (row != 1343 || column != 2200)) ||
-        ((zoom == 13) &&  (row < 2686 || column < 4400 || row > 2687 || column > 4401)) ||
-        ((zoom == 14) && (row < 5372 || column < 8800 || row > 5375 || column > 8803)) ||
-        ((zoom  == 15) && (row < 10744 || column < 17601 || row > 10750 || column > 17607))) {
-        return 'https://heremaps.github.io/maps-api-for-javascript-examples/custom-tile-overlay/tiles/blank.png';
+      if (
+        (zoom == 12 && (row != 1343 || column != 2200)) ||
+        (zoom == 13 &&
+          (row < 2686 || column < 4400 || row > 2687 || column > 4401)) ||
+        (zoom == 14 &&
+          (row < 5372 || column < 8800 || row > 5375 || column > 8803)) ||
+        (zoom == 15 &&
+          (row < 10744 || column < 17601 || row > 10750 || column > 17607))
+      ) {
+        return "https://heremaps.github.io/maps-api-for-javascript-examples/custom-tile-overlay/tiles/blank.png";
       } else {
         // The Old Berlin Map Tiler follows the TMS URL specification.
         // By specification, tiles should be accessible in the following format:
         // http://server_address/zoom_level/x/y.png
-        return 'https://heremaps.github.io/maps-api-for-javascript-examples/custom-tile-overlay/tiles/'+ zoom+ '/'+ row + '/'+ column+ '.png';
+        return (
+          "https://heremaps.github.io/maps-api-for-javascript-examples/custom-tile-overlay/tiles/" +
+          zoom +
+          "/" +
+          row +
+          "/" +
+          column +
+          ".png"
+        );
       }
-    }
+    },
   });
   // Unless you own the map tile source,
   // you need to comply with the licensing agreement of the map tile provider.
@@ -33,15 +46,18 @@ function overlayHistoricalBerlin(map) {
   // even if the tiles are offered free of charge.
   tileProvider.getCopyrights = function (bounds, level) {
     // We should return an array of objects that implement H.map.ICopyright interface
-    return [{
-      label: "Overlay derived from <a href='http://commons.wikimedia.org/wiki/File%3AMap_de_berlin_1789_%28georeferenced%29.jpg' target='_blank'>WikiMedia Commons</a>",
-      alt: 'Overlay Based on a WikiMedia Commons Image in the Public Domain'
-    }];
+    return [
+      {
+        label:
+          "Overlay derived from <a href='http://commons.wikimedia.org/wiki/File%3AMap_de_berlin_1789_%28georeferenced%29.jpg' target='_blank'>WikiMedia Commons</a>",
+        alt: "Overlay Based on a WikiMedia Commons Image in the Public Domain",
+      },
+    ];
   };
   // Now let's create a layer that will consume tiles from our provider
   var overlayLayer = new H.map.layer.TileLayer(tileProvider, {
     // Let's make it semi-transparent
-    opacity: 0.5
+    opacity: 0.5,
   });
 
   // Finally add our layer containing old Berlin to a map
@@ -59,13 +75,17 @@ var platform = new H.service.Platform({
 var defaultLayers = platform.createDefaultLayers();
 
 // Step 2: initialize a map
-var map = new H.Map(document.getElementById('map'), defaultLayers.vector.normal.map, {
-  center: new H.geo.Point(52.515, 13.405),
-  zoom: 14,
-  pixelRatio: window.devicePixelRatio || 1
-});
+var map = new H.Map(
+  document.getElementById("map"),
+  defaultLayers.vector.normal.map,
+  {
+    center: new H.geo.Point(52.515, 13.405),
+    zoom: 14,
+    pixelRatio: window.devicePixelRatio || 1,
+  }
+);
 // add a resize listener to make sure that the map occupies the whole container
-window.addEventListener('resize', () => map.getViewPort().resize());
+window.addEventListener("resize", () => map.getViewPort().resize());
 
 // Step 3: make the map interactive
 // mapEvents enables the event system

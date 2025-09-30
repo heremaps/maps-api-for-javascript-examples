@@ -1,54 +1,34 @@
-
-/**
- * @param  {H.Map} map      A HERE Map instance within the application
- */
-function setInteractive(map){
-  // get the vector provider from the base layer
-  const provider = map.getBaseLayer().getProvider();
-
-  // get the style object for the base layer
-  const style = provider.getStyle();
-
-  const changeListener = (evt) => {
-    if (style.getState() === H.map.render.harp.Style.State.READY) {
-      style.removeEventListener('change', changeListener);
-
-      // add an event listener that is responsible for catching the
-      // 'tap' event on the map and showing the infobubble
-      map.addEventListener("tap", onTap);
-    }
-  };
-  style.addEventListener('change', changeListener);
-}
-
 /**
  * Boilerplate map initialization code starts below:
  */
 
 //Step 1: initialize communication with the platform
 // In your own code, replace variable window.apikey with your own apikey
-const platform = new H.service.Platform({
+var platform = new H.service.Platform({
   apikey: window.apikey
 });
-const defaultLayers = platform.createDefaultLayers();
+var defaultLayers = platform.createDefaultLayers();
 
 //Step 2: initialize a map
-const map = new H.Map(document.getElementById('map'),
-  defaultLayers.vector.normal.map, {
-  center: {lat: 52.51477270923461, lng: 13.39846691425174},
-  zoom: 13,
-  pixelRatio: window.devicePixelRatio || 1
-});
+var map = new H.Map(
+  document.getElementById("map"),
+  defaultLayers.vector.normal.map,
+  {
+    center: { lat: 52.51477270923461, lng: 13.39846691425174 },
+    zoom: 13,
+    pixelRatio: window.devicePixelRatio || 1,
+  }
+);
 // add a resize listener to make sure that the map occupies the whole container
-window.addEventListener('resize', () => map.getViewPort().resize());
+window.addEventListener("resize", () => map.getViewPort().resize());
 
 //Step 3: make the map interactive
 // MapEvents enables the event system
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 // Create the default UI components
-const ui = H.ui.UI.createDefault(map, defaultLayers);
+var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 let bubble;
 /**
@@ -56,7 +36,7 @@ let bubble;
  */
 function onTap(evt) {
   // calculate infobubble position from the cursor screen coordinates
-  const position = map.screenToGeo(
+  var position = map.screenToGeo(
     evt.currentPointer.viewportX,
     evt.currentPointer.viewportY
   );
@@ -66,11 +46,11 @@ function onTap(evt) {
     if (results.length === 0)
       return;
 
-    // read the properties associated with the map feature that is found at the top
-    const props = results[0].getData().properties;
+  // read the properties associated with the map feature that is found at the top
+    var props = results[0].getData().properties;
 
     // create a content for the infobubble
-    const content =
+    var content =
       `<div style="width:250px">It is a ${props.kind} ` +
       (props.kind_detail || "") +
       (props.population ? `<br /> population: ${props.population}` : "") +
@@ -93,3 +73,25 @@ function onTap(evt) {
 
 // Now use the map as required...
 setInteractive(map);
+
+/**
+ * @param  {H.Map} map      A HERE Map instance within the application
+ */
+function setInteractive(map) {
+  // get the vector provider from the base layer
+  var provider = map.getBaseLayer().getProvider();
+
+  // get the style object for the base layer
+  var style = provider.getStyle();
+
+  var changeListener = (evt) => {
+    if (style.getState() === H.map.render.harp.Style.State.READY) {
+      style.removeEventListener("change", changeListener);
+
+      // add an event listener that is responsible for catching the
+      // 'tap' event on the map and showing the infobubble
+      map.addEventListener("tap", onTap);
+    }
+  };
+  style.addEventListener("change", changeListener);
+}

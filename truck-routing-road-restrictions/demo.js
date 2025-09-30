@@ -2,19 +2,19 @@
  * A full list of available request parameters can be found in the Routing API documentation.
  * see: https://www.here.com/docs/bundle/routing-api-v8-api-reference/page/index.html#tag/Routing/operation/calculateRoutes
  */
-const routeRequestParams = {
-    routingMode: "fast",
-    transportMode: "truck",
-    origin: "40.7249546323,-74.0110042", // Manhattan
-    destination: "40.7324386599,-74.0341396", // Newport
-    return: "polyline",
-    units: "imperial",
-    spans: "truckAttributes",
-  },
+var routeRequestParams = {
+  routingMode: "fast",
+  transportMode: "truck",
+  origin: "40.7249546323,-74.0110042", // Manhattan
+  destination: "40.7324386599,-74.0341396", // Newport
+  return: "polyline",
+  units: "imperial",
+  spans: "truckAttributes",
+},
   routes = new H.map.Group();
 
 function calculateRoutes(platform) {
-  const router = platform.getRoutingService(null, 8);
+  var router = platform.getRoutingService();
 
   // The blue route showing a simple truck route
   calculateRoute(router, routeRequestParams, {
@@ -48,7 +48,7 @@ function enableVehicleRestrictions(event) {
       enableVehicleRestrictions,
       false
     );
-    const features = event.target.getEnabledFeatures();
+    var features = event.target.getEnabledFeatures();
     // Enable vehicle restrictions feature in "active & inactive" mode.
     event.target.setEnabledFeatures([
       ...features,
@@ -78,28 +78,27 @@ function calculateRoute(router, params, style) {
  */
 
 // set up containers for the map  + panel
-const mapContainer = document.getElementById("map");
+var mapContainer = document.getElementById("map");
 
 // Step 1: initialize communication with the platform
 // In your own code, replace variable window.apikey with your own apikey
-const platform = new H.service.Platform({
+var platform = new H.service.Platform({
   apikey: window.apikey
 });
 
 // Step 2: Create default map layers
-const defaultLayers = platform.createDefaultLayers();
+var defaultLayers = platform.createDefaultLayers();
 
 // Step 3: Initialize the map
-const map = new H.Map(mapContainer, defaultLayers.vector.normal.logistics, {
+var map = new H.Map(mapContainer, defaultLayers.vector.normal.logistics, {
   center: { lat: 40.74539, lng: -74.022917 },
   zoom: 13.2,
   pixelRatio: window.devicePixelRatio || 1
 });
-const style = map.getBaseLayer().getProvider().getStyle();
+var style = map.getBaseLayer().getProvider().getStyle();
 
 // Step 4: Enable vehicle restrictions display on the map.
 style.addEventListener("change", enableVehicleRestrictions);
-
 
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener("resize", () => map.getViewPort().resize());
@@ -108,7 +107,7 @@ window.addEventListener("resize", () => map.getViewPort().resize());
 // MapEvents enables the map's event system.
 // Behavior enables default user interactions such as pan and zoom,
 // including support for touch gestures on mobile devices.
-const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 map.addObject(routes);
 
@@ -119,10 +118,10 @@ map.addObject(routes);
 function addRouteShapeToMap(style, route) {
   route.sections.forEach((section) => {
     // decode LineString from the flexible polyline
-    const linestring = H.geo.LineString.fromFlexiblePolyline(section.polyline);
+    var linestring = H.geo.LineString.fromFlexiblePolyline(section.polyline);
 
     // Create a polyline to display the route:
-    const polyline = new H.map.Polyline(linestring, {
+    var polyline = new H.map.Polyline(linestring, {
       style
     });
 

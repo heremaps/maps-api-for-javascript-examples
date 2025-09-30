@@ -26,7 +26,7 @@
     <p>
       The DOM node provided in constructor of <code>H.map.DomIcon</code> is cloned and rendered every time a
       DOM marker reaches (is visible within) the map view port. Therefore all manipulation has to be done
-      in <code>onAtach</code> callback where the currently displayed clone reference is available.
+      in <code>onAttach</code> callback where the currently displayed clone reference is available.
       The API manipulates position of rendered DOM element (e.g. when panning the map, zooming the map, etc.) by changing
       the <code>transform</code> CSS property of the <code>clonedElement</code>. Therefore in order to rotate DOM icon,
       we need to manipulate its child node <code>transform</code> CSS property (in our case SVG node).

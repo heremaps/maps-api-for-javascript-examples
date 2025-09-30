@@ -3,18 +3,17 @@
  */
 
 // Replace with your HERE platform app api key
-const yourApikey = 'ZKBUeAgkzH4JWhg93AA7cIE_kZotbMGhVI0_UYC0COY';
+var yourApikey = "ZKBUeAgkzH4JWhg93AA7cIE_kZotbMGhVI0_UYC0COY";
 
 // Replace with your indoor map platform collection hrn
-const indoorMapHrn = 'hrn:here:data::org651595200:indoormap-ed6d5667-cfe0-4748-bbf5-88b00e7e3b21-collection';
+var indoorMapHrn =
+  "hrn:here:data::org651595200:indoormap-ed6d5667-cfe0-4748-bbf5-88b00e7e3b21-collection";
 
-// Specify the venue ID for your map. Examples of the map ID mentioned below.
-// For legacy maps, you can continue to use the numeric value. 
-// Examples:
-// indoormap-00000000-0000-4000-a000-000000007348 for Zurich Airport (legacy id 7348) 
-// indoormap-00000000-0000-4000-a000-000000027158 for Tiefgarage Riem Arcaden APCOA Parking garage (legacy id 27158) 
-// indoormap-00000000-0000-4000-a000-000000022766 for Mall of Berlin (legacy id 22766)
-const venueId = 'indoormap-00000000-0000-4000-a000-000000022766';
+// Replace with the venue id for your map. This example works for maps:
+// 7348 - Zurich Airport
+// 27158 - Tiefgarage Riem Arcaden APCOA Parking garage
+// 22766 - Mall of Berlin
+var venueId = "22766";
 
 var infoBubble;
 
@@ -25,7 +24,7 @@ var infoBubble;
  */
 function addVenueToMap(map) {
   // Get an instance of the Indoor Maps service using a valid apikey for Indoor Maps
-  const venuesService = platform.getVenuesService({ apikey: yourApikey, hrn: indoorMapHrn });
+  var venuesService = platform.getVenuesService({ apikey: yourApikey, hrn: indoorMapHrn });
 
   // Indoor Maps service provides a loadVenue method
   venuesService.loadVenue(venueId).then((venue) => {
@@ -34,22 +33,22 @@ function addVenueToMap(map) {
     venuesProvider.setActiveVenue(venue);
 
     // create a tile layer for the Indoor Maps provider
-    const venueLayer = new H.map.layer.TileLayer(venuesProvider);
+    var venueLayer = new H.map.layer.TileLayer(venuesProvider);
     map.addLayer(venueLayer);
 
     // Set center of the map view to the center of the venue
     map.setCenter(venue.getCenter());
 
     // Create a level control
-    const levelControl = new H.venues.ui.LevelControl(venue);
-    ui.addControl('level-control', levelControl);
+    var levelControl = new H.venues.ui.LevelControl(venue);
+    ui.addControl("level-control", levelControl);
 
     // Create a drawing control:
-    const drawingControl = new H.venues.ui.DrawingControl(venue);
-    ui.addControl('drawing-control', drawingControl);
+    var drawingControl = new H.venues.ui.DrawingControl(venue);
+    ui.addControl("drawing-control", drawingControl);
 
     // Enable highlighting geometries based on geometry name
-    highlightGeometries(venue, 'H&M');
+    highlightGeometries(venue, "H&M");
 
     // Enable info bubble on tap of geometry
     enableBubbleOnTap();
@@ -68,14 +67,18 @@ var platform = new H.service.Platform({
 var defaultLayers = platform.createDefaultLayers();
 
 // Step 2: initialize a map
-var map = new H.Map(document.getElementById('map'), defaultLayers.vector.normal.map, {
-  zoom: 18,
-  center: { lat: 47.452353, lng: 8.562455 },
-  pixelRatio: window.devicePixelRatio || 1
-});
+var map = new H.Map(
+  document.getElementById("map"),
+  defaultLayers.vector.normal.map,
+  {
+    zoom: 18,
+    center: { lat: 47.452353, lng: 8.562455 },
+    pixelRatio: window.devicePixelRatio || 1,
+  }
+);
 
 // add a resize listener to make sure that the map occupies the whole container
-window.addEventListener('resize', () => map.getViewPort().resize());
+window.addEventListener("resize", () => map.getViewPort().resize());
 
 // Step 3: make the map interactive
 // MapEvents enables the event system
@@ -86,7 +89,7 @@ var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 // Indoor Maps provider interacts with a tile layer to visualize and control the Indoor Map
-const venuesProvider = new H.venues.Provider();
+var venuesProvider = new H.venues.Provider();
 
 // Step 5: add the Indoor Map
 addVenueToMap(map);
@@ -98,16 +101,20 @@ addVenueToMap(map);
  * @param {H.venues.Provider} venuesProvider
  * @param {string} geometryForSearch The identifier of the geometry to be searched
  */
- function highlightGeometries (venue, geometryForSearch) {
-  const searchGeometries = venue.search(geometryForSearch);
-  const highlightStyle = {
-    fillColor: '#FFBF00',
-    outlineColor: '#99cc00',
+function highlightGeometries(venue, geometryForSearch) {
+  var searchGeometries = venue.search(geometryForSearch);
+  var highlightStyle = {
+    fillColor: "#FFBF00",
+    outlineColor: "#99cc00",
     outlineWidth: 0.2,
   };
 
   if (searchGeometries.length > 0) {
-    venuesProvider.activeVenue.setHighlightedGeometries(true, searchGeometries, highlightStyle);
+    venuesProvider.activeVenue.setHighlightedGeometries(
+      true,
+      searchGeometries,
+      highlightStyle
+    );
   }
 }
 
@@ -116,23 +123,26 @@ addVenueToMap(map);
  * @param {H.geo.Point} position The position where to show the InfoBubble
  * @param {H.venues.Geometry} geometry The instance of Geometry to be highlighted
  */
-const onGeometryTap = (position, geometry) => {
-  const popUpContent = (geometry) => `${geometry.getIdentifier()}: ${geometry.getName()} <br>`;
+var onGeometryTap = (position, geometry) => {
+  var popUpContent = (geometry) =>
+    `${geometry.getIdentifier()}: ${geometry.getName()} <br>`;
 
   if (!infoBubble) {
     infoBubble = new H.ui.InfoBubble(position, {
       onStateChange: (evt) => {
-        if (evt.target.getState() === 'closed') {
+        if (evt.target.getState() === "closed") {
           // On closing the popup, remove highlight from the geometry
-          venuesProvider.getActiveVenue().setHighlightedGeometries(false, [evt.target.getData()]);
+          venuesProvider
+            .getActiveVenue()
+            .setHighlightedGeometries(false, [evt.target.getData()]);
         }
-      }
+      },
     });
 
     // Prepare the content of the InfoBubble
-    const domElement = document.createElement('div');
+    var domElement = document.createElement("div");
     domElement.innerHTML = popUpContent(geometry);
-    domElement.setAttribute('style', 'width: max-content;');
+    domElement.setAttribute("style", "width: max-content;");
 
     ui.addBubble(infoBubble);
   }
@@ -141,13 +151,15 @@ const onGeometryTap = (position, geometry) => {
   infoBubble.setPosition(position);
 
   // Update its content
-  infoBubble.getContentElement().innerHTML = popUpContent(geometry)
+  infoBubble.getContentElement().innerHTML = popUpContent(geometry);
 
   // Set a new geometry in the data payload of the InfoBubble
   infoBubble.setData(geometry);
 
   // Highlight the geometry
-  venuesProvider.getActiveVenue().setHighlightedGeometries(true, [geometry], undefined, true);
+  venuesProvider
+    .getActiveVenue()
+    .setHighlightedGeometries(true, [geometry], undefined, true);
 
   // Open the InfoBubble if geometry is not undefined
   return geometry ? infoBubble.open() : infoBubble.close();
@@ -156,11 +168,14 @@ const onGeometryTap = (position, geometry) => {
 /**
  * This function demonstrates how to add an event listener to the venue
  */
-const enableBubbleOnTap = () => {
-  venuesProvider.addEventListener('tap', (e) => {
-    const geometry = e.target;
+var enableBubbleOnTap = () => {
+  venuesProvider.addEventListener("tap", (e) => {
+    var geometry = e.target;
     if (geometry) {
-      const position = map.screenToGeo(e.currentPointer.viewportX, e.currentPointer.viewportY);
+      var position = map.screenToGeo(
+        e.currentPointer.viewportX,
+        e.currentPointer.viewportY
+      );
       setTimeout(() => onGeometryTap(position, geometry), 0);
     }
   });

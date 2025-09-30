@@ -20,13 +20,13 @@
         <p>Change a style of the map feature when map is instantiated</p>
     </div>
     <p>This example shows how to change map feature style during the map runtime. The map is loaded with the default "normal.map" style, after that
-      the color of the features "landuse.park" and "landuse.builtup" is changed to the dark green and the dark grey accordingly. 
+      the color of the features "Park" and "BuiltupArea" is changed to the dark green and the dark grey accordingly. 
     </p>
     <div id="map"></div>
     <h3>Code</h3>
-    <p>The code below adds a <codeph>change</codeph> event listener to the instence of the <code>H.map.Style</code> associated with the
-      layer's provider. Within this listener the section of the map style is extracted and modified and merged back to the original style.
-      That results in the changed colors for the "landuse.park" and "landuse.builtup" map features.
+    <p>The code below adds a <codeph>change</codeph> event listener to the instance of the <code>H.map.render.harp.Style</code> associated with the
+      layer's provider. Within this listener the configuration of the style is extracted and modified. A new style is created and applied to the map.
+      That results in the changed colors for the "Park" and "BuiltupArea" map features.
     </p>
     <script type="text/javascript" src='demo.js'></script>
   </body>

@@ -9,16 +9,23 @@ function capture(resultContainer, map, ui) {
   // Capturing area of the map is asynchronous, callback function receives HTML5 canvas
   // element with desired map area rendered on it.
   // We also pass an H.ui.UI reference in order to see the ScaleBar in the output.
-  // If dimensions are omitted, whole veiw port will be captured
-  map.capture(function(canvas) {
-    if (canvas) {
-      resultContainer.innerHTML = '';
-      resultContainer.appendChild(canvas);
-    } else {
-      // For example when map is in Panorama mode
-      resultContainer.innerHTML = 'Capturing is not supported';
-    }
-  }, [ui], 50, 50, 500, 200);
+  // If dimensions are omitted, whole view port will be captured
+  map.capture(
+    function (canvas) {
+      if (canvas) {
+        resultContainer.innerHTML = "";
+        resultContainer.appendChild(canvas);
+      } else {
+        // For example when map is in Panorama mode
+        resultContainer.innerHTML = "Capturing is not supported";
+      }
+    },
+    [ui],
+    50,
+    50,
+    500,
+    200
+  );
 }
 
 /**
@@ -31,18 +38,18 @@ var platform = new H.service.Platform({
 });
 var defaultLayers = platform.createDefaultLayers();
 
-var mapContainer = document.getElementById('map');
+var mapContainer = document.getElementById("map");
 
 // Step 2: initialize a map
 var map = new H.Map(mapContainer, defaultLayers.vector.normal.map, {
   // initial center and zoom level of the map
   zoom: 16,
   // Champs-Elysees
-  center: {lat: 48.869145, lng: 2.314298},
-  pixelRatio: window.devicePixelRatio || 1
+  center: { lat: 48.869145, lng: 2.314298 },
+  pixelRatio: window.devicePixelRatio || 1,
 });
 // add a resize listener to make sure that the map occupies the whole container
-window.addEventListener('resize', () => map.getViewPort().resize());
+window.addEventListener("resize", () => map.getViewPort().resize());
 
 // Step 3: make the map interactive
 // MapEvents enables the event system
@@ -50,27 +57,26 @@ window.addEventListener('resize', () => map.getViewPort().resize());
 var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 // Step 4: Create the default UI
-var ui = H.ui.UI.createDefault(map, defaultLayers, 'en-US');
-
+var ui = H.ui.UI.createDefault(map, defaultLayers, "en-US");
 
 // Step 6: Create "Capture" button and place for showing the captured area
-var resultContainer = document.getElementById('panel');
+var resultContainer = document.getElementById("panel");
 
 // Create container for the "Capture" button
-var containerNode = document.createElement('div');
-containerNode.className = 'btn-group';
+var containerNode = document.createElement("div");
+containerNode.className = "btn-group";
 
 // Create the "Capture" button
-var captureBtn = document.createElement('input');
-captureBtn.value = 'Capture';
-captureBtn.type = 'button';
-captureBtn.className = 'btn btn-sm btn-default';
+var captureBtn = document.createElement("input");
+captureBtn.value = "Capture";
+captureBtn.type = "button";
+captureBtn.className = "btn btn-sm btn-default";
 
 // Add both button and container to the DOM
 containerNode.appendChild(captureBtn);
 mapContainer.appendChild(containerNode);
 
 // Step 7: Handle capture button click event
-captureBtn.onclick = function() {
+captureBtn.onclick = function () {
   capture(resultContainer, map, ui);
 };

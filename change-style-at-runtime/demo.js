@@ -1,4 +1,3 @@
-
 /**
  * The function add the "change" event listener to the map's style
  * and modifies colors of the map features within that listener.
@@ -16,19 +15,19 @@ function changeFeatureStyle(map) {
       defaultStyle.removeEventListener("change", changeListener);
 
       // query the configuration
-      const config = defaultStyle.getConfig();
+      var config = defaultStyle.getConfig();
 
       // Update required items from the configuration
       config.definitions['Park.Color'] = "#2ba815";
       config.definitions['BuiltupArea.Color'] = "#676d67";
 
       // Create a new style with updated configuration and apply
-      const newStyle = new H.map.render.harp.Style(config);
+      var newStyle = new H.map.render.harp.Style(config);
       map.getBaseLayer().getProvider().setStyle(newStyle);
     }
   };
 
-  defaultStyle.addEventListener('change', changeListener);
+  defaultStyle.addEventListener("change", changeListener);
 }
 
 /**
@@ -44,14 +43,17 @@ var platform = new H.service.Platform({
 var defaultLayers = platform.createDefaultLayers();
 
 //Step 2: initialize a map
-var map = new H.Map(document.getElementById('map'),
-  defaultLayers.vector.normal.map, {
-  center: {lat: 52.51477270923461, lng: 13.39846691425174},
-  zoom: 13,
-  pixelRatio: window.devicePixelRatio || 1
-});
+var map = new H.Map(
+  document.getElementById("map"),
+  defaultLayers.vector.normal.map,
+  {
+    center: { lat: 52.51477270923461, lng: 13.39846691425174 },
+    zoom: 13,
+    pixelRatio: window.devicePixelRatio || 1,
+  }
+);
 // add a resize listener to make sure that the map occupies the whole container
-window.addEventListener('resize', () => map.getViewPort().resize());
+window.addEventListener("resize", () => map.getViewPort().resize());
 
 //Step 3: make the map interactive
 // MapEvents enables the event system
