@@ -5,7 +5,7 @@ function setStyle(map) {
   // get the vector provider from the base layer
   var provider = map.getBaseLayer().getProvider();
   // Create the style object from the configuration.
-  var style = new H.map.render.harp.Style('./data/night.json');
+  var style = new H.map.render.harp.Style('https://heremaps.github.io/maps-api-for-javascript-examples/change-harp-style-at-load/data/night.json');
   // set the style on the existing layer
   provider.setStyle(style);
 }
