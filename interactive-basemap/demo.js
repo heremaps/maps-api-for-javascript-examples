@@ -71,27 +71,4 @@ function onTap(evt) {
   });
 }
 
-// Now use the map as required...
-setInteractive(map);
-
-/**
- * @param  {H.Map} map      A HERE Map instance within the application
- */
-function setInteractive(map) {
-  // get the vector provider from the base layer
-  var provider = map.getBaseLayer().getProvider();
-
-  // get the style object for the base layer
-  var style = provider.getStyle();
-
-  var changeListener = (evt) => {
-    if (style.getState() === H.map.render.harp.Style.State.READY) {
-      style.removeEventListener("change", changeListener);
-
-      // add an event listener that is responsible for catching the
-      // 'tap' event on the map and showing the infobubble
-      map.addEventListener("tap", onTap);
-    }
-  };
-  style.addEventListener("change", changeListener);
-}
+map.addEventListener("tap", onTap);
