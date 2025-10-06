@@ -97,18 +97,12 @@ function testObjectsEvents(map, logEvent) {
   // Create a standard marker
   var standardMarker = new H.map.Marker(new H.geo.Point(48.2, 16.3667));
 
-  // Create image marker object
-  var imageMarker = new H.map.Marker(new H.geo.Point(53.5653, 10.0014), {
-    icon: new H.map.Icon("img/marker-house.png"),
-  });
-
   // Let's give names to our objects and save it as data
   rect.setData("Rect");
   circle.setData("Circle");
   polyline.setData("Polyline");
   polygon.setData("Polygon");
   standardMarker.setData("Standard Marker");
-  imageMarker.setData("Image Marker");
 
   // Now lets add out objects to the container for the conviniece of use
   var container = new H.map.Group({
@@ -125,9 +119,6 @@ function testObjectsEvents(map, logEvent) {
   polygon.addEventListener("longpress", logEvent);
   standardMarker.addEventListener("tap", logEvent);
   standardMarker.addEventListener("pointerleave", logEvent);
-  imageMarker.addEventListener("pointerenter", logEvent);
-  imageMarker.addEventListener("pointerleave", logEvent);
-  imageMarker.addEventListener("dbltap", logEvent);
 
   // Add all of the above created map objects to the map's object collection
   // so they will be rendered onto the map.
