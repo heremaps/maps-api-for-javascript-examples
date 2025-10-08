@@ -106,7 +106,7 @@ function testObjectsEvents(map, logEvent) {
 
   // Now lets add out objects to the container for the conviniece of use
   var container = new H.map.Group({
-    objects: [rect, circle, polyline, polygon, standardMarker, imageMarker],
+    objects: [rect, circle, polyline, polygon, standardMarker],
   });
 
   // Subscribe to different events on every object
