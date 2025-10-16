@@ -11,7 +11,7 @@ See the [LICENSE](LICENSE) file in the root of this project for license details.
 
 ## Maps API for JavaScript
 
-All of the following examples use **version 3.1** of the API
+All of the following examples use **version 3.2** of the API
 
 * [Adding an Overlay to the Map](https://heremaps.github.io/maps-api-for-javascript-examples/custom-tile-overlay/demo.html) - Display custom map tiles as an overlay
 * [Animated Markers](https://heremaps.github.io/maps-api-for-javascript-examples/markers-update-position-with-animation/demo.html) - Update marker position with animation
