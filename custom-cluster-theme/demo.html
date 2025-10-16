@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="demo.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="../template.css" />
-    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src='https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js'></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-core.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-service.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-ui.js"></script>
@@ -47,7 +47,7 @@
       .bubble a:hover {
           text-decoration: underline;
       }
-      
+
       .bubble hr {
           margin: 5px 0px;
       }
@@ -58,17 +58,17 @@
         <h1>Marker Clustering with Custom Theme</h1>
         <p>Cluster multiple markers and customize the theme</p>
     </div>
-    <p>This example displays a map showing geo-tagged clusters of photographs 
+    <p>This example displays a map showing geo-tagged clusters of photographs
       taken from locations around the world. The <a href="http://commons.wikimedia.org/wiki/Main_Page" target="_blank">Wikimedia Commons</a>
       website was used to provide a source of data of geo-tagged images.</p>
     <div id="map"></div>
     <h3>Code</h3>
-    <p>Marker clustering requires the presence of the <code>mapsjs-clustering</code> module of the API. The 
+    <p>Marker clustering requires the presence of the <code>mapsjs-clustering</code> module of the API. The
       <code>H.clustering.Provider</code> class is used to load in data points and prepare them for clustering. </p>
-    <p>Customizing the default look-and-feel of the <code>clusters</code> and <code>noise</code> points is 
-      very easy. When instantiating the <code>H.clustering.Provider</code>, a <code>theme</code> object holding two methods - 
-      <code>getClusterPresentation()</code> and <code>getNoisePresentation()</code> - is passed as an additional parameter 
-      into the constructor. Both <code>theme</code> methods must return an <code>H.map.Object</code> such as a marker or polygon etc. 
+    <p>Customizing the default look-and-feel of the <code>clusters</code> and <code>noise</code> points is
+      very easy. When instantiating the <code>H.clustering.Provider</code>, a <code>theme</code> object holding two methods -
+      <code>getClusterPresentation()</code> and <code>getNoisePresentation()</code> - is passed as an additional parameter
+      into the constructor. Both <code>theme</code> methods must return an <code>H.map.Object</code> such as a marker or polygon etc.
       More information can be found in the API Reference.</p>
     <script type="text/javascript" src='demo.js'></script>
   </body>

@@ -3,12 +3,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    
+
     <title>Extruded geoshapes</title>
     <link rel="stylesheet" type="text/css" href="demo.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="../template.css" />
-    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src='https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js'></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-core.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-service.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-mapevents.js"></script>
@@ -22,7 +22,7 @@
     <p>This example displays an extruded polygon and circle located in the central Paris and displayed on a moveable map. Hold Alt+Left mouse button to tilt and rotate the map.</p>
     <div id="map"></div>
     <h3>Code</h3>
-    <p>A polygon is created using the <code>H.map.Polygon</code> class, 
+    <p>A polygon is created using the <code>H.map.Polygon</code> class,
       passing in an <code>H.geo.LineString</code> holding the vertices of the polygon. The circle is created with the  <codeph>H.map.Circle</codeph>
       class, passing in a center and the radius of the circle. The extrusion of both objects is defined by the <codeph>extrude</codeph> optional parameter.</p>
     <script type="text/javascript" src='demo.js'></script>
