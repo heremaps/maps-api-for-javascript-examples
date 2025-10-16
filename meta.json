@@ -114,15 +114,9 @@
                     "title": "Styles and Layers",
                     "examples": [
                         {
-                            "uid": "change-style-at-runtime",
-                            "title": "Change map style at runtime",
-                            "shortDescription": "Change a style of the map feature when map is instantiated",
-                            "published": true
-                        },
-                        {
-                            "uid": "change-style-at-load",
-                            "title": "Set a map style at the load time",
-                            "shortDescription": "Set a style of the whole map during the map instantiation",
+                            "uid": "change-harp-style-at-load",
+                            "title": "Create a layer using a custom style",
+                            "shortDescription": "Create a layer using a custom style exported from the HERE Style Editor",
                             "published": true
                         },
                         {
