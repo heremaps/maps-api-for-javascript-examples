@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="demo.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="../template.css" />
-    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src='https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js'></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-core.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-service.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-ui.js"></script>
@@ -22,15 +22,15 @@
         <h1>Marker Clustering</h1>
         <p>Cluster multiple markers together to better visualize the data</p>
     </div>
-    <p>This example displays a map showing the distribution of 
-        airports across the world. The locations were obtained by using 
-        the <a href="http://openflights.org/data.html" target="_blank">OpenFlights Airport Database</a>. 
-        Instead of adding a marker for each location, the data has been clustered, 
+    <p>This example displays a map showing the distribution of
+        airports across the world. The locations were obtained by using
+        the <a href="http://openflights.org/data.html" target="_blank">OpenFlights Airport Database</a>.
+        Instead of adding a marker for each location, the data has been clustered,
         and individual airports are only shown at higher zoom levels.</p>
     <div id="map"></div>
     <h3>Code</h3>
-    <p>Marker clustering requires the presence of the <code>mapsjs-clustering</code> module of the API. 
-      The <code>H.clustering.Provider</code> class is used to load in data points and prepare them for clustering. 
+    <p>Marker clustering requires the presence of the <code>mapsjs-clustering</code> module of the API.
+      The <code>H.clustering.Provider</code> class is used to load in data points and prepare them for clustering.
       The result is added to the map as an additional layer using the <code>map.addLayer()</code> method.</p>
     <script type="text/javascript" src='demo.js'></script>
   </body>
