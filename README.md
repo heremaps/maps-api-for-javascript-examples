@@ -62,7 +62,6 @@ All of the following examples use **version 3.2** of the API
 * [Search for a Location based on an Address](https://heremaps.github.io/maps-api-for-javascript-examples/geocode-a-location-from-address/demo.html) - Request a location using a free-form text input and display it on the map.
 * [Search for a Location given a Structured Address](https://heremaps.github.io/maps-api-for-javascript-examples/geocode-a-location-from-structured-address/demo.html) - Request a location from a structured address and display it on the map.
 * [Search for the Address of a Known Location](https://heremaps.github.io/maps-api-for-javascript-examples/reverse-geocode-an-address-from-location/demo.html) - Request address details for a given location and display it on the map.
-* [Set a map style at the load time](https://heremaps.github.io/maps-api-for-javascript-examples/change-style-at-load/demo.html) - Set a style of the whole map during the map instantiation
 * [Set a map style exported from the HERE Style Editor](https://heremaps.github.io/maps-api-for-javascript-examples/change-harp-style-at-load/demo.html) - Set a style exported from the [HERE Style Editor](https://platform.here.com/style-editor) during the map instantiation
 * [Synchronising Two Maps](https://heremaps.github.io/maps-api-for-javascript-examples/synchronising-two-maps/demo.html) - Synchronise a static map with an interactive map
 * [Take a Snapshot of the Map](https://heremaps.github.io/maps-api-for-javascript-examples/capture-map-area/demo.html) - Capture an area on the map

@@ -1,6 +1,6 @@
 ---
- name: Set a map style at the load time
- description: Set a style of the whole map during the map instantiation
+ name: Set a map style exported from the HERE Style Editor
+ description: Set a style created in the HERE Style Editor during the map instantiation
  resources:
    - https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js
  normalize_css: no
