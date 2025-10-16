@@ -18,7 +18,7 @@ var defaultLayers = platform.createDefaultLayers();
 var map = new H.Map(mapContainer, defaultLayers.vector.normal.map, {
   center: { lat: 50.90978, lng: 10.87203 },
   zoom: 6,
-  pixelRatio: window.devicePixelRatio && window.devicePixelRatio > 1 ? 2 : 1,
+  pixelRatio: window.devicePixelRatio || 1,
 });
 // add a resize listener to make sure that the map occupies the whole container
 window.addEventListener("resize", function () {

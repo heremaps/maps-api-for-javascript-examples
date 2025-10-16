@@ -1,4 +1,4 @@
-/** 
+/**
  * Create a layer showing GeoJSON data on the map.
  */
 
