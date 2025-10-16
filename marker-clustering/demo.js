@@ -1,7 +1,7 @@
 /**
  * Display clustered markers on a map
  *
- * Note that the maps clustering module https://js.api.here.com/v3/3.1/mapsjs-clustering.js
+ * Note that the maps clustering module https://js.api.here.com/v3/3.2/mapsjs-clustering.js
  * must be loaded to use the Clustering
 
  * @param {H.Map} map A HERE Map instance within the application
@@ -27,7 +27,7 @@ function startClustering(map, data) {
   // Create a layer tha will consume objects from our clustering provider
   var clusteringLayer = new H.map.layer.ObjectLayer(clusteredDataProvider);
 
-  // To make objects from clustering provder visible,
+  // To make objects from clustering provider visible,
   // we need to add our layer to the map
   map.addLayer(clusteringLayer);
 }
@@ -43,6 +43,7 @@ var platform = new H.service.Platform({
 });
 
 var defaultLayers = platform.createDefaultLayers();
+defaultLayers.vector.normal.map.setMin(1.2);
 
 // Step 2: initialize a map
 var map = new H.Map(document.getElementById('map'), defaultLayers.vector.normal.map, {
@@ -65,4 +66,3 @@ var ui = H.ui.UI.createDefault(map, defaultLayers);
 // Step 5: cluster data about airports's coordinates
 // airports variable was injected at the page load
 startClustering(map, airports);
-

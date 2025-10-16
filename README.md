@@ -11,13 +11,14 @@ See the [LICENSE](LICENSE) file in the root of this project for license details.
 
 ## Maps API for JavaScript
 
-All of the following examples use **version 3.1** of the API
+All of the following examples use **version 3.2** of the API
 
 * [Adding an Overlay to the Map](https://heremaps.github.io/maps-api-for-javascript-examples/custom-tile-overlay/demo.html) - Display custom map tiles as an overlay
 * [Animated Markers](https://heremaps.github.io/maps-api-for-javascript-examples/markers-update-position-with-animation/demo.html) - Update marker position with animation
 * [Calculating a Location from a Mouse Click](https://heremaps.github.io/maps-api-for-javascript-examples/position-on-mouse-click/demo.html) - Obtain the latitude and longitude of a location within the map
 * [Changing from the Metric System](https://heremaps.github.io/maps-api-for-javascript-examples/map-scale-bar-changing-from-the-metric-system/demo.html) - Display a map including a scale bar in miles or yards
 * [Circle on the Map](https://heremaps.github.io/maps-api-for-javascript-examples/circle-on-the-map/demo.html) - Display a map highlighting a circular region
+* [Context Menu](https://heremaps.github.io/maps-api-for-javascript-examples/context-menu/demo.html) - Adding a context menu to map objects
 * [DOM Marker](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-dom-marker/demo.html) - Display a marker that is capable of receiving DOM events
 * [DOM Marker rotation](https://heremaps.github.io/maps-api-for-javascript-examples/dom-marker-rotation/demo.html) - Rotate DOM Marker's content using CSS
 * [Display KML Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-kml-on-map/demo.html) - Parse a KML file and display the data on a map
@@ -62,7 +63,6 @@ All of the following examples use **version 3.1** of the API
 * [Search for a Location based on an Address](https://heremaps.github.io/maps-api-for-javascript-examples/geocode-a-location-from-address/demo.html) - Request a location using a free-form text input and display it on the map.
 * [Search for a Location given a Structured Address](https://heremaps.github.io/maps-api-for-javascript-examples/geocode-a-location-from-structured-address/demo.html) - Request a location from a structured address and display it on the map.
 * [Search for the Address of a Known Location](https://heremaps.github.io/maps-api-for-javascript-examples/reverse-geocode-an-address-from-location/demo.html) - Request address details for a given location and display it on the map.
-* [Set a map style at the load time](https://heremaps.github.io/maps-api-for-javascript-examples/change-style-at-load/demo.html) - Set a style of the whole map during the map instantiation
 * [Set a map style exported from the HERE Style Editor](https://heremaps.github.io/maps-api-for-javascript-examples/change-harp-style-at-load/demo.html) - Set a style exported from the [HERE Style Editor](https://platform.here.com/style-editor) during the map instantiation
 * [Synchronising Two Maps](https://heremaps.github.io/maps-api-for-javascript-examples/synchronising-two-maps/demo.html) - Synchronise a static map with an interactive map
 * [Take a Snapshot of the Map](https://heremaps.github.io/maps-api-for-javascript-examples/capture-map-area/demo.html) - Capture an area on the map

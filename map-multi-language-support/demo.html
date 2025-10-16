@@ -4,33 +4,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <title>Multi-language support</title>
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.2/mapsjs-ui.css" />
     <link rel="stylesheet" type="text/css" href="demo.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="../template.css" />
     <script type="text/javascript" src='../test-credentials.js'></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-mapevents.js"></script>
   </head>
   <body id="markers-on-the-map">
     <div class="page-header">
         <h1>Multi-language support</h1>
         <p>Display a map with labels in a foreign language</p>
     </div>
-    <p>This example displays a movable map initially centered over <b>Hong Kong</b> <i>(22.2917°N, 114.1872°E)</i> with map labels in simplified Chinese.</i></p>
+    <p>This example displays an interactive map initially centered over <b>Hong Kong</b> <i>(22.2917°N, 114.1872°E)</i> with map labels in simplified Chinese.</i></p>
     <div id="map"></div>
     <h3>Code</h3>
-    <p>A reference to the base map tile service is obtained using the <code>H.service.Platform</code>.
-      Alternate languages can be requested by adding the <code>lg</code> parameter to the tile requests.
-      That is done by calling createTileLayer method. 5th argument is list of key/value parameters which are
-      passed to the map tile service when requesting each tile.
-      A list of all supported map languages can be found in the API References of the underlying service used: <a href="https://www.here.com/docs/bundle/map-tile-developer-guide/page/topics/resource-base-maptile.html" target="_blank">HERE Map Tile API</a>
-      and <a href="https://www.here.com/docs/bundle/vector-tile-api-developer-guide/page/topics/languages.html" target="_blank">HERE Vector Tile API</a> </p>
-    <p>It is possible to specify map language for all layers at once when using <code>H.service.Platform.createDefaultLayers</code> method.</p>
-    <p>Language of the UI controls can be specified when calling <code>H.ui.UI.createDefault</code> method.
-      3rd argument is either a supported language code or a custom <code>H.ui.i18n.Localization object</code>.</p>
+    <p>
+      The base map language can be set via the <code>lg</code> option passed to <a href="https://www.here.com/docs/bundle/maps-api-for-javascript-api-reference-3.2/page/H.service.Platform.html#createDefaultLayers" target="_blank">H.service.Platform#createDefaultLayers</a> method.
+      A list of all supported map languages can be found in the API References of the underlying service used: <a href="https://www.here.com/docs/bundle/vector-tile-api-developer-guide/page/topics/languages.html" target="_blank">HERE Vector Tile API</a>
+    </p>
+    <p>Language of the UI controls can be specified when calling <a href="https://www.here.com/docs/bundle/maps-api-for-javascript-api-reference-3.2/page/H.ui.UI_2.html#.createDefault" target="_blank">H.ui.UI.createDefaul</a> method.</p>
     <script type="text/javascript" src='demo.js'></script>
   </body>
 </html>

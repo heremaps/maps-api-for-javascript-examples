@@ -1,29 +1,3 @@
-
-/**
- * Adds a circle over New Delhi with a radius of 1000 metres onto the map
- *
- * @param  {H.Map} map      A HERE Map instance within the application
- */
-function addCircleToMap(map){
-  map.addObject(new H.map.Circle(
-    // The central point of the circle
-    {lat:28.6071, lng:77.2127},
-    // The radius of the circle in meters
-    1000,
-    {
-      style: {
-        strokeColor: 'rgba(55, 85, 170, 0.6)', // Color of the perimeter
-        lineWidth: 2,
-        fillColor: 'rgba(0, 128, 0, 0.7)'  // Color of the circle
-      }
-    }
-  ));
-}
-
-
-
-
-
 /**
  * Boilerplate map initialization code starts below:
  */
@@ -36,14 +10,17 @@ var platform = new H.service.Platform({
 var defaultLayers = platform.createDefaultLayers();
 
 //Step 2: initialize a map - this map is centered over New Delhi
-var map = new H.Map(document.getElementById('map'),
-  defaultLayers.vector.normal.map, {
-  center: {lat:28.6071, lng:77.2127},
-  zoom: 13,
-  pixelRatio: window.devicePixelRatio || 1
-});
+var map = new H.Map(
+  document.getElementById("map"),
+  defaultLayers.vector.normal.map,
+  {
+    center: { lat: 28.6071, lng: 77.2127 },
+    zoom: 13,
+    pixelRatio: window.devicePixelRatio || 1,
+  }
+);
 // add a resize listener to make sure that the map occupies the whole container
-window.addEventListener('resize', () => map.getViewPort().resize());
+window.addEventListener("resize", () => map.getViewPort().resize());
 
 //Step 3: make the map interactive
 // MapEvents enables the event system
@@ -55,3 +32,26 @@ var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 // Now use the map as required...
 addCircleToMap(map);
+
+/**
+ * Adds a circle over New Delhi with a radius of 1000 metres onto the map
+ *
+ * @param  {H.Map} map      A HERE Map instance within the application
+ */
+function addCircleToMap(map) {
+  map.addObject(
+    new H.map.Circle(
+      // The central point of the circle
+      { lat: 28.6071, lng: 77.2127 },
+      // The radius of the circle in meters
+      1000,
+      {
+        style: {
+          strokeColor: "rgba(55, 85, 170, 0.6)", // Color of the perimeter
+          lineWidth: 2,
+          fillColor: "rgba(0, 128, 0, 0.7)", // Color of the circle
+        },
+      }
+    )
+  );
+}

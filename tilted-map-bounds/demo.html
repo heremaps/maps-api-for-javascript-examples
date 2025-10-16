@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <meta name="description" content="Synchronise a static map with an interactive map">
-    <title>View bounds of the tilted map</title>
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-    <link rel="stylesheet" type="text/css" href="../template.css" />
-    <link rel="stylesheet" type="text/css" href="demo.css" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <script type="text/javascript" src='../test-credentials.js'></script>
-  </head>
-  <body>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  <meta name="description" content="Synchronise a static map with an interactive map">
+  <title>View bounds of the tilted map</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.2/mapsjs-ui.css" />
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-mapevents.js"></script>
+  <link rel="stylesheet" type="text/css" href="demo.css" />
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <script type="text/javascript" src='../test-credentials.js'></script>
+</head>
+<body>
 
-    <div class="page-header">
-        <h1>View bounds of the tilted map</h1>
-        <p>Synchronise a static map with an interactive map</p>
+  <div class="page-header">
+    <h1>View bounds of the tilted map</h1>
+    <p>Synchronise a static map with an interactive map</p>
+  </div>
+  <p>This example shows two maps. The left map allows for panning, zooming, tilting and rotation (to tilt and rotate
+    hold alt key plus left mouse button).
+    The right map is oriented top-down north-up, it observes the left map's <code>lookAt</code> position and visualises
+    the visible area of the interactive map.</p>
+  <hr/>
+  <div class="horizontal-group">
+    <div>
+      <h3>Interactive Map</h3>
+      <div id="map" class="panel"></div>
     </div>
-    <p>This example shows two maps. The upper map allows for panning, zooming, tilting and rotation (to tilt and rotate hold alt key plus left mouse button). 
-      The lower map is oriented  top-down north-up, it observes the upper map's <code>lookAt</code> position and visualises the visible area of the interactive map.</p>
-    <hr/>
-    <h3>Interactive Map</h3>
-    <div id="map"></div>
-    <hr/>
-    <h3>Visible area visualisation</h3>
-    <div id="panel"></div>
-    <h3>Code</h3>
-    <p>
-        The following example creates two objects <code>H.map.Polygon</code> and <code>H.map.Marker</code> that represent the current center and 
-        the current view bounds of the interactive map. These objects are updated on every <code>mapviewchange</code> event and are marked as volatile
-        at the construction time, that enables the smooth animation of the objects.
-    </p>
-    <script type="text/javascript" src='demo.js'></script>
-  </body>
+    <div>
+      <h3>Visible area visualisation</h3>
+      <div id="panel" class="panel"></div>
+    </div>
+  </div>
+  <h3>Code</h3>
+  <p>
+    The following example creates two objects <code>H.map.Polygon</code> and <code>H.map.Marker</code> that represent the current center and
+    the current view bounds of the interactive map. These objects are updated on every <code>mapviewchange</code> event and are marked as volatile
+    at the construction time, that enables the smooth animation of the objects.
+  </p>
+  <script type="text/javascript" src='demo.js'></script>
+</body>
 </html>

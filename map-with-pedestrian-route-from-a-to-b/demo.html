@@ -4,15 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <title>Map with Driving Route from A to B</title>
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.2/mapsjs-ui.css" />
     <link rel="stylesheet" type="text/css" href="demo.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="../template.css" />
     <script type="text/javascript" src='../test-credentials.js'></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-mapevents.js"></script>
     <style type="text/css">
       .directions li span.arrow {
         display:inline-block;
@@ -50,7 +50,7 @@
     <div id="panel"></div>
     <h3>Code</h3>
     <p>Access to the routing service is obtained from the <code>H.service.Platform</code> by calling
-      <code>getRoutingService(null, 8)</code>. The <code>calculateRoute()</code> method is used to calculate the shortest
+      <code>getRoutingService()</code>. The <code>calculateRoute()</code> method is used to calculate the shortest
       pedestrian route by passing in the relevant parameters as defined in
       <a href="https://www.here.com/docs/bundle/routing-api-v8-api-reference/page/index.html" target="_blank">Routing API</a>.
       The styling and display of the response is under the control of the developer.</p>

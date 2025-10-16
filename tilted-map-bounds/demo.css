@@ -1,10 +1,15 @@
-#map {
-    width: 95%;
-    height: 450px;
-    background: grey;
+.panel {
+  width: 49vw;
+  height: 450px;
 }
 
-#panel {
-    width: 100%;
-    height: 400px;
+.horizontal-group {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.horizontal-group > div {
+  margin-right: 1vw;
 }
