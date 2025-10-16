@@ -4,7 +4,7 @@
 
 // Step 1: initialize communication with the platform
 var platform = new H.service.Platform({
-  apikey: apikey
+  apikey: window.apikey
 });
 var defaultLayers = platform.createDefaultLayers();
 
