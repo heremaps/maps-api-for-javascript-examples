@@ -35,6 +35,7 @@ All of the following examples use **version 3.2** of the API
 * [Map Objects Events](https://heremaps.github.io/maps-api-for-javascript-examples/map-object-events-displayed/demo.html) - Handle events on various map objects
 * [Map at a specified location](https://heremaps.github.io/maps-api-for-javascript-examples/map-at-specified-location/demo.html) - Display a map at a specified location and zoom level
 * [Map using View Bounds](https://heremaps.github.io/maps-api-for-javascript-examples/map-using-view-bounds/demo.html) - Display a map of a given area
+* [View bounds of the tilted map](https://heremaps.github.io/maps-api-for-javascript-examples/tilted-map-bounds/demo.html) - Visualize the visible area of the tilted and rotated map.
 * [Map with custom MapSettings UI Control](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-custom-map-settings-ui-control/demo.html) - Switch between different layers using a custom MapSettings UI control.
 * [Map with Driving Route from A to B](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-route-from-a-to-b/demo.html) - Request a driving route from A to B and display it on the map.
 * [Map with Pedestrian Route from A to B](https://heremaps.github.io/maps-api-for-javascript-examples/map-with-pedestrian-route-from-a-to-b/demo.html) - Request a walking route from A to B and display it on the map.
