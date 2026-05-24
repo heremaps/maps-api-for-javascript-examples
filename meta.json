@@ -454,6 +454,12 @@
                             "title": "Indoor Map - Restrict map movement",
                             "shortDescription": "Indoor Map - Restrict map movement",
                             "published": true
+                        },
+                        {
+                            "uid": "indoor-map-with-route-from-a-to-b",
+                            "title": "Indoor Map with Route from A to B",
+                            "shortDescription": "Use Here Indoor Maps service to calculate route on a indoor map",
+                            "published": true
                         }
                     ]
                 }
