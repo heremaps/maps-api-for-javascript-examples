@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="description" content="Parse a GPX file and display the data on a map">
+    <title>Display GPX Data</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.2/mapsjs-ui.css" />
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-mapevents.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.2/mapsjs-data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <script type="text/javascript" src='https://heremaps.github.io/maps-api-for-javascript-examples/test-credentials.js'></script>
+  </head>
+  <body>
+    <h1>Display GPX Data</h1>
+    <p>This example loads a GPX document and render its content on the map using built in parser. And shows how to configure styles for waypoints and tracks</p>
+    <p>In order to work with GPX files we have to additionally load data module of the API. Than we use H.data.gpx.Reader class, which downloads and parses the file. Than we add a layer on the map using addLayer method to see the results.</p>
+    <div id="map"></div>
+    <script type="text/javascript" src='demo.js'></script>
+  </body>
+</html>
