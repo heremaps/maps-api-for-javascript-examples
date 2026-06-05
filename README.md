@@ -22,6 +22,7 @@ All of the following examples use **version 3.2** of the API
 * [DOM Marker rotation](https://heremaps.github.io/maps-api-for-javascript-examples/dom-marker-rotation/demo.html) - Rotate DOM Marker's content using CSS
 * [Display KML Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-kml-on-map/demo.html) - Parse a KML file and display the data on a map
 * [Display GeoJSON Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-geojson-on-map/demo.html) - Parse a GeoJSON file and display the data on a map
+* [Display GPX Data](https://heremaps.github.io/maps-api-for-javascript-examples/display-gpx-on-map/demo.html) - Parse a GPX file and display the data on a map
 * [Display an Indoor Map](https://heremaps.github.io/maps-api-for-javascript-examples/indoor-map/demo.html) - Use the HERE Indoor Maps API to load and visualize an indoor map
 * [UI interactions on Indoor Map](https://heremaps.github.io/maps-api-for-javascript-examples/indoor-map-ui-interaction/demo.html) - HERE Indoor Maps API with UI interactions on the map
 * [Restrict map movement with Indoor Map](https://heremaps.github.io/maps-api-for-javascript-examples/indoor-map-movement/demo.html) - Restrict the map movement within the indoor map bounds
