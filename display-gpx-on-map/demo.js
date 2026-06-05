@@ -1,5 +1,12 @@
+/**
+ * This example loads a GPX document and renders its content on the map applying a custom style based on the GPX data.
+ *   - GPX waypoints are rendered with SVG icons chosen based on `<wpt>`'s `sym` value.
+ *   - GPX track segments are styled individually based on the average `<speed>` value of their points.
+ *
+ * For more details on GPX support in the HERE Maps API for JavaScript, see the documentation:
+ * https://docs.here.com/maps-api-for-js/docs/gpx-support
+ */
 function showGPXData(map) {
-
   // Simple inline SVG icons keyed by waypoint <sym> values.
   const symbolIcons = {
     'Start': new H.map.Icon(
@@ -41,20 +48,16 @@ function showGPXData(map) {
     return '#d7191cb8';
   }
 
-  /**
-   * The demo highlights following customization techniques:
-   *   - waypoints are rendered with SVG icons chosen from each `<wpt>`'s `sym` value;
-   *   - track segments are styled individually based on the average `<speed>` of their points (`enableIndividualTrackSegmentStyling: true`).
-   */
 
-  // Create GPX reader which will download the specified file.
-  // The file was created by using HERE WaypointSequence and Routing API.
+  // Create a GPX reader which will download and parse the specified file.
+  // The file was created by using [HERE Waypoints Sequence API v8](https://docs.here.com/routing/docs/intro-waypoints-sequence) and
+  // [HERE Routing API v8](https://docs.here.com/routing/docs/routing-v8-intro).
   // It is possible to customize look and feel of the objects.
-
-  var reader = new H.data.gpx.Reader(
+  const reader = new H.data.gpx.Reader(
     "https://heremaps.github.io/maps-api-for-javascript-examples/display-gpx-on-map/data/truck.gpx",
     {
-      // Enable this flag so that we can style tracks with different color
+      // Enable this flag so that we can style each individual track segment.
+      // For more details, see https://docs.here.com/maps-api-for-js/docs/gpx-support#track-trk-and-trkseg
       enableIndividualTrackSegmentStyling: true,
 
       // This function is called each time parser detects a new map object
@@ -94,18 +97,18 @@ function showGPXData(map) {
  * Boilerplate map initialization code starts below:
  */
 // Step 1: initialize communication with the platform
-var platform = new H.service.Platform({
+const platform = new H.service.Platform({
   apikey: window.apikey
 });
-var defaultLayers = platform.createDefaultLayers();
+const defaultLayers = platform.createDefaultLayers();
 
 // Step 2: initialize a map
-var map = new H.Map(
+const map = new H.Map(
   document.getElementById("map"),
   defaultLayers.vector.normal.map,
   {
     zoom: 12,
-    center: { lat: 52.507400461217564, lng: 13.423222081779844 },
+    center: { lat: 52.507, lng: 13.423 },
     pixelRatio: window.devicePixelRatio || 1,
   }
 );
@@ -115,9 +118,9 @@ window.addEventListener("resize", () => map.getViewPort().resize());
 // Step 3: make the map interactive
 // MapEvents enables the event system
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 // Create the default UI components
-var ui = H.ui.UI.createDefault(map, defaultLayers);
+const ui = H.ui.UI.createDefault(map, defaultLayers);
 
 showGPXData(map);
