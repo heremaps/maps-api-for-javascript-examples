@@ -24,7 +24,7 @@ function startClustering(map, data) {
     }
   });
 
-  // Create a layer tha will consume objects from our clustering provider
+  // Create a layer that will consume objects from our clustering provider
   var clusteringLayer = new H.map.layer.ObjectLayer(clusteredDataProvider);
 
   // To make objects from clustering provider visible,
