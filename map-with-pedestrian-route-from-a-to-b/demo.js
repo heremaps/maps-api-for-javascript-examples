@@ -34,7 +34,7 @@ var ui = H.ui.UI.createDefault(map, defaultLayers);
 var bubble;
 
 /**
- * Opens/Closes a infobubble
+ * Opens/Closes an infobubble
  * @param  {H.geo.Point} position     The location on the map.
  * @param  {String} text              The contents of the infobubble.
  */
@@ -220,7 +220,7 @@ function onSuccess(result) {
   var route = result.routes[0];
   /*
    * The styling of the route response on the map is entirely under the developer's control.
-   * A representative styling can be found the full JS + HTML code of this example
+   * A representative styling can be found in the full JS + HTML code of this example
    * in the functions below:
    */
   addRouteShapeToMap(route);
