@@ -1,5 +1,5 @@
 /**
- * Calculates and displays the address details of  425 Randolph St, Chicago, IL
+ * Calculates and displays the address details of 425 Randolph St, Chicago, IL
  * based on a structured input
  *
  *
@@ -25,7 +25,7 @@ function onSuccess(result) {
   var locations = result.items;
   /*
    * The styling of the geocoding response on the map is entirely under the developer's control.
-   * A representative styling can be found the full JS + HTML code of this example
+   * A representative styling can be found in the full JS + HTML code of this example
    * in the functions below:
    */
   addLocationsToMap(locations);
@@ -79,7 +79,7 @@ var ui = H.ui.UI.createDefault(map, defaultLayers);
 var bubble;
 
 /**
- * Opens/Closes a infobubble
+ * Opens/Closes an infobubble
  * @param  {H.geo.Point} position     The location on the map.
  * @param  {String} text              The contents of the infobubble.
  */
